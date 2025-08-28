@@ -25,7 +25,9 @@ Main unique features:
 <em><small>How modules work together</small></em>
 </div>
 
-    There is a thin layer that builds the high-level abstraction (green box/jellyfin) consuming only the bindings that already contain dataclasses and api built using the OpenAPI Generator (blue box/generated), which in turn also allows use only if the user requests jellyfin_apiclient_python (purple box/legacy) to allow for refactoring and incremental development. Both legacy and generated have classes that allow low-level access, being practically just an envelope method for requests that must communicate with the actual jellyfin API (lilac box).
+<small>
+There is a thin layer that builds the high-level abstraction (green box/jellyfin) consuming only the bindings that already contain dataclasses and api built using the OpenAPI Generator (blue box/generated), which in turn also allows use only if the user requests jellyfin_apiclient_python (purple box/legacy) to allow for refactoring and incremental development. Both legacy and generated have classes that allow low-level access, being practically just an envelope method for requests that must communicate with the actual jellyfin API (lilac box).
+</small>
 
 This project is mainly inspired by good python library like these:
 - [tmdbsimple](https://github.com/celiao/tmdbsimple)
