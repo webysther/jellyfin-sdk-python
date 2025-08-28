@@ -6,11 +6,9 @@
 <img alt="Logo Banner" src="https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/banner-logo-solid.svg?sanitize=true"/>
 </p>
 
-A Possible Official Python SDK for Jellyfin.
+A [Possible Official](https://jellyfin.org/docs/general/contributing/branding) Python SDK for Jellyfin.
 
 > Warning: This project is under active development, so API changes may occur.
-
-Why Possible Official? Because just works, no fuzz.
 
 ## Install
 
