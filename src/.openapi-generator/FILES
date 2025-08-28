@@ -1,5 +1,3 @@
-README.md
-jellyfin/__init__.py
 jellyfin/generated/__init__.py
 jellyfin/generated/api_10_10/__init__.py
 jellyfin/generated/api_10_10/api/__init__.py
