@@ -17,9 +17,9 @@ This project is mainly inspired by good python library like these:
 - [tensorflow](https://github.com/tensorflow/tensorflow)
 
 Main unique features:
-- Supports targeting the Jellyfin server version to maintain compatibility.
-- It is possible to access multiple servers with different versions.
-- Allows gradually increasing the depth of access to more primitive objectives.
+- Enables targeting a specific Jellyfin server version to ensure compatibility and prevent breaking changes.
+- Supports accessing multiple servers, each potentially running different Jellyfin versions.
+- Allows reducing the level of abstraction to access advanced or unavailable options through lower-level interfaces.
 - Works like [AWS CDK Constructs Level](https://blog.shikisoft.com/aws-cdk-construct-levels/), more abstraction, more simple.
 
 ## Install
@@ -38,7 +38,7 @@ uv add jellyfin-sdk
 
 ### Drop-in replacement for [jellyfin-apiclient-python](https://github.com/jellyfin/jellyfin-apiclient-python)
 
-This library inject the old legacy (almost not maintained) for help migration:
+This library includes the old legacy client (which is almost unmaintained) to help with migration:
 
 ```sh
 pip uninstall jellyfin-apiclient-python
@@ -57,7 +57,7 @@ from jellyfin.legacy.api import API
 
 ### Login
 
-Let's start with login, most cases you only need do something simple:
+To get started with login, in most cases you only need to do something simple:
 
 ```python
 import os
@@ -110,8 +110,8 @@ print(system_info.get("Version"), system_info.get("ServerName"))
 
 ### Jellyfin Server API Version
 
-This is important because when a new API version come to live breaking changes can broke the 
-entire project, to avoid this problem is possible to set a API Target, like in Android:
+This is important because when a new API version is released, breaking changes can affect the entire project. 
+To avoid this, you can set an API target version, similar to how it's done in Android development:
 
 ```python
 from jellyfin.api import Version
