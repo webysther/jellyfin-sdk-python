@@ -10,17 +10,18 @@ A [Possible Official](https://jellyfin.org/docs/general/contributing/branding) P
 
 > Warning: API changes will occur only in the final classes, bindings and legacy don't change
 
-
-This project is mainly inspired by good python library like these:
-- [tmdbsimple](https://github.com/celiao/tmdbsimple)
-- [plexapi](https://github.com/pushingkarmaorg/python-plexapi)
-- [tensorflow](https://github.com/tensorflow/tensorflow)
+The main goal of this project is to be a wrapper for the API but with high level of abstraction using the power of [OpenAPI Specs bindings](https://github.com/OpenAPITools/openapi-generator) and good patterns such as [Inversion of Control](https://en.wikipedia.org/wiki/Inversion_of_control), [Method Chaining](https://en.wikipedia.org/wiki/Method_chaining), [JSONPath](https://en.wikipedia.org/wiki/JSONPath), and more.
 
 Main unique features:
 - Enables targeting a specific Jellyfin server version to ensure compatibility and prevent breaking changes.
 - Supports accessing multiple servers, each potentially running different Jellyfin versions.
 - Allows reducing the level of abstraction to access advanced or unavailable options through lower-level interfaces.
 - Works like [AWS CDK Constructs Level](https://blog.shikisoft.com/aws-cdk-construct-levels/), more abstraction, more simple.
+
+This project is mainly inspired by good python library like these:
+- [tmdbsimple](https://github.com/celiao/tmdbsimple)
+- [plexapi](https://github.com/pushingkarmaorg/python-plexapi)
+- [tensorflow](https://github.com/tensorflow/tensorflow)
 
 ## Install
 
