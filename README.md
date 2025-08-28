@@ -66,7 +66,7 @@ os.environ["JELLYFIN_URL"] = "https://jellyfin.example.com"
 os.environ["JELLYFIN_API_KEY"] = "MY_TOKEN"
 ```
 
-#### Lean optimized access
+#### Simple with high level of abstraction
 
 ```python
 import jellyfin
