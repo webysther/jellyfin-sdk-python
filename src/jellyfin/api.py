@@ -2,24 +2,31 @@ from enum import Enum
 import importlib
 from .system import System
 
-class ApiVersion(Enum):
-    V10_10 = "api_10_10"
-    V10_11 = "api_10_11"
-    
-class ApiModule():
+class Version(Enum):
+    V10_10 = "10.10"
+    V10_11 = "10.11"
+
+class Inject():
     @staticmethod
-    def get(version: ApiVersion):
-        module_name = f"jellyfin.generated.{version.value}"
+    def get(version: Version):
+        module_target = version.value.replace('.', '_')
+        module_name = f"jellyfin.generated.api_{module_target}"
         return importlib.import_module(module_name)
 
 class Api:
     _system = None
     
-    def __init__(self, url, api_key, version: ApiVersion = ApiVersion.V10_10):
+    def __init__(self, url, api_key, version: Version = Version.V10_10):
+        try:
+            version = Version(version)
+        except ValueError:
+            versions = [v.value for v in Version]
+            raise ValueError(f"Unsupported version: {version}. Supported versions are: {versions}")
+
         self.url = url
         self.api_key = api_key
         self.version = version
-        self._module = ApiModule.get(self.version)
+        self._module = Inject.get(self.version)
 
         self.client = self._module.ApiClient(
             self._module.Configuration(host=self.url), 

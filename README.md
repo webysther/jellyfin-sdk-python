@@ -103,6 +103,26 @@ api = jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"))
 print(api.system.info.version, api.system.info.server_name)
 ```
 
+### Jellyfin Server API Version
+
+This is important because when a new API version come to live breaking changes can broke the 
+entire project, to avoid this problem is possible to set a API Target, like in Android:
+
+```python
+from jellyfin.api import Version
+import jellyfin
+
+# this will use the default which is the lastest stable
+print(jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).system.info)
+
+# now let's test the new API (version 10.11) for breaking changes in same endpoint
+print(jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"), Version.V10_11).system.info)
+
+# but keep simple
+jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"), '10.11').system.info
+```
+
+
 ### Supported Jellyfin Versions
 
 | SDK Version | Jellyfin API Target |
