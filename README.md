@@ -61,21 +61,14 @@ os.environ["JELLYFIN_URL"] = "https://jellyfin.example.com"
 os.environ["JELLYFIN_API_KEY"] = "MY_TOKEN"
 ```
 
-#### Legacy ([jellyfin-apiclient-python](https://github.com/jellyfin/jellyfin-apiclient-python))
+#### Lean optimized access
 
 ```python
-from jellyfin.legacy import JellyfinClient
-client = JellyfinClient()
-client.authenticate(
-    {"Servers": [{
-        "AccessToken": os.getenv("JELLYFIN_API_KEY"), 
-        "address": os.getenv("JELLYFIN_URL")
-    }]}, 
-    discover=False
-)
-system_info = client.jellyfin.get_system_info()
+import jellyfin
 
-print(system_info.get("Version"), system_info.get("ServerName"))
+api = jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"))
+
+print(api.system.info.version, api.system.info.server_name)
 ```
 
 #### Generated Binding with OpenAPI Specification
@@ -93,14 +86,21 @@ system_info = SystemApi(client).get_system_info()
 print(system_info.version, system_info.server_name)
 ```
 
-#### Lean optimized access
+#### Legacy ([jellyfin-apiclient-python](https://github.com/jellyfin/jellyfin-apiclient-python))
 
 ```python
-import jellyfin
+from jellyfin.legacy import JellyfinClient
+client = JellyfinClient()
+client.authenticate(
+    {"Servers": [{
+        "AccessToken": os.getenv("JELLYFIN_API_KEY"), 
+        "address": os.getenv("JELLYFIN_URL")
+    }]}, 
+    discover=False
+)
+system_info = client.jellyfin.get_system_info()
 
-api = jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"))
-
-print(api.system.info.version, api.system.info.server_name)
+print(system_info.get("Version"), system_info.get("ServerName"))
 ```
 
 ### Jellyfin Server API Version
