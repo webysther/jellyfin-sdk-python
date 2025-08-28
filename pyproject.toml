@@ -23,6 +23,7 @@ dependencies = [
 ]
 
 [tool.uv.build-backend]
+module-name = "jellyfin"
 namespace = true
 
 [build-system]
