@@ -75,10 +75,6 @@ print(api.system.info.version, api.system.info.server_name)
 
 ### Supported Jellyfin Versions
 
-This project use [Semantic Version appending plus](https://semver.org/#spec-item-10) 
-for the [OpenAPI Generator](https://openapi-generator.tech/) for part of project based on jellyfin OpenAPI Specification.
-
-| SDK Version | Jellyfin Version |
+| SDK Version | Jellyfin API Target |
 |:-:|:-:|
-| 0.1.0+10.11 | 10.11.x |
-| 0.1.0+10.10 | 10.10.x |
+| 0.1.0 | 10.10.x-10.11.x |
