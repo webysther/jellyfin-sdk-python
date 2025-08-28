@@ -6,7 +6,7 @@
 <img alt="Logo Banner" src="https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/banner-logo-solid.svg?sanitize=true"/>
 </p>
 
-A Python SDK for Jellyfin.
+A Possible Official Python SDK for Jellyfin.
 
 > Warning: This project is under active development, so API changes may occur.
 
@@ -24,7 +24,7 @@ uv add jellyfin-sdk
 
 ## Usage
 
-### Drop in replacement for jellyfin-apiclient-python
+### Drop in replacement for [jellyfin-apiclient-python](https://github.com/jellyfin/jellyfin-apiclient-python)
 
 ```python
 # from
