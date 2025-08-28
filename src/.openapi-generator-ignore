@@ -13,4 +13,3 @@ setup.cfg
 tox.ini
 pyproject.toml
 jellyfin/__init__.py
-README.md
