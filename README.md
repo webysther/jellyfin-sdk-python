@@ -20,6 +20,7 @@ Main unique features:
 - Supports targeting the Jellyfin server version to maintain compatibility.
 - It is possible to access multiple servers with different versions.
 - Allows gradually increasing the depth of access to more primitive objectives.
+- Works like [AWS CDK Constructs Level](https://blog.shikisoft.com/aws-cdk-construct-levels/), more abstraction, more simple.
 
 ## Install
 
@@ -92,7 +93,7 @@ system_info = SystemApi(client).get_system_info()
 print(system_info.version, system_info.server_name)
 ```
 
-#### New
+#### Lean optimized access
 
 ```python
 import jellyfin
