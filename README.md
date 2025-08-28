@@ -130,4 +130,4 @@ jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"), '99')
 
 | SDK Version | Jellyfin API Target |
 |:-:|:-:|
-| 0.1.0 | 10.10.x-10.11.x |
+| 0.1.x | 10.10.x-10.11.x |
