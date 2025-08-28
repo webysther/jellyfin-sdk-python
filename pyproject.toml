@@ -1,0 +1,30 @@
+[project]
+name = "jellyfin-sdk"
+version = "0.1.0+10.11.0"
+description = "Python SDK for Jellyfin"
+readme = "README.md"
+license = { text = "MPL-2.0" }
+authors = [
+    { name = "Webysther Sperandio", email = "webysther@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "urllib3 >= 2.1.0, < 3.0.0",
+    "python-dateutil >= 2.8.2",
+    "aiohttp >= 3.8.4",
+    "aiohttp-retry >= 2.8.3",
+    "pydantic >= 2",
+    "typing-extensions >= 4.7.1",
+    "lazy-imports >= 1, < 2",
+    "httpx >= 0.24.1, < 1.0.0",
+    "httpx-oauth >= 0.6.0, < 1.0.0",
+    "websockets >= 11.0.3, < 12.0.0",
+    "jellyfin-apiclient-python>=1.11.0",
+]
+
+[tool.uv.build-backend]
+namespace = true
+
+[build-system]
+requires = ["uv_build>=0.8.13,<0.9.0"]
+build-backend = "uv_build"
