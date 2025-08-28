@@ -139,7 +139,7 @@ To help to identify this not-so-much-edge-cases we raise a exception to help wit
 
 jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.libraries
 
->>> jellyfin.api('https://video.webysther.org', 'f674245b80ea4a3ea9c011e01ce73ef9').user.libraries
+>>> jellyfin.api('https://jellyfin.example.com', 'f674245b84ea4d3ea9cf11').user.libraries
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
   File "/code/jellyfin-sdk-python/src/jellyfin/user.py", line 16, in libraries
@@ -149,7 +149,7 @@ Traceback (most recent call last):
 ValueError: User ID is not set. Use the 'of(user_id)' method to set the user context.
 
 
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('asdasjdkhasdjlkasdj').libraries
+jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('f674245b84ea4d3ea9cf11').libraries
 
 # works also with the user name
 jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('niels').libraries
