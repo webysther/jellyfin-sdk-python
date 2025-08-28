@@ -40,12 +40,17 @@ uv add jellyfin-sdk
 
 This library inject the old legacy (almost not maintained) for help migration:
 
+```sh
+pip uninstall jellyfin-apiclient-python
+pip install jellyfin-sdk
+```
+
 ```python
-# from
+# change from
 from jellyfin_apiclient_python import JellyfinClient
 from jellyfin_apiclient_python.api import API
 
-# to 
+# to this
 from jellyfin.legacy import JellyfinClient
 from jellyfin.legacy.api import API
 ```
