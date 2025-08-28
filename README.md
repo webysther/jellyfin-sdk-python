@@ -49,7 +49,10 @@ os.environ["JELLYFIN_API_KEY"] = "MY_TOKEN"
 from jellyfin.legacy import JellyfinClient
 client = JellyfinClient()
 client.authenticate(
-    {"Servers": [{"AccessToken": os.getenv("JELLYFIN_API_KEY"), "address": os.getenv("JELLYFIN_URL")}]}, 
+    {"Servers": [{
+        "AccessToken": os.getenv("JELLYFIN_API_KEY"), 
+        "address": os.getenv("JELLYFIN_URL")
+    }]}, 
     discover=False
 )
 system_info = client.jellyfin.get_system_info()
@@ -59,8 +62,11 @@ print(system_info.get("Version"), system_info.get("ServerName"))
 # generated (bindings openapi spec)
 from jellyfin.generated.api_10_10 import Configuration, ApiClient, SystemApi
 
-configuration = Configuration(host = os.getenv("JELLYFIN_URL"))
-client = ApiClient(configuration, header_name='X-Emby-Token', header_value=os.getenv("JELLYFIN_API_KEY"))
+client = ApiClient(
+    Configuration(host = os.getenv("JELLYFIN_URL")), 
+    header_name='X-Emby-Token', 
+    header_value=os.getenv("JELLYFIN_API_KEY")
+)
 system_info = SystemApi(client).get_system_info()
 
 print(system_info.version, system_info.server_name)
