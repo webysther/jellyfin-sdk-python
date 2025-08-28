@@ -149,7 +149,13 @@ Traceback (most recent call last):
 ValueError: User ID is not set. Use the 'of(user_id)' method to set the user context.
 
 
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('asdasjdkhasdjlkasdjalsdjklasjdk').libraries
+jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('asdasjdkhasdjlkasdj').libraries
+
+# works also with the user name
+jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('niels').libraries
+
+# don't be afraid, go crazy
+jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('niels').id
 ```
 
 ### List all items
@@ -165,6 +171,16 @@ In this example will be returned 10k items. For slice the pagination use `start_
 
 ```python
 jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).items.filter(limit=10000)
+```
+
+### Let's get the User ID by name or ID
+
+The id is a `UUID` to get the str just use the attribute `hex`
+
+```python
+uuid = jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.by_name('niels').id.hex
+
+jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.by_id(uuid).name
 ```
 
 ### Supported Jellyfin Versions

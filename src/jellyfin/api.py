@@ -53,5 +53,8 @@ class Api:
     @property
     def user(self):
         if self._user is None:
-            self._user = User(self._module.UserViewsApi(self.client))
+            self._user = User(
+                self._module.UserApi(self.client),
+                self._module.UserViewsApi(self.client)
+            )
         return self._user
