@@ -8,7 +8,7 @@
 
 A [Possible Official](https://jellyfin.org/docs/general/contributing/branding) Python SDK for Jellyfin.
 
-> Warning: This project is under active development, so API changes may occur.
+> Warning: API changes will occur only in the final classes, bindings and legacy don't change
 
 
 This project is mainly inspired by good python library like these:
