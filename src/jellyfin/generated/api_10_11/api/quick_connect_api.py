@@ -41,7 +41,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def authorize_quick_connect(
+    async def authorize_quick_connect(
         self,
         code: Annotated[StrictStr, Field(description="Quick connect code to authorize.")],
         user_id: Annotated[Optional[UUID], Field(description="The user the authorize. Access to the requested user is required.")] = None,
@@ -102,11 +102,11 @@ class QuickConnectApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -114,7 +114,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def authorize_quick_connect_with_http_info(
+    async def authorize_quick_connect_with_http_info(
         self,
         code: Annotated[StrictStr, Field(description="Quick connect code to authorize.")],
         user_id: Annotated[Optional[UUID], Field(description="The user the authorize. Access to the requested user is required.")] = None,
@@ -175,11 +175,11 @@ class QuickConnectApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -187,7 +187,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def authorize_quick_connect_without_preload_content(
+    async def authorize_quick_connect_without_preload_content(
         self,
         code: Annotated[StrictStr, Field(description="Quick connect code to authorize.")],
         user_id: Annotated[Optional[UUID], Field(description="The user the authorize. Access to the requested user is required.")] = None,
@@ -248,7 +248,7 @@ class QuickConnectApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -330,7 +330,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def get_quick_connect_enabled(
+    async def get_quick_connect_enabled(
         self,
         _request_timeout: Union[
             None,
@@ -381,11 +381,11 @@ class QuickConnectApi:
             '200': "bool",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -393,7 +393,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def get_quick_connect_enabled_with_http_info(
+    async def get_quick_connect_enabled_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -444,11 +444,11 @@ class QuickConnectApi:
             '200': "bool",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -456,7 +456,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def get_quick_connect_enabled_without_preload_content(
+    async def get_quick_connect_enabled_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -507,7 +507,7 @@ class QuickConnectApi:
             '200': "bool",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -578,7 +578,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def get_quick_connect_state(
+    async def get_quick_connect_state(
         self,
         secret: Annotated[StrictStr, Field(description="Secret previously returned from the Initiate endpoint.")],
         _request_timeout: Union[
@@ -634,11 +634,11 @@ class QuickConnectApi:
             '404': "ProblemDetails",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -646,7 +646,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def get_quick_connect_state_with_http_info(
+    async def get_quick_connect_state_with_http_info(
         self,
         secret: Annotated[StrictStr, Field(description="Secret previously returned from the Initiate endpoint.")],
         _request_timeout: Union[
@@ -702,11 +702,11 @@ class QuickConnectApi:
             '404': "ProblemDetails",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -714,7 +714,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def get_quick_connect_state_without_preload_content(
+    async def get_quick_connect_state_without_preload_content(
         self,
         secret: Annotated[StrictStr, Field(description="Secret previously returned from the Initiate endpoint.")],
         _request_timeout: Union[
@@ -770,7 +770,7 @@ class QuickConnectApi:
             '404': "ProblemDetails",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -846,7 +846,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def initiate_quick_connect(
+    async def initiate_quick_connect(
         self,
         _request_timeout: Union[
             None,
@@ -898,11 +898,11 @@ class QuickConnectApi:
             '401': None,
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -910,7 +910,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def initiate_quick_connect_with_http_info(
+    async def initiate_quick_connect_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -962,11 +962,11 @@ class QuickConnectApi:
             '401': None,
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -974,7 +974,7 @@ class QuickConnectApi:
 
 
     @validate_call
-    def initiate_quick_connect_without_preload_content(
+    async def initiate_quick_connect_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1026,7 +1026,7 @@ class QuickConnectApi:
             '401': None,
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

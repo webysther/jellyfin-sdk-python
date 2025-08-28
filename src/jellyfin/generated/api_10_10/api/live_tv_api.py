@@ -62,7 +62,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def add_listing_provider(
+    async def add_listing_provider(
         self,
         pw: Annotated[Optional[StrictStr], Field(description="Password.")] = None,
         validate_listings: Annotated[Optional[StrictBool], Field(description="Validate listings.")] = None,
@@ -130,11 +130,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -142,7 +142,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def add_listing_provider_with_http_info(
+    async def add_listing_provider_with_http_info(
         self,
         pw: Annotated[Optional[StrictStr], Field(description="Password.")] = None,
         validate_listings: Annotated[Optional[StrictBool], Field(description="Validate listings.")] = None,
@@ -210,11 +210,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -222,7 +222,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def add_listing_provider_without_preload_content(
+    async def add_listing_provider_without_preload_content(
         self,
         pw: Annotated[Optional[StrictStr], Field(description="Password.")] = None,
         validate_listings: Annotated[Optional[StrictBool], Field(description="Validate listings.")] = None,
@@ -290,7 +290,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -394,7 +394,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def add_tuner_host(
+    async def add_tuner_host(
         self,
         tuner_host_info: Annotated[Optional[TunerHostInfo], Field(description="New tuner host.")] = None,
         _request_timeout: Union[
@@ -450,11 +450,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -462,7 +462,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def add_tuner_host_with_http_info(
+    async def add_tuner_host_with_http_info(
         self,
         tuner_host_info: Annotated[Optional[TunerHostInfo], Field(description="New tuner host.")] = None,
         _request_timeout: Union[
@@ -518,11 +518,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -530,7 +530,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def add_tuner_host_without_preload_content(
+    async def add_tuner_host_without_preload_content(
         self,
         tuner_host_info: Annotated[Optional[TunerHostInfo], Field(description="New tuner host.")] = None,
         _request_timeout: Union[
@@ -586,7 +586,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -675,7 +675,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def cancel_series_timer(
+    async def cancel_series_timer(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -731,11 +731,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -743,7 +743,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def cancel_series_timer_with_http_info(
+    async def cancel_series_timer_with_http_info(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -799,11 +799,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -811,7 +811,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def cancel_series_timer_without_preload_content(
+    async def cancel_series_timer_without_preload_content(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -867,7 +867,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -932,7 +932,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def cancel_timer(
+    async def cancel_timer(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -988,11 +988,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1000,7 +1000,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def cancel_timer_with_http_info(
+    async def cancel_timer_with_http_info(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -1056,11 +1056,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1068,7 +1068,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def cancel_timer_without_preload_content(
+    async def cancel_timer_without_preload_content(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -1124,7 +1124,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1189,7 +1189,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def create_series_timer(
+    async def create_series_timer(
         self,
         series_timer_info_dto: Annotated[Optional[SeriesTimerInfoDto], Field(description="New series timer info.")] = None,
         _request_timeout: Union[
@@ -1245,11 +1245,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1257,7 +1257,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def create_series_timer_with_http_info(
+    async def create_series_timer_with_http_info(
         self,
         series_timer_info_dto: Annotated[Optional[SeriesTimerInfoDto], Field(description="New series timer info.")] = None,
         _request_timeout: Union[
@@ -1313,11 +1313,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1325,7 +1325,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def create_series_timer_without_preload_content(
+    async def create_series_timer_without_preload_content(
         self,
         series_timer_info_dto: Annotated[Optional[SeriesTimerInfoDto], Field(description="New series timer info.")] = None,
         _request_timeout: Union[
@@ -1381,7 +1381,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1461,7 +1461,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def create_timer(
+    async def create_timer(
         self,
         timer_info_dto: Annotated[Optional[TimerInfoDto], Field(description="New timer info.")] = None,
         _request_timeout: Union[
@@ -1517,11 +1517,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1529,7 +1529,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def create_timer_with_http_info(
+    async def create_timer_with_http_info(
         self,
         timer_info_dto: Annotated[Optional[TimerInfoDto], Field(description="New timer info.")] = None,
         _request_timeout: Union[
@@ -1585,11 +1585,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1597,7 +1597,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def create_timer_without_preload_content(
+    async def create_timer_without_preload_content(
         self,
         timer_info_dto: Annotated[Optional[TimerInfoDto], Field(description="New timer info.")] = None,
         _request_timeout: Union[
@@ -1653,7 +1653,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1733,7 +1733,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def delete_listing_provider(
+    async def delete_listing_provider(
         self,
         id: Annotated[Optional[StrictStr], Field(description="Listing provider id.")] = None,
         _request_timeout: Union[
@@ -1789,11 +1789,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1801,7 +1801,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def delete_listing_provider_with_http_info(
+    async def delete_listing_provider_with_http_info(
         self,
         id: Annotated[Optional[StrictStr], Field(description="Listing provider id.")] = None,
         _request_timeout: Union[
@@ -1857,11 +1857,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1869,7 +1869,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def delete_listing_provider_without_preload_content(
+    async def delete_listing_provider_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="Listing provider id.")] = None,
         _request_timeout: Union[
@@ -1925,7 +1925,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1992,7 +1992,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def delete_recording(
+    async def delete_recording(
         self,
         recording_id: Annotated[UUID, Field(description="Recording id.")],
         _request_timeout: Union[
@@ -2049,11 +2049,11 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2061,7 +2061,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def delete_recording_with_http_info(
+    async def delete_recording_with_http_info(
         self,
         recording_id: Annotated[UUID, Field(description="Recording id.")],
         _request_timeout: Union[
@@ -2118,11 +2118,11 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2130,7 +2130,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def delete_recording_without_preload_content(
+    async def delete_recording_without_preload_content(
         self,
         recording_id: Annotated[UUID, Field(description="Recording id.")],
         _request_timeout: Union[
@@ -2187,7 +2187,7 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2261,7 +2261,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def delete_tuner_host(
+    async def delete_tuner_host(
         self,
         id: Annotated[Optional[StrictStr], Field(description="Tuner host id.")] = None,
         _request_timeout: Union[
@@ -2317,11 +2317,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2329,7 +2329,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def delete_tuner_host_with_http_info(
+    async def delete_tuner_host_with_http_info(
         self,
         id: Annotated[Optional[StrictStr], Field(description="Tuner host id.")] = None,
         _request_timeout: Union[
@@ -2385,11 +2385,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2397,7 +2397,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def delete_tuner_host_without_preload_content(
+    async def delete_tuner_host_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="Tuner host id.")] = None,
         _request_timeout: Union[
@@ -2453,7 +2453,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2520,7 +2520,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def discover_tuners(
+    async def discover_tuners(
         self,
         new_devices_only: Annotated[Optional[StrictBool], Field(description="Only discover new tuners.")] = None,
         _request_timeout: Union[
@@ -2576,11 +2576,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2588,7 +2588,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def discover_tuners_with_http_info(
+    async def discover_tuners_with_http_info(
         self,
         new_devices_only: Annotated[Optional[StrictBool], Field(description="Only discover new tuners.")] = None,
         _request_timeout: Union[
@@ -2644,11 +2644,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2656,7 +2656,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def discover_tuners_without_preload_content(
+    async def discover_tuners_without_preload_content(
         self,
         new_devices_only: Annotated[Optional[StrictBool], Field(description="Only discover new tuners.")] = None,
         _request_timeout: Union[
@@ -2712,7 +2712,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2788,7 +2788,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def discvover_tuners(
+    async def discvover_tuners(
         self,
         new_devices_only: Annotated[Optional[StrictBool], Field(description="Only discover new tuners.")] = None,
         _request_timeout: Union[
@@ -2844,11 +2844,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2856,7 +2856,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def discvover_tuners_with_http_info(
+    async def discvover_tuners_with_http_info(
         self,
         new_devices_only: Annotated[Optional[StrictBool], Field(description="Only discover new tuners.")] = None,
         _request_timeout: Union[
@@ -2912,11 +2912,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2924,7 +2924,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def discvover_tuners_without_preload_content(
+    async def discvover_tuners_without_preload_content(
         self,
         new_devices_only: Annotated[Optional[StrictBool], Field(description="Only discover new tuners.")] = None,
         _request_timeout: Union[
@@ -2980,7 +2980,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3056,7 +3056,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_channel(
+    async def get_channel(
         self,
         channel_id: Annotated[UUID, Field(description="Channel id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Attach user data.")] = None,
@@ -3117,11 +3117,11 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3129,7 +3129,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_channel_with_http_info(
+    async def get_channel_with_http_info(
         self,
         channel_id: Annotated[UUID, Field(description="Channel id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Attach user data.")] = None,
@@ -3190,11 +3190,11 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3202,7 +3202,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_channel_without_preload_content(
+    async def get_channel_without_preload_content(
         self,
         channel_id: Annotated[UUID, Field(description="Channel id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Attach user data.")] = None,
@@ -3263,7 +3263,7 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3342,7 +3342,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_channel_mapping_options(
+    async def get_channel_mapping_options(
         self,
         provider_id: Annotated[Optional[StrictStr], Field(description="Provider id.")] = None,
         _request_timeout: Union[
@@ -3398,11 +3398,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3410,7 +3410,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_channel_mapping_options_with_http_info(
+    async def get_channel_mapping_options_with_http_info(
         self,
         provider_id: Annotated[Optional[StrictStr], Field(description="Provider id.")] = None,
         _request_timeout: Union[
@@ -3466,11 +3466,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3478,7 +3478,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_channel_mapping_options_without_preload_content(
+    async def get_channel_mapping_options_without_preload_content(
         self,
         provider_id: Annotated[Optional[StrictStr], Field(description="Provider id.")] = None,
         _request_timeout: Union[
@@ -3534,7 +3534,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3610,7 +3610,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_default_listing_provider(
+    async def get_default_listing_provider(
         self,
         _request_timeout: Union[
             None,
@@ -3662,11 +3662,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3674,7 +3674,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_default_listing_provider_with_http_info(
+    async def get_default_listing_provider_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -3726,11 +3726,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3738,7 +3738,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_default_listing_provider_without_preload_content(
+    async def get_default_listing_provider_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -3790,7 +3790,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3861,7 +3861,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_default_timer(
+    async def get_default_timer(
         self,
         program_id: Annotated[Optional[StrictStr], Field(description="Optional. To attach default values based on a program.")] = None,
         _request_timeout: Union[
@@ -3917,11 +3917,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3929,7 +3929,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_default_timer_with_http_info(
+    async def get_default_timer_with_http_info(
         self,
         program_id: Annotated[Optional[StrictStr], Field(description="Optional. To attach default values based on a program.")] = None,
         _request_timeout: Union[
@@ -3985,11 +3985,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3997,7 +3997,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_default_timer_without_preload_content(
+    async def get_default_timer_without_preload_content(
         self,
         program_id: Annotated[Optional[StrictStr], Field(description="Optional. To attach default values based on a program.")] = None,
         _request_timeout: Union[
@@ -4053,7 +4053,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4129,7 +4129,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_guide_info(
+    async def get_guide_info(
         self,
         _request_timeout: Union[
             None,
@@ -4181,11 +4181,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4193,7 +4193,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_guide_info_with_http_info(
+    async def get_guide_info_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -4245,11 +4245,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4257,7 +4257,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_guide_info_without_preload_content(
+    async def get_guide_info_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -4309,7 +4309,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4380,7 +4380,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_lineups(
+    async def get_lineups(
         self,
         id: Annotated[Optional[StrictStr], Field(description="Provider id.")] = None,
         type: Annotated[Optional[StrictStr], Field(description="Provider type.")] = None,
@@ -4448,11 +4448,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4460,7 +4460,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_lineups_with_http_info(
+    async def get_lineups_with_http_info(
         self,
         id: Annotated[Optional[StrictStr], Field(description="Provider id.")] = None,
         type: Annotated[Optional[StrictStr], Field(description="Provider type.")] = None,
@@ -4528,11 +4528,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4540,7 +4540,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_lineups_without_preload_content(
+    async def get_lineups_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="Provider id.")] = None,
         type: Annotated[Optional[StrictStr], Field(description="Provider type.")] = None,
@@ -4608,7 +4608,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4699,7 +4699,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_recording_file(
+    async def get_live_recording_file(
         self,
         recording_id: Annotated[StrictStr, Field(description="Recording id.")],
         _request_timeout: Union[
@@ -4754,11 +4754,11 @@ class LiveTvApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4766,7 +4766,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_recording_file_with_http_info(
+    async def get_live_recording_file_with_http_info(
         self,
         recording_id: Annotated[StrictStr, Field(description="Recording id.")],
         _request_timeout: Union[
@@ -4821,11 +4821,11 @@ class LiveTvApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4833,7 +4833,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_recording_file_without_preload_content(
+    async def get_live_recording_file_without_preload_content(
         self,
         recording_id: Annotated[StrictStr, Field(description="Recording id.")],
         _request_timeout: Union[
@@ -4888,7 +4888,7 @@ class LiveTvApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4962,7 +4962,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_stream_file(
+    async def get_live_stream_file(
         self,
         stream_id: Annotated[StrictStr, Field(description="Stream id.")],
         container: Annotated[StrictStr, Field(description="Container type.")],
@@ -5021,11 +5021,11 @@ class LiveTvApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5033,7 +5033,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_stream_file_with_http_info(
+    async def get_live_stream_file_with_http_info(
         self,
         stream_id: Annotated[StrictStr, Field(description="Stream id.")],
         container: Annotated[StrictStr, Field(description="Container type.")],
@@ -5092,11 +5092,11 @@ class LiveTvApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5104,7 +5104,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_stream_file_without_preload_content(
+    async def get_live_stream_file_without_preload_content(
         self,
         stream_id: Annotated[StrictStr, Field(description="Stream id.")],
         container: Annotated[StrictStr, Field(description="Container type.")],
@@ -5163,7 +5163,7 @@ class LiveTvApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5240,7 +5240,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_tv_channels(
+    async def get_live_tv_channels(
         self,
         type: Annotated[Optional[ChannelType], Field(description="Optional. Filter by channel type.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
@@ -5376,11 +5376,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5388,7 +5388,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_tv_channels_with_http_info(
+    async def get_live_tv_channels_with_http_info(
         self,
         type: Annotated[Optional[ChannelType], Field(description="Optional. Filter by channel type.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
@@ -5524,11 +5524,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5536,7 +5536,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_tv_channels_without_preload_content(
+    async def get_live_tv_channels_without_preload_content(
         self,
         type: Annotated[Optional[ChannelType], Field(description="Optional. Filter by channel type.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
@@ -5672,7 +5672,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5851,7 +5851,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_tv_info(
+    async def get_live_tv_info(
         self,
         _request_timeout: Union[
             None,
@@ -5903,11 +5903,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5915,7 +5915,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_tv_info_with_http_info(
+    async def get_live_tv_info_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -5967,11 +5967,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5979,7 +5979,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_tv_info_without_preload_content(
+    async def get_live_tv_info_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -6031,7 +6031,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -6102,7 +6102,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_tv_programs(
+    async def get_live_tv_programs(
         self,
         channel_ids: Annotated[Optional[List[UUID]], Field(description="The channels to return guide information for.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id.")] = None,
@@ -6262,11 +6262,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6274,7 +6274,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_tv_programs_with_http_info(
+    async def get_live_tv_programs_with_http_info(
         self,
         channel_ids: Annotated[Optional[List[UUID]], Field(description="The channels to return guide information for.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id.")] = None,
@@ -6434,11 +6434,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6446,7 +6446,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_live_tv_programs_without_preload_content(
+    async def get_live_tv_programs_without_preload_content(
         self,
         channel_ids: Annotated[Optional[List[UUID]], Field(description="The channels to return guide information for.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id.")] = None,
@@ -6606,7 +6606,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -6855,7 +6855,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_program(
+    async def get_program(
         self,
         program_id: Annotated[StrictStr, Field(description="Program id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Attach user data.")] = None,
@@ -6915,11 +6915,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6927,7 +6927,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_program_with_http_info(
+    async def get_program_with_http_info(
         self,
         program_id: Annotated[StrictStr, Field(description="Program id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Attach user data.")] = None,
@@ -6987,11 +6987,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6999,7 +6999,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_program_without_preload_content(
+    async def get_program_without_preload_content(
         self,
         program_id: Annotated[StrictStr, Field(description="Program id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Attach user data.")] = None,
@@ -7059,7 +7059,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -7138,7 +7138,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_programs(
+    async def get_programs(
         self,
         get_programs_dto: Annotated[Optional[GetProgramsDto], Field(description="Request body.")] = None,
         _request_timeout: Union[
@@ -7194,11 +7194,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7206,7 +7206,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_programs_with_http_info(
+    async def get_programs_with_http_info(
         self,
         get_programs_dto: Annotated[Optional[GetProgramsDto], Field(description="Request body.")] = None,
         _request_timeout: Union[
@@ -7262,11 +7262,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7274,7 +7274,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_programs_without_preload_content(
+    async def get_programs_without_preload_content(
         self,
         get_programs_dto: Annotated[Optional[GetProgramsDto], Field(description="Request body.")] = None,
         _request_timeout: Union[
@@ -7330,7 +7330,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -7419,7 +7419,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recommended_programs(
+    async def get_recommended_programs(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. filter by user id.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
@@ -7535,11 +7535,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7547,7 +7547,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recommended_programs_with_http_info(
+    async def get_recommended_programs_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. filter by user id.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
@@ -7663,11 +7663,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7675,7 +7675,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recommended_programs_without_preload_content(
+    async def get_recommended_programs_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. filter by user id.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
@@ -7791,7 +7791,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -7945,7 +7945,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording(
+    async def get_recording(
         self,
         recording_id: Annotated[UUID, Field(description="Recording id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Attach user data.")] = None,
@@ -8006,11 +8006,11 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8018,7 +8018,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_with_http_info(
+    async def get_recording_with_http_info(
         self,
         recording_id: Annotated[UUID, Field(description="Recording id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Attach user data.")] = None,
@@ -8079,11 +8079,11 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8091,7 +8091,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_without_preload_content(
+    async def get_recording_without_preload_content(
         self,
         recording_id: Annotated[UUID, Field(description="Recording id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Attach user data.")] = None,
@@ -8152,7 +8152,7 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -8231,7 +8231,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_folders(
+    async def get_recording_folders(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
         _request_timeout: Union[
@@ -8287,11 +8287,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8299,7 +8299,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_folders_with_http_info(
+    async def get_recording_folders_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
         _request_timeout: Union[
@@ -8355,11 +8355,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8367,7 +8367,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_folders_without_preload_content(
+    async def get_recording_folders_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
         _request_timeout: Union[
@@ -8423,7 +8423,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -8499,7 +8499,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_group(
+    async def get_recording_group(
         self,
         group_id: Annotated[UUID, Field(description="Group id.")],
         _request_timeout: Union[
@@ -8556,11 +8556,11 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8568,7 +8568,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_group_with_http_info(
+    async def get_recording_group_with_http_info(
         self,
         group_id: Annotated[UUID, Field(description="Group id.")],
         _request_timeout: Union[
@@ -8625,11 +8625,11 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8637,7 +8637,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_group_without_preload_content(
+    async def get_recording_group_without_preload_content(
         self,
         group_id: Annotated[UUID, Field(description="Group id.")],
         _request_timeout: Union[
@@ -8694,7 +8694,7 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -8768,7 +8768,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_groups(
+    async def get_recording_groups(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
         _request_timeout: Union[
@@ -8825,11 +8825,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8837,7 +8837,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_groups_with_http_info(
+    async def get_recording_groups_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
         _request_timeout: Union[
@@ -8894,11 +8894,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8906,7 +8906,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recording_groups_without_preload_content(
+    async def get_recording_groups_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
         _request_timeout: Union[
@@ -8963,7 +8963,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -9039,7 +9039,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recordings(
+    async def get_recordings(
         self,
         channel_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by channel id.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
@@ -9167,11 +9167,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9179,7 +9179,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recordings_with_http_info(
+    async def get_recordings_with_http_info(
         self,
         channel_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by channel id.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
@@ -9307,11 +9307,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9319,7 +9319,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recordings_without_preload_content(
+    async def get_recordings_without_preload_content(
         self,
         channel_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by channel id.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
@@ -9447,7 +9447,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -9615,7 +9615,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recordings_series(
+    async def get_recordings_series(
         self,
         channel_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by channel id.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
@@ -9724,11 +9724,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9736,7 +9736,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recordings_series_with_http_info(
+    async def get_recordings_series_with_http_info(
         self,
         channel_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by channel id.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
@@ -9845,11 +9845,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9857,7 +9857,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_recordings_series_without_preload_content(
+    async def get_recordings_series_without_preload_content(
         self,
         channel_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by channel id.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user and attach user data.")] = None,
@@ -9966,7 +9966,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -10109,7 +10109,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_schedules_direct_countries(
+    async def get_schedules_direct_countries(
         self,
         _request_timeout: Union[
             None,
@@ -10161,11 +10161,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10173,7 +10173,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_schedules_direct_countries_with_http_info(
+    async def get_schedules_direct_countries_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -10225,11 +10225,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10237,7 +10237,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_schedules_direct_countries_without_preload_content(
+    async def get_schedules_direct_countries_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -10289,7 +10289,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -10358,7 +10358,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_series_timer(
+    async def get_series_timer(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -10415,11 +10415,11 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10427,7 +10427,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_series_timer_with_http_info(
+    async def get_series_timer_with_http_info(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -10484,11 +10484,11 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10496,7 +10496,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_series_timer_without_preload_content(
+    async def get_series_timer_without_preload_content(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -10553,7 +10553,7 @@ class LiveTvApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -10627,7 +10627,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_series_timers(
+    async def get_series_timers(
         self,
         sort_by: Annotated[Optional[StrictStr], Field(description="Optional. Sort by SortName or Priority.")] = None,
         sort_order: Annotated[Optional[SortOrder], Field(description="Optional. Sort in Ascending or Descending order.")] = None,
@@ -10687,11 +10687,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10699,7 +10699,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_series_timers_with_http_info(
+    async def get_series_timers_with_http_info(
         self,
         sort_by: Annotated[Optional[StrictStr], Field(description="Optional. Sort by SortName or Priority.")] = None,
         sort_order: Annotated[Optional[SortOrder], Field(description="Optional. Sort in Ascending or Descending order.")] = None,
@@ -10759,11 +10759,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10771,7 +10771,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_series_timers_without_preload_content(
+    async def get_series_timers_without_preload_content(
         self,
         sort_by: Annotated[Optional[StrictStr], Field(description="Optional. Sort by SortName or Priority.")] = None,
         sort_order: Annotated[Optional[SortOrder], Field(description="Optional. Sort in Ascending or Descending order.")] = None,
@@ -10831,7 +10831,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -10912,7 +10912,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_timer(
+    async def get_timer(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -10968,11 +10968,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10980,7 +10980,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_timer_with_http_info(
+    async def get_timer_with_http_info(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -11036,11 +11036,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11048,7 +11048,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_timer_without_preload_content(
+    async def get_timer_without_preload_content(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         _request_timeout: Union[
@@ -11104,7 +11104,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -11178,7 +11178,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_timers(
+    async def get_timers(
         self,
         channel_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by channel id.")] = None,
         series_timer_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by timers belonging to a series timer.")] = None,
@@ -11246,11 +11246,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11258,7 +11258,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_timers_with_http_info(
+    async def get_timers_with_http_info(
         self,
         channel_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by channel id.")] = None,
         series_timer_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by timers belonging to a series timer.")] = None,
@@ -11326,11 +11326,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11338,7 +11338,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_timers_without_preload_content(
+    async def get_timers_without_preload_content(
         self,
         channel_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by channel id.")] = None,
         series_timer_id: Annotated[Optional[StrictStr], Field(description="Optional. Filter by timers belonging to a series timer.")] = None,
@@ -11406,7 +11406,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -11497,7 +11497,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_tuner_host_types(
+    async def get_tuner_host_types(
         self,
         _request_timeout: Union[
             None,
@@ -11549,11 +11549,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11561,7 +11561,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_tuner_host_types_with_http_info(
+    async def get_tuner_host_types_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -11613,11 +11613,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11625,7 +11625,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def get_tuner_host_types_without_preload_content(
+    async def get_tuner_host_types_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -11677,7 +11677,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -11748,7 +11748,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def reset_tuner(
+    async def reset_tuner(
         self,
         tuner_id: Annotated[StrictStr, Field(description="Tuner id.")],
         _request_timeout: Union[
@@ -11804,11 +11804,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11816,7 +11816,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def reset_tuner_with_http_info(
+    async def reset_tuner_with_http_info(
         self,
         tuner_id: Annotated[StrictStr, Field(description="Tuner id.")],
         _request_timeout: Union[
@@ -11872,11 +11872,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11884,7 +11884,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def reset_tuner_without_preload_content(
+    async def reset_tuner_without_preload_content(
         self,
         tuner_id: Annotated[StrictStr, Field(description="Tuner id.")],
         _request_timeout: Union[
@@ -11940,7 +11940,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -12005,7 +12005,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def set_channel_mapping(
+    async def set_channel_mapping(
         self,
         set_channel_mapping_dto: Annotated[SetChannelMappingDto, Field(description="The set channel mapping dto.")],
         _request_timeout: Union[
@@ -12061,11 +12061,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12073,7 +12073,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def set_channel_mapping_with_http_info(
+    async def set_channel_mapping_with_http_info(
         self,
         set_channel_mapping_dto: Annotated[SetChannelMappingDto, Field(description="The set channel mapping dto.")],
         _request_timeout: Union[
@@ -12129,11 +12129,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12141,7 +12141,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def set_channel_mapping_without_preload_content(
+    async def set_channel_mapping_without_preload_content(
         self,
         set_channel_mapping_dto: Annotated[SetChannelMappingDto, Field(description="The set channel mapping dto.")],
         _request_timeout: Union[
@@ -12197,7 +12197,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -12286,7 +12286,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def update_series_timer(
+    async def update_series_timer(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         series_timer_info_dto: Annotated[Optional[SeriesTimerInfoDto], Field(description="New series timer info.")] = None,
@@ -12346,11 +12346,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12358,7 +12358,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def update_series_timer_with_http_info(
+    async def update_series_timer_with_http_info(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         series_timer_info_dto: Annotated[Optional[SeriesTimerInfoDto], Field(description="New series timer info.")] = None,
@@ -12418,11 +12418,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12430,7 +12430,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def update_series_timer_without_preload_content(
+    async def update_series_timer_without_preload_content(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         series_timer_info_dto: Annotated[Optional[SeriesTimerInfoDto], Field(description="New series timer info.")] = None,
@@ -12490,7 +12490,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -12573,7 +12573,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def update_timer(
+    async def update_timer(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         timer_info_dto: Annotated[Optional[TimerInfoDto], Field(description="New timer info.")] = None,
@@ -12633,11 +12633,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12645,7 +12645,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def update_timer_with_http_info(
+    async def update_timer_with_http_info(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         timer_info_dto: Annotated[Optional[TimerInfoDto], Field(description="New timer info.")] = None,
@@ -12705,11 +12705,11 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12717,7 +12717,7 @@ class LiveTvApi:
 
 
     @validate_call
-    def update_timer_without_preload_content(
+    async def update_timer_without_preload_content(
         self,
         timer_id: Annotated[StrictStr, Field(description="Timer id.")],
         timer_info_dto: Annotated[Optional[TimerInfoDto], Field(description="New timer info.")] = None,
@@ -12777,7 +12777,7 @@ class LiveTvApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

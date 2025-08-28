@@ -51,7 +51,7 @@ class LibraryApi:
 
 
     @validate_call
-    def delete_item(
+    async def delete_item(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -108,11 +108,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -120,7 +120,7 @@ class LibraryApi:
 
 
     @validate_call
-    def delete_item_with_http_info(
+    async def delete_item_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -177,11 +177,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -189,7 +189,7 @@ class LibraryApi:
 
 
     @validate_call
-    def delete_item_without_preload_content(
+    async def delete_item_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -246,7 +246,7 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -320,7 +320,7 @@ class LibraryApi:
 
 
     @validate_call
-    def delete_items(
+    async def delete_items(
         self,
         ids: Annotated[Optional[List[UUID]], Field(description="The item ids.")] = None,
         _request_timeout: Union[
@@ -377,11 +377,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -389,7 +389,7 @@ class LibraryApi:
 
 
     @validate_call
-    def delete_items_with_http_info(
+    async def delete_items_with_http_info(
         self,
         ids: Annotated[Optional[List[UUID]], Field(description="The item ids.")] = None,
         _request_timeout: Union[
@@ -446,11 +446,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -458,7 +458,7 @@ class LibraryApi:
 
 
     @validate_call
-    def delete_items_without_preload_content(
+    async def delete_items_without_preload_content(
         self,
         ids: Annotated[Optional[List[UUID]], Field(description="The item ids.")] = None,
         _request_timeout: Union[
@@ -515,7 +515,7 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -592,7 +592,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_ancestors(
+    async def get_ancestors(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -653,11 +653,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -665,7 +665,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_ancestors_with_http_info(
+    async def get_ancestors_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -726,11 +726,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -738,7 +738,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_ancestors_without_preload_content(
+    async def get_ancestors_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -799,7 +799,7 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -878,7 +878,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_critic_reviews(
+    async def get_critic_reviews(
         self,
         item_id: StrictStr,
         _request_timeout: Union[
@@ -935,11 +935,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -947,7 +947,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_critic_reviews_with_http_info(
+    async def get_critic_reviews_with_http_info(
         self,
         item_id: StrictStr,
         _request_timeout: Union[
@@ -1004,11 +1004,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1016,7 +1016,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_critic_reviews_without_preload_content(
+    async def get_critic_reviews_without_preload_content(
         self,
         item_id: StrictStr,
         _request_timeout: Union[
@@ -1073,7 +1073,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1147,7 +1147,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_download(
+    async def get_download(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1204,11 +1204,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1216,7 +1216,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_download_with_http_info(
+    async def get_download_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1273,11 +1273,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1285,7 +1285,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_download_without_preload_content(
+    async def get_download_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1342,7 +1342,7 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1418,7 +1418,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_file(
+    async def get_file(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1475,11 +1475,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1487,7 +1487,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_file_with_http_info(
+    async def get_file_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1544,11 +1544,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1556,7 +1556,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_file_without_preload_content(
+    async def get_file_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1613,7 +1613,7 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1689,7 +1689,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_item_counts(
+    async def get_item_counts(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Get counts from a specific user's library.")] = None,
         is_favorite: Annotated[Optional[StrictBool], Field(description="Optional. Get counts of favorite items.")] = None,
@@ -1749,11 +1749,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1761,7 +1761,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_item_counts_with_http_info(
+    async def get_item_counts_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Get counts from a specific user's library.")] = None,
         is_favorite: Annotated[Optional[StrictBool], Field(description="Optional. Get counts of favorite items.")] = None,
@@ -1821,11 +1821,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1833,7 +1833,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_item_counts_without_preload_content(
+    async def get_item_counts_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Get counts from a specific user's library.")] = None,
         is_favorite: Annotated[Optional[StrictBool], Field(description="Optional. Get counts of favorite items.")] = None,
@@ -1893,7 +1893,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1974,7 +1974,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_library_options_info(
+    async def get_library_options_info(
         self,
         library_content_type: Annotated[Optional[CollectionType], Field(description="Library content type.")] = None,
         is_new_library: Annotated[Optional[StrictBool], Field(description="Whether this is a new library.")] = None,
@@ -2034,11 +2034,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2046,7 +2046,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_library_options_info_with_http_info(
+    async def get_library_options_info_with_http_info(
         self,
         library_content_type: Annotated[Optional[CollectionType], Field(description="Library content type.")] = None,
         is_new_library: Annotated[Optional[StrictBool], Field(description="Whether this is a new library.")] = None,
@@ -2106,11 +2106,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2118,7 +2118,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_library_options_info_without_preload_content(
+    async def get_library_options_info_without_preload_content(
         self,
         library_content_type: Annotated[Optional[CollectionType], Field(description="Library content type.")] = None,
         is_new_library: Annotated[Optional[StrictBool], Field(description="Whether this is a new library.")] = None,
@@ -2178,7 +2178,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2259,7 +2259,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_media_folders(
+    async def get_media_folders(
         self,
         is_hidden: Annotated[Optional[StrictBool], Field(description="Optional. Filter by folders that are marked hidden, or not.")] = None,
         _request_timeout: Union[
@@ -2315,11 +2315,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2327,7 +2327,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_media_folders_with_http_info(
+    async def get_media_folders_with_http_info(
         self,
         is_hidden: Annotated[Optional[StrictBool], Field(description="Optional. Filter by folders that are marked hidden, or not.")] = None,
         _request_timeout: Union[
@@ -2383,11 +2383,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2395,7 +2395,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_media_folders_without_preload_content(
+    async def get_media_folders_without_preload_content(
         self,
         is_hidden: Annotated[Optional[StrictBool], Field(description="Optional. Filter by folders that are marked hidden, or not.")] = None,
         _request_timeout: Union[
@@ -2451,7 +2451,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2527,7 +2527,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_physical_paths(
+    async def get_physical_paths(
         self,
         _request_timeout: Union[
             None,
@@ -2579,11 +2579,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2591,7 +2591,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_physical_paths_with_http_info(
+    async def get_physical_paths_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2643,11 +2643,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2655,7 +2655,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_physical_paths_without_preload_content(
+    async def get_physical_paths_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2707,7 +2707,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2778,7 +2778,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_albums(
+    async def get_similar_albums(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -2850,11 +2850,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2862,7 +2862,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_albums_with_http_info(
+    async def get_similar_albums_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -2934,11 +2934,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2946,7 +2946,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_albums_without_preload_content(
+    async def get_similar_albums_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -3018,7 +3018,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3114,7 +3114,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_artists(
+    async def get_similar_artists(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -3186,11 +3186,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3198,7 +3198,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_artists_with_http_info(
+    async def get_similar_artists_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -3270,11 +3270,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3282,7 +3282,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_artists_without_preload_content(
+    async def get_similar_artists_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -3354,7 +3354,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3450,7 +3450,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_items(
+    async def get_similar_items(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -3522,11 +3522,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3534,7 +3534,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_items_with_http_info(
+    async def get_similar_items_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -3606,11 +3606,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3618,7 +3618,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_items_without_preload_content(
+    async def get_similar_items_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -3690,7 +3690,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3786,7 +3786,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_movies(
+    async def get_similar_movies(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -3858,11 +3858,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3870,7 +3870,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_movies_with_http_info(
+    async def get_similar_movies_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -3942,11 +3942,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3954,7 +3954,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_movies_without_preload_content(
+    async def get_similar_movies_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -4026,7 +4026,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4122,7 +4122,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_shows(
+    async def get_similar_shows(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -4194,11 +4194,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4206,7 +4206,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_shows_with_http_info(
+    async def get_similar_shows_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -4278,11 +4278,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4290,7 +4290,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_shows_without_preload_content(
+    async def get_similar_shows_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -4362,7 +4362,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4458,7 +4458,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_trailers(
+    async def get_similar_trailers(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -4530,11 +4530,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4542,7 +4542,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_trailers_with_http_info(
+    async def get_similar_trailers_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -4614,11 +4614,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4626,7 +4626,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_similar_trailers_without_preload_content(
+    async def get_similar_trailers_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         exclude_artist_ids: Annotated[Optional[List[UUID]], Field(description="Exclude artist ids.")] = None,
@@ -4698,7 +4698,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4794,7 +4794,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_theme_media(
+    async def get_theme_media(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -4867,11 +4867,11 @@ class LibraryApi:
             '403': None,
             '404': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4879,7 +4879,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_theme_media_with_http_info(
+    async def get_theme_media_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -4952,11 +4952,11 @@ class LibraryApi:
             '403': None,
             '404': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4964,7 +4964,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_theme_media_without_preload_content(
+    async def get_theme_media_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -5037,7 +5037,7 @@ class LibraryApi:
             '403': None,
             '404': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5133,7 +5133,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_theme_songs(
+    async def get_theme_songs(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -5206,11 +5206,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5218,7 +5218,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_theme_songs_with_http_info(
+    async def get_theme_songs_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -5291,11 +5291,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5303,7 +5303,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_theme_songs_without_preload_content(
+    async def get_theme_songs_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -5376,7 +5376,7 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5472,7 +5472,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_theme_videos(
+    async def get_theme_videos(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -5545,11 +5545,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5557,7 +5557,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_theme_videos_with_http_info(
+    async def get_theme_videos_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -5630,11 +5630,11 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5642,7 +5642,7 @@ class LibraryApi:
 
 
     @validate_call
-    def get_theme_videos_without_preload_content(
+    async def get_theme_videos_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -5715,7 +5715,7 @@ class LibraryApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5811,7 +5811,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_added_movies(
+    async def post_added_movies(
         self,
         tmdb_id: Annotated[Optional[StrictStr], Field(description="The tmdbId.")] = None,
         imdb_id: Annotated[Optional[StrictStr], Field(description="The imdbId.")] = None,
@@ -5871,11 +5871,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5883,7 +5883,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_added_movies_with_http_info(
+    async def post_added_movies_with_http_info(
         self,
         tmdb_id: Annotated[Optional[StrictStr], Field(description="The tmdbId.")] = None,
         imdb_id: Annotated[Optional[StrictStr], Field(description="The imdbId.")] = None,
@@ -5943,11 +5943,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5955,7 +5955,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_added_movies_without_preload_content(
+    async def post_added_movies_without_preload_content(
         self,
         tmdb_id: Annotated[Optional[StrictStr], Field(description="The tmdbId.")] = None,
         imdb_id: Annotated[Optional[StrictStr], Field(description="The imdbId.")] = None,
@@ -6015,7 +6015,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -6087,7 +6087,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_added_series(
+    async def post_added_series(
         self,
         tvdb_id: Annotated[Optional[StrictStr], Field(description="The tvdbId.")] = None,
         _request_timeout: Union[
@@ -6143,11 +6143,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6155,7 +6155,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_added_series_with_http_info(
+    async def post_added_series_with_http_info(
         self,
         tvdb_id: Annotated[Optional[StrictStr], Field(description="The tvdbId.")] = None,
         _request_timeout: Union[
@@ -6211,11 +6211,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6223,7 +6223,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_added_series_without_preload_content(
+    async def post_added_series_without_preload_content(
         self,
         tvdb_id: Annotated[Optional[StrictStr], Field(description="The tvdbId.")] = None,
         _request_timeout: Union[
@@ -6279,7 +6279,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -6346,7 +6346,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_updated_media(
+    async def post_updated_media(
         self,
         media_update_info_dto: Annotated[MediaUpdateInfoDto, Field(description="The update paths.")],
         _request_timeout: Union[
@@ -6402,11 +6402,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6414,7 +6414,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_updated_media_with_http_info(
+    async def post_updated_media_with_http_info(
         self,
         media_update_info_dto: Annotated[MediaUpdateInfoDto, Field(description="The update paths.")],
         _request_timeout: Union[
@@ -6470,11 +6470,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6482,7 +6482,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_updated_media_without_preload_content(
+    async def post_updated_media_without_preload_content(
         self,
         media_update_info_dto: Annotated[MediaUpdateInfoDto, Field(description="The update paths.")],
         _request_timeout: Union[
@@ -6538,7 +6538,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -6618,7 +6618,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_updated_movies(
+    async def post_updated_movies(
         self,
         tmdb_id: Annotated[Optional[StrictStr], Field(description="The tmdbId.")] = None,
         imdb_id: Annotated[Optional[StrictStr], Field(description="The imdbId.")] = None,
@@ -6678,11 +6678,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6690,7 +6690,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_updated_movies_with_http_info(
+    async def post_updated_movies_with_http_info(
         self,
         tmdb_id: Annotated[Optional[StrictStr], Field(description="The tmdbId.")] = None,
         imdb_id: Annotated[Optional[StrictStr], Field(description="The imdbId.")] = None,
@@ -6750,11 +6750,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6762,7 +6762,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_updated_movies_without_preload_content(
+    async def post_updated_movies_without_preload_content(
         self,
         tmdb_id: Annotated[Optional[StrictStr], Field(description="The tmdbId.")] = None,
         imdb_id: Annotated[Optional[StrictStr], Field(description="The imdbId.")] = None,
@@ -6822,7 +6822,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -6894,7 +6894,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_updated_series(
+    async def post_updated_series(
         self,
         tvdb_id: Annotated[Optional[StrictStr], Field(description="The tvdbId.")] = None,
         _request_timeout: Union[
@@ -6950,11 +6950,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6962,7 +6962,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_updated_series_with_http_info(
+    async def post_updated_series_with_http_info(
         self,
         tvdb_id: Annotated[Optional[StrictStr], Field(description="The tvdbId.")] = None,
         _request_timeout: Union[
@@ -7018,11 +7018,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7030,7 +7030,7 @@ class LibraryApi:
 
 
     @validate_call
-    def post_updated_series_without_preload_content(
+    async def post_updated_series_without_preload_content(
         self,
         tvdb_id: Annotated[Optional[StrictStr], Field(description="The tvdbId.")] = None,
         _request_timeout: Union[
@@ -7086,7 +7086,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -7153,7 +7153,7 @@ class LibraryApi:
 
 
     @validate_call
-    def refresh_library(
+    async def refresh_library(
         self,
         _request_timeout: Union[
             None,
@@ -7205,11 +7205,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7217,7 +7217,7 @@ class LibraryApi:
 
 
     @validate_call
-    def refresh_library_with_http_info(
+    async def refresh_library_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -7269,11 +7269,11 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7281,7 +7281,7 @@ class LibraryApi:
 
 
     @validate_call
-    def refresh_library_without_preload_content(
+    async def refresh_library_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -7333,7 +7333,7 @@ class LibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

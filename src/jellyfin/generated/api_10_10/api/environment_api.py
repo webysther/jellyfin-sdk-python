@@ -42,7 +42,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_default_directory_browser(
+    async def get_default_directory_browser(
         self,
         _request_timeout: Union[
             None,
@@ -94,11 +94,11 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -106,7 +106,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_default_directory_browser_with_http_info(
+    async def get_default_directory_browser_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -158,11 +158,11 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -170,7 +170,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_default_directory_browser_without_preload_content(
+    async def get_default_directory_browser_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -222,7 +222,7 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -293,7 +293,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_directory_contents(
+    async def get_directory_contents(
         self,
         path: Annotated[StrictStr, Field(description="The path.")],
         include_files: Annotated[Optional[StrictBool], Field(description="An optional filter to include or exclude files from the results. true/false.")] = None,
@@ -357,11 +357,11 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -369,7 +369,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_directory_contents_with_http_info(
+    async def get_directory_contents_with_http_info(
         self,
         path: Annotated[StrictStr, Field(description="The path.")],
         include_files: Annotated[Optional[StrictBool], Field(description="An optional filter to include or exclude files from the results. true/false.")] = None,
@@ -433,11 +433,11 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -445,7 +445,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_directory_contents_without_preload_content(
+    async def get_directory_contents_without_preload_content(
         self,
         path: Annotated[StrictStr, Field(description="The path.")],
         include_files: Annotated[Optional[StrictBool], Field(description="An optional filter to include or exclude files from the results. true/false.")] = None,
@@ -509,7 +509,7 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -595,7 +595,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_drives(
+    async def get_drives(
         self,
         _request_timeout: Union[
             None,
@@ -647,11 +647,11 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -659,7 +659,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_drives_with_http_info(
+    async def get_drives_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -711,11 +711,11 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -723,7 +723,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_drives_without_preload_content(
+    async def get_drives_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -775,7 +775,7 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -846,7 +846,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_network_shares(
+    async def get_network_shares(
         self,
         _request_timeout: Union[
             None,
@@ -899,11 +899,11 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -911,7 +911,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_network_shares_with_http_info(
+    async def get_network_shares_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -964,11 +964,11 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -976,7 +976,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_network_shares_without_preload_content(
+    async def get_network_shares_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1029,7 +1029,7 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1100,7 +1100,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_parent_path(
+    async def get_parent_path(
         self,
         path: Annotated[StrictStr, Field(description="The path.")],
         _request_timeout: Union[
@@ -1156,11 +1156,11 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1168,7 +1168,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_parent_path_with_http_info(
+    async def get_parent_path_with_http_info(
         self,
         path: Annotated[StrictStr, Field(description="The path.")],
         _request_timeout: Union[
@@ -1224,11 +1224,11 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1236,7 +1236,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def get_parent_path_without_preload_content(
+    async def get_parent_path_without_preload_content(
         self,
         path: Annotated[StrictStr, Field(description="The path.")],
         _request_timeout: Union[
@@ -1292,7 +1292,7 @@ class EnvironmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1368,7 +1368,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def validate_path(
+    async def validate_path(
         self,
         validate_path_dto: Annotated[ValidatePathDto, Field(description="Validate request object.")],
         _request_timeout: Union[
@@ -1425,11 +1425,11 @@ class EnvironmentApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1437,7 +1437,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def validate_path_with_http_info(
+    async def validate_path_with_http_info(
         self,
         validate_path_dto: Annotated[ValidatePathDto, Field(description="Validate request object.")],
         _request_timeout: Union[
@@ -1494,11 +1494,11 @@ class EnvironmentApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1506,7 +1506,7 @@ class EnvironmentApi:
 
 
     @validate_call
-    def validate_path_without_preload_content(
+    async def validate_path_without_preload_content(
         self,
         validate_path_dto: Annotated[ValidatePathDto, Field(description="Validate request object.")],
         _request_timeout: Union[
@@ -1563,7 +1563,7 @@ class EnvironmentApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

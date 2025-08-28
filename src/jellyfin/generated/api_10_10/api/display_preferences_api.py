@@ -41,7 +41,7 @@ class DisplayPreferencesApi:
 
 
     @validate_call
-    def get_display_preferences(
+    async def get_display_preferences(
         self,
         display_preferences_id: Annotated[StrictStr, Field(description="Display preferences id.")],
         client: Annotated[StrictStr, Field(description="Client.")],
@@ -105,11 +105,11 @@ class DisplayPreferencesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -117,7 +117,7 @@ class DisplayPreferencesApi:
 
 
     @validate_call
-    def get_display_preferences_with_http_info(
+    async def get_display_preferences_with_http_info(
         self,
         display_preferences_id: Annotated[StrictStr, Field(description="Display preferences id.")],
         client: Annotated[StrictStr, Field(description="Client.")],
@@ -181,11 +181,11 @@ class DisplayPreferencesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -193,7 +193,7 @@ class DisplayPreferencesApi:
 
 
     @validate_call
-    def get_display_preferences_without_preload_content(
+    async def get_display_preferences_without_preload_content(
         self,
         display_preferences_id: Annotated[StrictStr, Field(description="Display preferences id.")],
         client: Annotated[StrictStr, Field(description="Client.")],
@@ -257,7 +257,7 @@ class DisplayPreferencesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -341,7 +341,7 @@ class DisplayPreferencesApi:
 
 
     @validate_call
-    def update_display_preferences(
+    async def update_display_preferences(
         self,
         display_preferences_id: Annotated[StrictStr, Field(description="Display preferences id.")],
         client: Annotated[StrictStr, Field(description="Client.")],
@@ -409,11 +409,11 @@ class DisplayPreferencesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -421,7 +421,7 @@ class DisplayPreferencesApi:
 
 
     @validate_call
-    def update_display_preferences_with_http_info(
+    async def update_display_preferences_with_http_info(
         self,
         display_preferences_id: Annotated[StrictStr, Field(description="Display preferences id.")],
         client: Annotated[StrictStr, Field(description="Client.")],
@@ -489,11 +489,11 @@ class DisplayPreferencesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -501,7 +501,7 @@ class DisplayPreferencesApi:
 
 
     @validate_call
-    def update_display_preferences_without_preload_content(
+    async def update_display_preferences_without_preload_content(
         self,
         display_preferences_id: Annotated[StrictStr, Field(description="Display preferences id.")],
         client: Annotated[StrictStr, Field(description="Client.")],
@@ -569,7 +569,7 @@ class DisplayPreferencesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

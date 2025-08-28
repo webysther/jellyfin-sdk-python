@@ -45,7 +45,7 @@ class PersonsApi:
 
 
     @validate_call
-    def get_person(
+    async def get_person(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -106,11 +106,11 @@ class PersonsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -118,7 +118,7 @@ class PersonsApi:
 
 
     @validate_call
-    def get_person_with_http_info(
+    async def get_person_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -179,11 +179,11 @@ class PersonsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -191,7 +191,7 @@ class PersonsApi:
 
 
     @validate_call
-    def get_person_without_preload_content(
+    async def get_person_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -252,7 +252,7 @@ class PersonsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -331,7 +331,7 @@ class PersonsApi:
 
 
     @validate_call
-    def get_persons(
+    async def get_persons(
         self,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
         search_term: Annotated[Optional[StrictStr], Field(description="The search term.")] = None,
@@ -435,11 +435,11 @@ class PersonsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -447,7 +447,7 @@ class PersonsApi:
 
 
     @validate_call
-    def get_persons_with_http_info(
+    async def get_persons_with_http_info(
         self,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
         search_term: Annotated[Optional[StrictStr], Field(description="The search term.")] = None,
@@ -551,11 +551,11 @@ class PersonsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -563,7 +563,7 @@ class PersonsApi:
 
 
     @validate_call
-    def get_persons_without_preload_content(
+    async def get_persons_without_preload_content(
         self,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
         search_term: Annotated[Optional[StrictStr], Field(description="The search term.")] = None,
@@ -667,7 +667,7 @@ class PersonsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

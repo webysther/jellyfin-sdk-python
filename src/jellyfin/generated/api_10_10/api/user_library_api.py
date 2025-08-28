@@ -46,7 +46,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def delete_user_item_rating(
+    async def delete_user_item_rating(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -106,11 +106,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -118,7 +118,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def delete_user_item_rating_with_http_info(
+    async def delete_user_item_rating_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -178,11 +178,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -190,7 +190,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def delete_user_item_rating_without_preload_content(
+    async def delete_user_item_rating_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -250,7 +250,7 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -329,7 +329,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_intros(
+    async def get_intros(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -389,11 +389,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -401,7 +401,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_intros_with_http_info(
+    async def get_intros_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -461,11 +461,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -473,7 +473,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_intros_without_preload_content(
+    async def get_intros_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -533,7 +533,7 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -612,7 +612,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_item(
+    async def get_item(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -672,11 +672,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -684,7 +684,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_item_with_http_info(
+    async def get_item_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -744,11 +744,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -756,7 +756,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_item_without_preload_content(
+    async def get_item_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -816,7 +816,7 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -895,7 +895,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_latest_media(
+    async def get_latest_media(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Specify this to localize the search to a specific item or folder. Omit to use the root.")] = None,
@@ -991,11 +991,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1003,7 +1003,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_latest_media_with_http_info(
+    async def get_latest_media_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Specify this to localize the search to a specific item or folder. Omit to use the root.")] = None,
@@ -1099,11 +1099,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1111,7 +1111,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_latest_media_without_preload_content(
+    async def get_latest_media_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Specify this to localize the search to a specific item or folder. Omit to use the root.")] = None,
@@ -1207,7 +1207,7 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1336,7 +1336,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_local_trailers(
+    async def get_local_trailers(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -1396,11 +1396,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1408,7 +1408,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_local_trailers_with_http_info(
+    async def get_local_trailers_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -1468,11 +1468,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1480,7 +1480,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_local_trailers_without_preload_content(
+    async def get_local_trailers_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -1540,7 +1540,7 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1619,7 +1619,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_root_folder(
+    async def get_root_folder(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         _request_timeout: Union[
@@ -1675,11 +1675,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1687,7 +1687,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_root_folder_with_http_info(
+    async def get_root_folder_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         _request_timeout: Union[
@@ -1743,11 +1743,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1755,7 +1755,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_root_folder_without_preload_content(
+    async def get_root_folder_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         _request_timeout: Union[
@@ -1811,7 +1811,7 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1887,7 +1887,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_special_features(
+    async def get_special_features(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -1947,11 +1947,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1959,7 +1959,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_special_features_with_http_info(
+    async def get_special_features_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2019,11 +2019,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2031,7 +2031,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def get_special_features_without_preload_content(
+    async def get_special_features_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2091,7 +2091,7 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2170,7 +2170,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def mark_favorite_item(
+    async def mark_favorite_item(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2230,11 +2230,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2242,7 +2242,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def mark_favorite_item_with_http_info(
+    async def mark_favorite_item_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2302,11 +2302,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2314,7 +2314,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def mark_favorite_item_without_preload_content(
+    async def mark_favorite_item_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2374,7 +2374,7 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2453,7 +2453,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def unmark_favorite_item(
+    async def unmark_favorite_item(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2513,11 +2513,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2525,7 +2525,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def unmark_favorite_item_with_http_info(
+    async def unmark_favorite_item_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2585,11 +2585,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2597,7 +2597,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def unmark_favorite_item_without_preload_content(
+    async def unmark_favorite_item_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2657,7 +2657,7 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2736,7 +2736,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def update_user_item_rating(
+    async def update_user_item_rating(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2800,11 +2800,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2812,7 +2812,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def update_user_item_rating_with_http_info(
+    async def update_user_item_rating_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2876,11 +2876,11 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2888,7 +2888,7 @@ class UserLibraryApi:
 
 
     @validate_call
-    def update_user_item_rating_without_preload_content(
+    async def update_user_item_rating_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -2952,7 +2952,7 @@ class UserLibraryApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

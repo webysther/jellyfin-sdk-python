@@ -43,7 +43,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def delete_subtitle(
+    async def delete_subtitle(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         index: Annotated[StrictInt, Field(description="The index of the subtitle file.")],
@@ -104,11 +104,11 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -116,7 +116,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def delete_subtitle_with_http_info(
+    async def delete_subtitle_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         index: Annotated[StrictInt, Field(description="The index of the subtitle file.")],
@@ -177,11 +177,11 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -189,7 +189,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def delete_subtitle_without_preload_content(
+    async def delete_subtitle_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         index: Annotated[StrictInt, Field(description="The index of the subtitle file.")],
@@ -250,7 +250,7 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -327,7 +327,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def download_remote_subtitles(
+    async def download_remote_subtitles(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         subtitle_id: Annotated[StrictStr, Field(description="The subtitle id.")],
@@ -388,11 +388,11 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -400,7 +400,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def download_remote_subtitles_with_http_info(
+    async def download_remote_subtitles_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         subtitle_id: Annotated[StrictStr, Field(description="The subtitle id.")],
@@ -461,11 +461,11 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -473,7 +473,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def download_remote_subtitles_without_preload_content(
+    async def download_remote_subtitles_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         subtitle_id: Annotated[StrictStr, Field(description="The subtitle id.")],
@@ -534,7 +534,7 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -611,7 +611,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_fallback_font(
+    async def get_fallback_font(
         self,
         name: Annotated[StrictStr, Field(description="The name of the fallback font file to get.")],
         _request_timeout: Union[
@@ -667,11 +667,11 @@ class SubtitleApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -679,7 +679,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_fallback_font_with_http_info(
+    async def get_fallback_font_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="The name of the fallback font file to get.")],
         _request_timeout: Union[
@@ -735,11 +735,11 @@ class SubtitleApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -747,7 +747,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_fallback_font_without_preload_content(
+    async def get_fallback_font_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="The name of the fallback font file to get.")],
         _request_timeout: Union[
@@ -803,7 +803,7 @@ class SubtitleApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -875,7 +875,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_fallback_font_list(
+    async def get_fallback_font_list(
         self,
         _request_timeout: Union[
             None,
@@ -927,11 +927,11 @@ class SubtitleApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -939,7 +939,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_fallback_font_list_with_http_info(
+    async def get_fallback_font_list_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -991,11 +991,11 @@ class SubtitleApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1003,7 +1003,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_fallback_font_list_without_preload_content(
+    async def get_fallback_font_list_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1055,7 +1055,7 @@ class SubtitleApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1126,7 +1126,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_remote_subtitles(
+    async def get_remote_subtitles(
         self,
         subtitle_id: Annotated[StrictStr, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1182,11 +1182,11 @@ class SubtitleApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1194,7 +1194,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_remote_subtitles_with_http_info(
+    async def get_remote_subtitles_with_http_info(
         self,
         subtitle_id: Annotated[StrictStr, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1250,11 +1250,11 @@ class SubtitleApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1262,7 +1262,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_remote_subtitles_without_preload_content(
+    async def get_remote_subtitles_without_preload_content(
         self,
         subtitle_id: Annotated[StrictStr, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1318,7 +1318,7 @@ class SubtitleApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1390,7 +1390,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_subtitle(
+    async def get_subtitle(
         self,
         route_item_id: Annotated[UUID, Field(description="The (route) item id.")],
         route_media_source_id: Annotated[StrictStr, Field(description="The (route) media source id.")],
@@ -1488,11 +1488,11 @@ class SubtitleApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1500,7 +1500,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_subtitle_with_http_info(
+    async def get_subtitle_with_http_info(
         self,
         route_item_id: Annotated[UUID, Field(description="The (route) item id.")],
         route_media_source_id: Annotated[StrictStr, Field(description="The (route) media source id.")],
@@ -1598,11 +1598,11 @@ class SubtitleApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1610,7 +1610,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_subtitle_without_preload_content(
+    async def get_subtitle_without_preload_content(
         self,
         route_item_id: Annotated[UUID, Field(description="The (route) item id.")],
         route_media_source_id: Annotated[StrictStr, Field(description="The (route) media source id.")],
@@ -1708,7 +1708,7 @@ class SubtitleApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1828,7 +1828,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_subtitle_playlist(
+    async def get_subtitle_playlist(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         index: Annotated[StrictInt, Field(description="The subtitle stream index.")],
@@ -1897,11 +1897,11 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1909,7 +1909,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_subtitle_playlist_with_http_info(
+    async def get_subtitle_playlist_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         index: Annotated[StrictInt, Field(description="The subtitle stream index.")],
@@ -1978,11 +1978,11 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1990,7 +1990,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_subtitle_playlist_without_preload_content(
+    async def get_subtitle_playlist_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         index: Annotated[StrictInt, Field(description="The subtitle stream index.")],
@@ -2059,7 +2059,7 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2145,7 +2145,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_subtitle_with_ticks(
+    async def get_subtitle_with_ticks(
         self,
         route_item_id: Annotated[UUID, Field(description="The (route) item id.")],
         route_media_source_id: Annotated[StrictStr, Field(description="The (route) media source id.")],
@@ -2247,11 +2247,11 @@ class SubtitleApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2259,7 +2259,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_subtitle_with_ticks_with_http_info(
+    async def get_subtitle_with_ticks_with_http_info(
         self,
         route_item_id: Annotated[UUID, Field(description="The (route) item id.")],
         route_media_source_id: Annotated[StrictStr, Field(description="The (route) media source id.")],
@@ -2361,11 +2361,11 @@ class SubtitleApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2373,7 +2373,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def get_subtitle_with_ticks_without_preload_content(
+    async def get_subtitle_with_ticks_without_preload_content(
         self,
         route_item_id: Annotated[UUID, Field(description="The (route) item id.")],
         route_media_source_id: Annotated[StrictStr, Field(description="The (route) media source id.")],
@@ -2475,7 +2475,7 @@ class SubtitleApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2598,7 +2598,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def search_remote_subtitles(
+    async def search_remote_subtitles(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         language: Annotated[StrictStr, Field(description="The language of the subtitles.")],
@@ -2663,11 +2663,11 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2675,7 +2675,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def search_remote_subtitles_with_http_info(
+    async def search_remote_subtitles_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         language: Annotated[StrictStr, Field(description="The language of the subtitles.")],
@@ -2740,11 +2740,11 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2752,7 +2752,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def search_remote_subtitles_without_preload_content(
+    async def search_remote_subtitles_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         language: Annotated[StrictStr, Field(description="The language of the subtitles.")],
@@ -2817,7 +2817,7 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2899,7 +2899,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def upload_subtitle(
+    async def upload_subtitle(
         self,
         item_id: Annotated[UUID, Field(description="The item the subtitle belongs to.")],
         upload_subtitle_dto: Annotated[UploadSubtitleDto, Field(description="The request body.")],
@@ -2960,11 +2960,11 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2972,7 +2972,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def upload_subtitle_with_http_info(
+    async def upload_subtitle_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item the subtitle belongs to.")],
         upload_subtitle_dto: Annotated[UploadSubtitleDto, Field(description="The request body.")],
@@ -3033,11 +3033,11 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3045,7 +3045,7 @@ class SubtitleApi:
 
 
     @validate_call
-    def upload_subtitle_without_preload_content(
+    async def upload_subtitle_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item the subtitle belongs to.")],
         upload_subtitle_dto: Annotated[UploadSubtitleDto, Field(description="The request body.")],
@@ -3106,7 +3106,7 @@ class SubtitleApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

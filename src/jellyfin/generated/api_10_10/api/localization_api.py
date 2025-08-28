@@ -41,7 +41,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_countries(
+    async def get_countries(
         self,
         _request_timeout: Union[
             None,
@@ -93,11 +93,11 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -105,7 +105,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_countries_with_http_info(
+    async def get_countries_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -157,11 +157,11 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -169,7 +169,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_countries_without_preload_content(
+    async def get_countries_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -221,7 +221,7 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -292,7 +292,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_cultures(
+    async def get_cultures(
         self,
         _request_timeout: Union[
             None,
@@ -344,11 +344,11 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -356,7 +356,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_cultures_with_http_info(
+    async def get_cultures_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -408,11 +408,11 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -420,7 +420,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_cultures_without_preload_content(
+    async def get_cultures_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -472,7 +472,7 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -543,7 +543,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_localization_options(
+    async def get_localization_options(
         self,
         _request_timeout: Union[
             None,
@@ -595,11 +595,11 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -607,7 +607,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_localization_options_with_http_info(
+    async def get_localization_options_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -659,11 +659,11 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -671,7 +671,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_localization_options_without_preload_content(
+    async def get_localization_options_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -723,7 +723,7 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -794,7 +794,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_parental_ratings(
+    async def get_parental_ratings(
         self,
         _request_timeout: Union[
             None,
@@ -846,11 +846,11 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -858,7 +858,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_parental_ratings_with_http_info(
+    async def get_parental_ratings_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -910,11 +910,11 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -922,7 +922,7 @@ class LocalizationApi:
 
 
     @validate_call
-    def get_parental_ratings_without_preload_content(
+    async def get_parental_ratings_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -974,7 +974,7 @@ class LocalizationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

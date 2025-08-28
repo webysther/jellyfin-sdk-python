@@ -42,7 +42,7 @@ class MoviesApi:
 
 
     @validate_call
-    def get_movie_recommendations(
+    async def get_movie_recommendations(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Specify this to localize the search to a specific item or folder. Omit to use the root.")] = None,
@@ -114,11 +114,11 @@ class MoviesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -126,7 +126,7 @@ class MoviesApi:
 
 
     @validate_call
-    def get_movie_recommendations_with_http_info(
+    async def get_movie_recommendations_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Specify this to localize the search to a specific item or folder. Omit to use the root.")] = None,
@@ -198,11 +198,11 @@ class MoviesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -210,7 +210,7 @@ class MoviesApi:
 
 
     @validate_call
-    def get_movie_recommendations_without_preload_content(
+    async def get_movie_recommendations_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Specify this to localize the search to a specific item or folder. Omit to use the root.")] = None,
@@ -282,7 +282,7 @@ class MoviesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

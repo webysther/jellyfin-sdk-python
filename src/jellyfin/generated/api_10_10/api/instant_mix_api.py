@@ -43,7 +43,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_album(
+    async def get_instant_mix_from_album(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -128,11 +128,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -140,7 +140,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_album_with_http_info(
+    async def get_instant_mix_from_album_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -225,11 +225,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -237,7 +237,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_album_without_preload_content(
+    async def get_instant_mix_from_album_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -322,7 +322,7 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -433,7 +433,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_artists(
+    async def get_instant_mix_from_artists(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -518,11 +518,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -530,7 +530,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_artists_with_http_info(
+    async def get_instant_mix_from_artists_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -615,11 +615,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -627,7 +627,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_artists_without_preload_content(
+    async def get_instant_mix_from_artists_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -712,7 +712,7 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -823,7 +823,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_artists2(
+    async def get_instant_mix_from_artists2(
         self,
         id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -909,11 +909,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -921,7 +921,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_artists2_with_http_info(
+    async def get_instant_mix_from_artists2_with_http_info(
         self,
         id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -1007,11 +1007,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1019,7 +1019,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_artists2_without_preload_content(
+    async def get_instant_mix_from_artists2_without_preload_content(
         self,
         id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -1105,7 +1105,7 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1218,7 +1218,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_item(
+    async def get_instant_mix_from_item(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -1303,11 +1303,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1315,7 +1315,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_item_with_http_info(
+    async def get_instant_mix_from_item_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -1400,11 +1400,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1412,7 +1412,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_item_without_preload_content(
+    async def get_instant_mix_from_item_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -1497,7 +1497,7 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1608,7 +1608,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_music_genre_by_id(
+    async def get_instant_mix_from_music_genre_by_id(
         self,
         id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -1693,11 +1693,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1705,7 +1705,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_music_genre_by_id_with_http_info(
+    async def get_instant_mix_from_music_genre_by_id_with_http_info(
         self,
         id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -1790,11 +1790,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1802,7 +1802,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_music_genre_by_id_without_preload_content(
+    async def get_instant_mix_from_music_genre_by_id_without_preload_content(
         self,
         id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -1887,7 +1887,7 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2000,7 +2000,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_music_genre_by_name(
+    async def get_instant_mix_from_music_genre_by_name(
         self,
         name: Annotated[StrictStr, Field(description="The genre name.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -2084,11 +2084,11 @@ class InstantMixApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2096,7 +2096,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_music_genre_by_name_with_http_info(
+    async def get_instant_mix_from_music_genre_by_name_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="The genre name.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -2180,11 +2180,11 @@ class InstantMixApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2192,7 +2192,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_music_genre_by_name_without_preload_content(
+    async def get_instant_mix_from_music_genre_by_name_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="The genre name.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -2276,7 +2276,7 @@ class InstantMixApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2387,7 +2387,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_playlist(
+    async def get_instant_mix_from_playlist(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -2472,11 +2472,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2484,7 +2484,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_playlist_with_http_info(
+    async def get_instant_mix_from_playlist_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -2569,11 +2569,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2581,7 +2581,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_playlist_without_preload_content(
+    async def get_instant_mix_from_playlist_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -2666,7 +2666,7 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2777,7 +2777,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_song(
+    async def get_instant_mix_from_song(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -2862,11 +2862,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2874,7 +2874,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_song_with_http_info(
+    async def get_instant_mix_from_song_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -2959,11 +2959,11 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2971,7 +2971,7 @@ class InstantMixApi:
 
 
     @validate_call
-    def get_instant_mix_from_song_without_preload_content(
+    async def get_instant_mix_from_song_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -3056,7 +3056,7 @@ class InstantMixApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

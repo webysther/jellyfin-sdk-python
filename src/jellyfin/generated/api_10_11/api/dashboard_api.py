@@ -40,7 +40,7 @@ class DashboardApi:
 
 
     @validate_call
-    def get_configuration_pages(
+    async def get_configuration_pages(
         self,
         enable_in_main_menu: Annotated[Optional[StrictBool], Field(description="Whether to enable in the main menu.")] = None,
         _request_timeout: Union[
@@ -98,11 +98,11 @@ class DashboardApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -110,7 +110,7 @@ class DashboardApi:
 
 
     @validate_call
-    def get_configuration_pages_with_http_info(
+    async def get_configuration_pages_with_http_info(
         self,
         enable_in_main_menu: Annotated[Optional[StrictBool], Field(description="Whether to enable in the main menu.")] = None,
         _request_timeout: Union[
@@ -168,11 +168,11 @@ class DashboardApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -180,7 +180,7 @@ class DashboardApi:
 
 
     @validate_call
-    def get_configuration_pages_without_preload_content(
+    async def get_configuration_pages_without_preload_content(
         self,
         enable_in_main_menu: Annotated[Optional[StrictBool], Field(description="Whether to enable in the main menu.")] = None,
         _request_timeout: Union[
@@ -238,7 +238,7 @@ class DashboardApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -315,7 +315,7 @@ class DashboardApi:
 
 
     @validate_call
-    def get_dashboard_configuration_page(
+    async def get_dashboard_configuration_page(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the page.")] = None,
         _request_timeout: Union[
@@ -371,11 +371,11 @@ class DashboardApi:
             '404': "ProblemDetails",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -383,7 +383,7 @@ class DashboardApi:
 
 
     @validate_call
-    def get_dashboard_configuration_page_with_http_info(
+    async def get_dashboard_configuration_page_with_http_info(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the page.")] = None,
         _request_timeout: Union[
@@ -439,11 +439,11 @@ class DashboardApi:
             '404': "ProblemDetails",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -451,7 +451,7 @@ class DashboardApi:
 
 
     @validate_call
-    def get_dashboard_configuration_page_without_preload_content(
+    async def get_dashboard_configuration_page_without_preload_content(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the page.")] = None,
         _request_timeout: Union[
@@ -507,7 +507,7 @@ class DashboardApi:
             '404': "ProblemDetails",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

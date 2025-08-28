@@ -43,7 +43,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_search_hints(
+    async def get_search_hints(
         self,
         search_term: Annotated[StrictStr, Field(description="The search term to filter on.")],
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -167,11 +167,11 @@ class SearchApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -179,7 +179,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_search_hints_with_http_info(
+    async def get_search_hints_with_http_info(
         self,
         search_term: Annotated[StrictStr, Field(description="The search term to filter on.")],
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -303,11 +303,11 @@ class SearchApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -315,7 +315,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_search_hints_without_preload_content(
+    async def get_search_hints_without_preload_content(
         self,
         search_term: Annotated[StrictStr, Field(description="The search term to filter on.")],
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -439,7 +439,7 @@ class SearchApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

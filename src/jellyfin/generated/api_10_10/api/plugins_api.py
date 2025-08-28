@@ -41,7 +41,7 @@ class PluginsApi:
 
 
     @validate_call
-    def disable_plugin(
+    async def disable_plugin(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -102,11 +102,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -114,7 +114,7 @@ class PluginsApi:
 
 
     @validate_call
-    def disable_plugin_with_http_info(
+    async def disable_plugin_with_http_info(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -175,11 +175,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -187,7 +187,7 @@ class PluginsApi:
 
 
     @validate_call
-    def disable_plugin_without_preload_content(
+    async def disable_plugin_without_preload_content(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -248,7 +248,7 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -325,7 +325,7 @@ class PluginsApi:
 
 
     @validate_call
-    def enable_plugin(
+    async def enable_plugin(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -386,11 +386,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -398,7 +398,7 @@ class PluginsApi:
 
 
     @validate_call
-    def enable_plugin_with_http_info(
+    async def enable_plugin_with_http_info(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -459,11 +459,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -471,7 +471,7 @@ class PluginsApi:
 
 
     @validate_call
-    def enable_plugin_without_preload_content(
+    async def enable_plugin_without_preload_content(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -532,7 +532,7 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -609,7 +609,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugin_configuration(
+    async def get_plugin_configuration(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -666,11 +666,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -678,7 +678,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugin_configuration_with_http_info(
+    async def get_plugin_configuration_with_http_info(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -735,11 +735,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -747,7 +747,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugin_configuration_without_preload_content(
+    async def get_plugin_configuration_without_preload_content(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -804,7 +804,7 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -878,7 +878,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugin_image(
+    async def get_plugin_image(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -939,11 +939,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -951,7 +951,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugin_image_with_http_info(
+    async def get_plugin_image_with_http_info(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -1012,11 +1012,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1024,7 +1024,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugin_image_without_preload_content(
+    async def get_plugin_image_without_preload_content(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -1085,7 +1085,7 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1163,7 +1163,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugin_manifest(
+    async def get_plugin_manifest(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -1220,11 +1220,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1232,7 +1232,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugin_manifest_with_http_info(
+    async def get_plugin_manifest_with_http_info(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -1289,11 +1289,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1301,7 +1301,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugin_manifest_without_preload_content(
+    async def get_plugin_manifest_without_preload_content(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -1358,7 +1358,7 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1432,7 +1432,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugins(
+    async def get_plugins(
         self,
         _request_timeout: Union[
             None,
@@ -1484,11 +1484,11 @@ class PluginsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1496,7 +1496,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugins_with_http_info(
+    async def get_plugins_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1548,11 +1548,11 @@ class PluginsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1560,7 +1560,7 @@ class PluginsApi:
 
 
     @validate_call
-    def get_plugins_without_preload_content(
+    async def get_plugins_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1612,7 +1612,7 @@ class PluginsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1683,7 +1683,7 @@ class PluginsApi:
 
 
     @validate_call
-    def uninstall_plugin(
+    async def uninstall_plugin(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -1741,11 +1741,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1753,7 +1753,7 @@ class PluginsApi:
 
 
     @validate_call
-    def uninstall_plugin_with_http_info(
+    async def uninstall_plugin_with_http_info(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -1811,11 +1811,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1823,7 +1823,7 @@ class PluginsApi:
 
 
     @validate_call
-    def uninstall_plugin_without_preload_content(
+    async def uninstall_plugin_without_preload_content(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -1881,7 +1881,7 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1955,7 +1955,7 @@ class PluginsApi:
 
 
     @validate_call
-    def uninstall_plugin_by_version(
+    async def uninstall_plugin_by_version(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -2016,11 +2016,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2028,7 +2028,7 @@ class PluginsApi:
 
 
     @validate_call
-    def uninstall_plugin_by_version_with_http_info(
+    async def uninstall_plugin_by_version_with_http_info(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -2089,11 +2089,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2101,7 +2101,7 @@ class PluginsApi:
 
 
     @validate_call
-    def uninstall_plugin_by_version_without_preload_content(
+    async def uninstall_plugin_by_version_without_preload_content(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         version: Annotated[StrictStr, Field(description="Plugin version.")],
@@ -2162,7 +2162,7 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2239,7 +2239,7 @@ class PluginsApi:
 
 
     @validate_call
-    def update_plugin_configuration(
+    async def update_plugin_configuration(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -2297,11 +2297,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2309,7 +2309,7 @@ class PluginsApi:
 
 
     @validate_call
-    def update_plugin_configuration_with_http_info(
+    async def update_plugin_configuration_with_http_info(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -2367,11 +2367,11 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2379,7 +2379,7 @@ class PluginsApi:
 
 
     @validate_call
-    def update_plugin_configuration_without_preload_content(
+    async def update_plugin_configuration_without_preload_content(
         self,
         plugin_id: Annotated[UUID, Field(description="Plugin id.")],
         _request_timeout: Union[
@@ -2437,7 +2437,7 @@ class PluginsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

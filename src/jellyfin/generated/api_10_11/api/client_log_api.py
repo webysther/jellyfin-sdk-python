@@ -39,7 +39,7 @@ class ClientLogApi:
 
 
     @validate_call
-    def log_file(
+    async def log_file(
         self,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
         _request_timeout: Union[
@@ -97,11 +97,11 @@ class ClientLogApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -109,7 +109,7 @@ class ClientLogApi:
 
 
     @validate_call
-    def log_file_with_http_info(
+    async def log_file_with_http_info(
         self,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
         _request_timeout: Union[
@@ -167,11 +167,11 @@ class ClientLogApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -179,7 +179,7 @@ class ClientLogApi:
 
 
     @validate_call
-    def log_file_without_preload_content(
+    async def log_file_without_preload_content(
         self,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
         _request_timeout: Union[
@@ -237,7 +237,7 @@ class ClientLogApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

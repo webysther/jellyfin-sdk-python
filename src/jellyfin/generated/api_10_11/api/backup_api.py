@@ -42,7 +42,7 @@ class BackupApi:
 
 
     @validate_call
-    def create_backup(
+    async def create_backup(
         self,
         backup_options_dto: Annotated[Optional[BackupOptionsDto], Field(description="The backup options.")] = None,
         _request_timeout: Union[
@@ -99,11 +99,11 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -111,7 +111,7 @@ class BackupApi:
 
 
     @validate_call
-    def create_backup_with_http_info(
+    async def create_backup_with_http_info(
         self,
         backup_options_dto: Annotated[Optional[BackupOptionsDto], Field(description="The backup options.")] = None,
         _request_timeout: Union[
@@ -168,11 +168,11 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -180,7 +180,7 @@ class BackupApi:
 
 
     @validate_call
-    def create_backup_without_preload_content(
+    async def create_backup_without_preload_content(
         self,
         backup_options_dto: Annotated[Optional[BackupOptionsDto], Field(description="The backup options.")] = None,
         _request_timeout: Union[
@@ -237,7 +237,7 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -327,7 +327,7 @@ class BackupApi:
 
 
     @validate_call
-    def get_backup(
+    async def get_backup(
         self,
         path: Annotated[StrictStr, Field(description="The data to start a restore process.")],
         _request_timeout: Union[
@@ -386,11 +386,11 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -398,7 +398,7 @@ class BackupApi:
 
 
     @validate_call
-    def get_backup_with_http_info(
+    async def get_backup_with_http_info(
         self,
         path: Annotated[StrictStr, Field(description="The data to start a restore process.")],
         _request_timeout: Union[
@@ -457,11 +457,11 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -469,7 +469,7 @@ class BackupApi:
 
 
     @validate_call
-    def get_backup_without_preload_content(
+    async def get_backup_without_preload_content(
         self,
         path: Annotated[StrictStr, Field(description="The data to start a restore process.")],
         _request_timeout: Union[
@@ -528,7 +528,7 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -605,7 +605,7 @@ class BackupApi:
 
 
     @validate_call
-    def list_backups(
+    async def list_backups(
         self,
         _request_timeout: Union[
             None,
@@ -658,11 +658,11 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -670,7 +670,7 @@ class BackupApi:
 
 
     @validate_call
-    def list_backups_with_http_info(
+    async def list_backups_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -723,11 +723,11 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -735,7 +735,7 @@ class BackupApi:
 
 
     @validate_call
-    def list_backups_without_preload_content(
+    async def list_backups_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -788,7 +788,7 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -860,7 +860,7 @@ class BackupApi:
 
 
     @validate_call
-    def start_restore_backup(
+    async def start_restore_backup(
         self,
         backup_restore_request_dto: Annotated[BackupRestoreRequestDto, Field(description="The data to start a restore process.")],
         _request_timeout: Union[
@@ -918,11 +918,11 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -930,7 +930,7 @@ class BackupApi:
 
 
     @validate_call
-    def start_restore_backup_with_http_info(
+    async def start_restore_backup_with_http_info(
         self,
         backup_restore_request_dto: Annotated[BackupRestoreRequestDto, Field(description="The data to start a restore process.")],
         _request_timeout: Union[
@@ -988,11 +988,11 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1000,7 +1000,7 @@ class BackupApi:
 
 
     @validate_call
-    def start_restore_backup_without_preload_content(
+    async def start_restore_backup_without_preload_content(
         self,
         backup_restore_request_dto: Annotated[BackupRestoreRequestDto, Field(description="The data to start a restore process.")],
         _request_timeout: Union[
@@ -1058,7 +1058,7 @@ class BackupApi:
             '503': None,
             '401': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

@@ -42,7 +42,7 @@ class RemoteImageApi:
 
 
     @validate_call
-    def download_remote_image(
+    async def download_remote_image(
         self,
         item_id: Annotated[UUID, Field(description="Item Id.")],
         type: Annotated[StrictStr, Field(description="The image type.")],
@@ -108,11 +108,11 @@ class RemoteImageApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -120,7 +120,7 @@ class RemoteImageApi:
 
 
     @validate_call
-    def download_remote_image_with_http_info(
+    async def download_remote_image_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item Id.")],
         type: Annotated[StrictStr, Field(description="The image type.")],
@@ -186,11 +186,11 @@ class RemoteImageApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -198,7 +198,7 @@ class RemoteImageApi:
 
 
     @validate_call
-    def download_remote_image_without_preload_content(
+    async def download_remote_image_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item Id.")],
         type: Annotated[StrictStr, Field(description="The image type.")],
@@ -264,7 +264,7 @@ class RemoteImageApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -349,7 +349,7 @@ class RemoteImageApi:
 
 
     @validate_call
-    def get_remote_image_providers(
+    async def get_remote_image_providers(
         self,
         item_id: Annotated[UUID, Field(description="Item Id.")],
         _request_timeout: Union[
@@ -407,11 +407,11 @@ class RemoteImageApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -419,7 +419,7 @@ class RemoteImageApi:
 
 
     @validate_call
-    def get_remote_image_providers_with_http_info(
+    async def get_remote_image_providers_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item Id.")],
         _request_timeout: Union[
@@ -477,11 +477,11 @@ class RemoteImageApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -489,7 +489,7 @@ class RemoteImageApi:
 
 
     @validate_call
-    def get_remote_image_providers_without_preload_content(
+    async def get_remote_image_providers_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item Id.")],
         _request_timeout: Union[
@@ -547,7 +547,7 @@ class RemoteImageApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -622,7 +622,7 @@ class RemoteImageApi:
 
 
     @validate_call
-    def get_remote_images(
+    async def get_remote_images(
         self,
         item_id: Annotated[UUID, Field(description="Item Id.")],
         type: Annotated[Optional[StrictStr], Field(description="The image type.")] = None,
@@ -700,11 +700,11 @@ class RemoteImageApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -712,7 +712,7 @@ class RemoteImageApi:
 
 
     @validate_call
-    def get_remote_images_with_http_info(
+    async def get_remote_images_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item Id.")],
         type: Annotated[Optional[StrictStr], Field(description="The image type.")] = None,
@@ -790,11 +790,11 @@ class RemoteImageApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -802,7 +802,7 @@ class RemoteImageApi:
 
 
     @validate_call
-    def get_remote_images_without_preload_content(
+    async def get_remote_images_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item Id.")],
         type: Annotated[Optional[StrictStr], Field(description="The image type.")] = None,
@@ -880,7 +880,7 @@ class RemoteImageApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

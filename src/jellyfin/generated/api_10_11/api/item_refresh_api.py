@@ -40,7 +40,7 @@ class ItemRefreshApi:
 
 
     @validate_call
-    def refresh_item(
+    async def refresh_item(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         metadata_refresh_mode: Annotated[Optional[StrictStr], Field(description="(Optional) Specifies the metadata refresh mode.")] = None,
@@ -118,11 +118,11 @@ class ItemRefreshApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -130,7 +130,7 @@ class ItemRefreshApi:
 
 
     @validate_call
-    def refresh_item_with_http_info(
+    async def refresh_item_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         metadata_refresh_mode: Annotated[Optional[StrictStr], Field(description="(Optional) Specifies the metadata refresh mode.")] = None,
@@ -208,11 +208,11 @@ class ItemRefreshApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -220,7 +220,7 @@ class ItemRefreshApi:
 
 
     @validate_call
-    def refresh_item_without_preload_content(
+    async def refresh_item_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         metadata_refresh_mode: Annotated[Optional[StrictStr], Field(description="(Optional) Specifies the metadata refresh mode.")] = None,
@@ -298,7 +298,7 @@ class ItemRefreshApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

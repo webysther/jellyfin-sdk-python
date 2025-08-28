@@ -39,7 +39,7 @@ class ApiKeyApi:
 
 
     @validate_call
-    def create_key(
+    async def create_key(
         self,
         app: Annotated[StrictStr, Field(description="Name of the app using the authentication key.")],
         _request_timeout: Union[
@@ -96,11 +96,11 @@ class ApiKeyApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -108,7 +108,7 @@ class ApiKeyApi:
 
 
     @validate_call
-    def create_key_with_http_info(
+    async def create_key_with_http_info(
         self,
         app: Annotated[StrictStr, Field(description="Name of the app using the authentication key.")],
         _request_timeout: Union[
@@ -165,11 +165,11 @@ class ApiKeyApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -177,7 +177,7 @@ class ApiKeyApi:
 
 
     @validate_call
-    def create_key_without_preload_content(
+    async def create_key_without_preload_content(
         self,
         app: Annotated[StrictStr, Field(description="Name of the app using the authentication key.")],
         _request_timeout: Union[
@@ -234,7 +234,7 @@ class ApiKeyApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -308,7 +308,7 @@ class ApiKeyApi:
 
 
     @validate_call
-    def get_keys(
+    async def get_keys(
         self,
         _request_timeout: Union[
             None,
@@ -361,11 +361,11 @@ class ApiKeyApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -373,7 +373,7 @@ class ApiKeyApi:
 
 
     @validate_call
-    def get_keys_with_http_info(
+    async def get_keys_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -426,11 +426,11 @@ class ApiKeyApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -438,7 +438,7 @@ class ApiKeyApi:
 
 
     @validate_call
-    def get_keys_without_preload_content(
+    async def get_keys_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -491,7 +491,7 @@ class ApiKeyApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -563,7 +563,7 @@ class ApiKeyApi:
 
 
     @validate_call
-    def revoke_key(
+    async def revoke_key(
         self,
         key: Annotated[StrictStr, Field(description="The access token to delete.")],
         _request_timeout: Union[
@@ -620,11 +620,11 @@ class ApiKeyApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -632,7 +632,7 @@ class ApiKeyApi:
 
 
     @validate_call
-    def revoke_key_with_http_info(
+    async def revoke_key_with_http_info(
         self,
         key: Annotated[StrictStr, Field(description="The access token to delete.")],
         _request_timeout: Union[
@@ -689,11 +689,11 @@ class ApiKeyApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -701,7 +701,7 @@ class ApiKeyApi:
 
 
     @validate_call
-    def revoke_key_without_preload_content(
+    async def revoke_key_without_preload_content(
         self,
         key: Annotated[StrictStr, Field(description="The access token to delete.")],
         _request_timeout: Union[
@@ -758,7 +758,7 @@ class ApiKeyApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

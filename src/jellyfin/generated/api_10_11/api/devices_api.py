@@ -43,7 +43,7 @@ class DevicesApi:
 
 
     @validate_call
-    def delete_device(
+    async def delete_device(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         _request_timeout: Union[
@@ -101,11 +101,11 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -113,7 +113,7 @@ class DevicesApi:
 
 
     @validate_call
-    def delete_device_with_http_info(
+    async def delete_device_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         _request_timeout: Union[
@@ -171,11 +171,11 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -183,7 +183,7 @@ class DevicesApi:
 
 
     @validate_call
-    def delete_device_without_preload_content(
+    async def delete_device_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         _request_timeout: Union[
@@ -241,7 +241,7 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -318,7 +318,7 @@ class DevicesApi:
 
 
     @validate_call
-    def get_device_info(
+    async def get_device_info(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         _request_timeout: Union[
@@ -376,11 +376,11 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -388,7 +388,7 @@ class DevicesApi:
 
 
     @validate_call
-    def get_device_info_with_http_info(
+    async def get_device_info_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         _request_timeout: Union[
@@ -446,11 +446,11 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -458,7 +458,7 @@ class DevicesApi:
 
 
     @validate_call
-    def get_device_info_without_preload_content(
+    async def get_device_info_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         _request_timeout: Union[
@@ -516,7 +516,7 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -593,7 +593,7 @@ class DevicesApi:
 
 
     @validate_call
-    def get_device_options(
+    async def get_device_options(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         _request_timeout: Union[
@@ -651,11 +651,11 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -663,7 +663,7 @@ class DevicesApi:
 
 
     @validate_call
-    def get_device_options_with_http_info(
+    async def get_device_options_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         _request_timeout: Union[
@@ -721,11 +721,11 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -733,7 +733,7 @@ class DevicesApi:
 
 
     @validate_call
-    def get_device_options_without_preload_content(
+    async def get_device_options_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         _request_timeout: Union[
@@ -791,7 +791,7 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -868,7 +868,7 @@ class DevicesApi:
 
 
     @validate_call
-    def get_devices(
+    async def get_devices(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Gets or sets the user identifier.")] = None,
         _request_timeout: Union[
@@ -925,11 +925,11 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -937,7 +937,7 @@ class DevicesApi:
 
 
     @validate_call
-    def get_devices_with_http_info(
+    async def get_devices_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Gets or sets the user identifier.")] = None,
         _request_timeout: Union[
@@ -994,11 +994,11 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1006,7 +1006,7 @@ class DevicesApi:
 
 
     @validate_call
-    def get_devices_without_preload_content(
+    async def get_devices_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Gets or sets the user identifier.")] = None,
         _request_timeout: Union[
@@ -1063,7 +1063,7 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1140,7 +1140,7 @@ class DevicesApi:
 
 
     @validate_call
-    def update_device_options(
+    async def update_device_options(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         device_options_dto: Annotated[DeviceOptionsDto, Field(description="Device Options.")],
@@ -1201,11 +1201,11 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1213,7 +1213,7 @@ class DevicesApi:
 
 
     @validate_call
-    def update_device_options_with_http_info(
+    async def update_device_options_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         device_options_dto: Annotated[DeviceOptionsDto, Field(description="Device Options.")],
@@ -1274,11 +1274,11 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1286,7 +1286,7 @@ class DevicesApi:
 
 
     @validate_call
-    def update_device_options_without_preload_content(
+    async def update_device_options_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Device Id.")],
         device_options_dto: Annotated[DeviceOptionsDto, Field(description="Device Options.")],
@@ -1347,7 +1347,7 @@ class DevicesApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

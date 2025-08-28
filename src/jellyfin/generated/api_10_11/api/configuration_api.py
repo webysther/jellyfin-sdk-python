@@ -42,7 +42,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def get_configuration(
+    async def get_configuration(
         self,
         _request_timeout: Union[
             None,
@@ -95,11 +95,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -107,7 +107,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def get_configuration_with_http_info(
+    async def get_configuration_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -160,11 +160,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -172,7 +172,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def get_configuration_without_preload_content(
+    async def get_configuration_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -225,7 +225,7 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -297,7 +297,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def get_default_metadata_options(
+    async def get_default_metadata_options(
         self,
         _request_timeout: Union[
             None,
@@ -350,11 +350,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -362,7 +362,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def get_default_metadata_options_with_http_info(
+    async def get_default_metadata_options_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -415,11 +415,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -427,7 +427,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def get_default_metadata_options_without_preload_content(
+    async def get_default_metadata_options_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -480,7 +480,7 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -552,7 +552,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def get_named_configuration(
+    async def get_named_configuration(
         self,
         key: Annotated[StrictStr, Field(description="Configuration key.")],
         _request_timeout: Union[
@@ -609,11 +609,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -621,7 +621,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def get_named_configuration_with_http_info(
+    async def get_named_configuration_with_http_info(
         self,
         key: Annotated[StrictStr, Field(description="Configuration key.")],
         _request_timeout: Union[
@@ -678,11 +678,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -690,7 +690,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def get_named_configuration_without_preload_content(
+    async def get_named_configuration_without_preload_content(
         self,
         key: Annotated[StrictStr, Field(description="Configuration key.")],
         _request_timeout: Union[
@@ -747,7 +747,7 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -820,7 +820,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def update_branding_configuration(
+    async def update_branding_configuration(
         self,
         branding_options_dto: Annotated[BrandingOptionsDto, Field(description="Branding configuration.")],
         _request_timeout: Union[
@@ -877,11 +877,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -889,7 +889,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def update_branding_configuration_with_http_info(
+    async def update_branding_configuration_with_http_info(
         self,
         branding_options_dto: Annotated[BrandingOptionsDto, Field(description="Branding configuration.")],
         _request_timeout: Union[
@@ -946,11 +946,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -958,7 +958,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def update_branding_configuration_without_preload_content(
+    async def update_branding_configuration_without_preload_content(
         self,
         branding_options_dto: Annotated[BrandingOptionsDto, Field(description="Branding configuration.")],
         _request_timeout: Union[
@@ -1015,7 +1015,7 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1102,7 +1102,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def update_configuration(
+    async def update_configuration(
         self,
         server_configuration: Annotated[ServerConfiguration, Field(description="Configuration.")],
         _request_timeout: Union[
@@ -1159,11 +1159,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1171,7 +1171,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def update_configuration_with_http_info(
+    async def update_configuration_with_http_info(
         self,
         server_configuration: Annotated[ServerConfiguration, Field(description="Configuration.")],
         _request_timeout: Union[
@@ -1228,11 +1228,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1240,7 +1240,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def update_configuration_without_preload_content(
+    async def update_configuration_without_preload_content(
         self,
         server_configuration: Annotated[ServerConfiguration, Field(description="Configuration.")],
         _request_timeout: Union[
@@ -1297,7 +1297,7 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1384,7 +1384,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def update_named_configuration(
+    async def update_named_configuration(
         self,
         key: Annotated[StrictStr, Field(description="Configuration key.")],
         body: Annotated[Optional[Any], Field(description="Configuration.")],
@@ -1445,11 +1445,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1457,7 +1457,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def update_named_configuration_with_http_info(
+    async def update_named_configuration_with_http_info(
         self,
         key: Annotated[StrictStr, Field(description="Configuration key.")],
         body: Annotated[Optional[Any], Field(description="Configuration.")],
@@ -1518,11 +1518,11 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1530,7 +1530,7 @@ class ConfigurationApi:
 
 
     @validate_call
-    def update_named_configuration_without_preload_content(
+    async def update_named_configuration_without_preload_content(
         self,
         key: Annotated[StrictStr, Field(description="Configuration key.")],
         body: Annotated[Optional[Any], Field(description="Configuration.")],
@@ -1591,7 +1591,7 @@ class ConfigurationApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

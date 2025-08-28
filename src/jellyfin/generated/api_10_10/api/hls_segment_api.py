@@ -39,7 +39,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_audio_segment_legacy_aac(
+    async def get_hls_audio_segment_legacy_aac(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         segment_id: Annotated[StrictStr, Field(description="The segment id.")],
@@ -97,11 +97,11 @@ class HlsSegmentApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -109,7 +109,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_audio_segment_legacy_aac_with_http_info(
+    async def get_hls_audio_segment_legacy_aac_with_http_info(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         segment_id: Annotated[StrictStr, Field(description="The segment id.")],
@@ -167,11 +167,11 @@ class HlsSegmentApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -179,7 +179,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_audio_segment_legacy_aac_without_preload_content(
+    async def get_hls_audio_segment_legacy_aac_without_preload_content(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         segment_id: Annotated[StrictStr, Field(description="The segment id.")],
@@ -237,7 +237,7 @@ class HlsSegmentApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -311,7 +311,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_audio_segment_legacy_mp3(
+    async def get_hls_audio_segment_legacy_mp3(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         segment_id: Annotated[StrictStr, Field(description="The segment id.")],
@@ -369,11 +369,11 @@ class HlsSegmentApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -381,7 +381,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_audio_segment_legacy_mp3_with_http_info(
+    async def get_hls_audio_segment_legacy_mp3_with_http_info(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         segment_id: Annotated[StrictStr, Field(description="The segment id.")],
@@ -439,11 +439,11 @@ class HlsSegmentApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -451,7 +451,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_audio_segment_legacy_mp3_without_preload_content(
+    async def get_hls_audio_segment_legacy_mp3_without_preload_content(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         segment_id: Annotated[StrictStr, Field(description="The segment id.")],
@@ -509,7 +509,7 @@ class HlsSegmentApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -583,7 +583,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_playlist_legacy(
+    async def get_hls_playlist_legacy(
         self,
         item_id: Annotated[StrictStr, Field(description="The video id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -643,11 +643,11 @@ class HlsSegmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -655,7 +655,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_playlist_legacy_with_http_info(
+    async def get_hls_playlist_legacy_with_http_info(
         self,
         item_id: Annotated[StrictStr, Field(description="The video id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -715,11 +715,11 @@ class HlsSegmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -727,7 +727,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_playlist_legacy_without_preload_content(
+    async def get_hls_playlist_legacy_without_preload_content(
         self,
         item_id: Annotated[StrictStr, Field(description="The video id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -787,7 +787,7 @@ class HlsSegmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -862,7 +862,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_video_segment_legacy(
+    async def get_hls_video_segment_legacy(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -929,11 +929,11 @@ class HlsSegmentApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -941,7 +941,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_video_segment_legacy_with_http_info(
+    async def get_hls_video_segment_legacy_with_http_info(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -1008,11 +1008,11 @@ class HlsSegmentApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1020,7 +1020,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def get_hls_video_segment_legacy_without_preload_content(
+    async def get_hls_video_segment_legacy_without_preload_content(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -1087,7 +1087,7 @@ class HlsSegmentApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1170,7 +1170,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def stop_encoding_process(
+    async def stop_encoding_process(
         self,
         device_id: Annotated[StrictStr, Field(description="The device id of the client requesting. Used to stop encoding processes when needed.")],
         play_session_id: Annotated[StrictStr, Field(description="The play session id.")],
@@ -1230,11 +1230,11 @@ class HlsSegmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1242,7 +1242,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def stop_encoding_process_with_http_info(
+    async def stop_encoding_process_with_http_info(
         self,
         device_id: Annotated[StrictStr, Field(description="The device id of the client requesting. Used to stop encoding processes when needed.")],
         play_session_id: Annotated[StrictStr, Field(description="The play session id.")],
@@ -1302,11 +1302,11 @@ class HlsSegmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1314,7 +1314,7 @@ class HlsSegmentApi:
 
 
     @validate_call
-    def stop_encoding_process_without_preload_content(
+    async def stop_encoding_process_without_preload_content(
         self,
         device_id: Annotated[StrictStr, Field(description="The device id of the client requesting. Used to stop encoding processes when needed.")],
         play_session_id: Annotated[StrictStr, Field(description="The play session id.")],
@@ -1374,7 +1374,7 @@ class HlsSegmentApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

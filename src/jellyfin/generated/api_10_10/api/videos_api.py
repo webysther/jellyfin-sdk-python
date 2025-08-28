@@ -43,7 +43,7 @@ class VideosApi:
 
 
     @validate_call
-    def delete_alternate_sources(
+    async def delete_alternate_sources(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -100,11 +100,11 @@ class VideosApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -112,7 +112,7 @@ class VideosApi:
 
 
     @validate_call
-    def delete_alternate_sources_with_http_info(
+    async def delete_alternate_sources_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -169,11 +169,11 @@ class VideosApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -181,7 +181,7 @@ class VideosApi:
 
 
     @validate_call
-    def delete_alternate_sources_without_preload_content(
+    async def delete_alternate_sources_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -238,7 +238,7 @@ class VideosApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -312,7 +312,7 @@ class VideosApi:
 
 
     @validate_call
-    def get_additional_part(
+    async def get_additional_part(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -372,11 +372,11 @@ class VideosApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -384,7 +384,7 @@ class VideosApi:
 
 
     @validate_call
-    def get_additional_part_with_http_info(
+    async def get_additional_part_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -444,11 +444,11 @@ class VideosApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -456,7 +456,7 @@ class VideosApi:
 
 
     @validate_call
-    def get_additional_part_without_preload_content(
+    async def get_additional_part_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -516,7 +516,7 @@ class VideosApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -595,7 +595,7 @@ class VideosApi:
 
 
     @validate_call
-    def get_video_stream(
+    async def get_video_stream(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")] = None,
@@ -853,11 +853,11 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -865,7 +865,7 @@ class VideosApi:
 
 
     @validate_call
-    def get_video_stream_with_http_info(
+    async def get_video_stream_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")] = None,
@@ -1123,11 +1123,11 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1135,7 +1135,7 @@ class VideosApi:
 
 
     @validate_call
-    def get_video_stream_without_preload_content(
+    async def get_video_stream_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")] = None,
@@ -1393,7 +1393,7 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1719,7 +1719,7 @@ class VideosApi:
 
 
     @validate_call
-    def get_video_stream_by_container(
+    async def get_video_stream_by_container(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")],
@@ -1977,11 +1977,11 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1989,7 +1989,7 @@ class VideosApi:
 
 
     @validate_call
-    def get_video_stream_by_container_with_http_info(
+    async def get_video_stream_by_container_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")],
@@ -2247,11 +2247,11 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2259,7 +2259,7 @@ class VideosApi:
 
 
     @validate_call
-    def get_video_stream_by_container_without_preload_content(
+    async def get_video_stream_by_container_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")],
@@ -2517,7 +2517,7 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2841,7 +2841,7 @@ class VideosApi:
 
 
     @validate_call
-    def head_video_stream(
+    async def head_video_stream(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")] = None,
@@ -3099,11 +3099,11 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3111,7 +3111,7 @@ class VideosApi:
 
 
     @validate_call
-    def head_video_stream_with_http_info(
+    async def head_video_stream_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")] = None,
@@ -3369,11 +3369,11 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3381,7 +3381,7 @@ class VideosApi:
 
 
     @validate_call
-    def head_video_stream_without_preload_content(
+    async def head_video_stream_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")] = None,
@@ -3639,7 +3639,7 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3965,7 +3965,7 @@ class VideosApi:
 
 
     @validate_call
-    def head_video_stream_by_container(
+    async def head_video_stream_by_container(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")],
@@ -4223,11 +4223,11 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4235,7 +4235,7 @@ class VideosApi:
 
 
     @validate_call
-    def head_video_stream_by_container_with_http_info(
+    async def head_video_stream_by_container_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")],
@@ -4493,11 +4493,11 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4505,7 +4505,7 @@ class VideosApi:
 
 
     @validate_call
-    def head_video_stream_by_container_without_preload_content(
+    async def head_video_stream_by_container_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.")],
@@ -4763,7 +4763,7 @@ class VideosApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5087,7 +5087,7 @@ class VideosApi:
 
 
     @validate_call
-    def merge_versions(
+    async def merge_versions(
         self,
         ids: Annotated[List[UUID], Field(description="Item id list. This allows multiple, comma delimited.")],
         _request_timeout: Union[
@@ -5144,11 +5144,11 @@ class VideosApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5156,7 +5156,7 @@ class VideosApi:
 
 
     @validate_call
-    def merge_versions_with_http_info(
+    async def merge_versions_with_http_info(
         self,
         ids: Annotated[List[UUID], Field(description="Item id list. This allows multiple, comma delimited.")],
         _request_timeout: Union[
@@ -5213,11 +5213,11 @@ class VideosApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5225,7 +5225,7 @@ class VideosApi:
 
 
     @validate_call
-    def merge_versions_without_preload_content(
+    async def merge_versions_without_preload_content(
         self,
         ids: Annotated[List[UUID], Field(description="Item id list. This allows multiple, comma delimited.")],
         _request_timeout: Union[
@@ -5282,7 +5282,7 @@ class VideosApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

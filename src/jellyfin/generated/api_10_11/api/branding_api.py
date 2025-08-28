@@ -38,7 +38,7 @@ class BrandingApi:
 
 
     @validate_call
-    def get_branding_css(
+    async def get_branding_css(
         self,
         _request_timeout: Union[
             None,
@@ -90,11 +90,11 @@ class BrandingApi:
             '204': None,
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -102,7 +102,7 @@ class BrandingApi:
 
 
     @validate_call
-    def get_branding_css_with_http_info(
+    async def get_branding_css_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -154,11 +154,11 @@ class BrandingApi:
             '204': None,
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -166,7 +166,7 @@ class BrandingApi:
 
 
     @validate_call
-    def get_branding_css_without_preload_content(
+    async def get_branding_css_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -218,7 +218,7 @@ class BrandingApi:
             '204': None,
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -290,7 +290,7 @@ class BrandingApi:
 
 
     @validate_call
-    def get_branding_css2(
+    async def get_branding_css2(
         self,
         _request_timeout: Union[
             None,
@@ -342,11 +342,11 @@ class BrandingApi:
             '204': None,
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -354,7 +354,7 @@ class BrandingApi:
 
 
     @validate_call
-    def get_branding_css2_with_http_info(
+    async def get_branding_css2_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -406,11 +406,11 @@ class BrandingApi:
             '204': None,
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -418,7 +418,7 @@ class BrandingApi:
 
 
     @validate_call
-    def get_branding_css2_without_preload_content(
+    async def get_branding_css2_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -470,7 +470,7 @@ class BrandingApi:
             '204': None,
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -542,7 +542,7 @@ class BrandingApi:
 
 
     @validate_call
-    def get_branding_options(
+    async def get_branding_options(
         self,
         _request_timeout: Union[
             None,
@@ -593,11 +593,11 @@ class BrandingApi:
             '200': "BrandingOptionsDto",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -605,7 +605,7 @@ class BrandingApi:
 
 
     @validate_call
-    def get_branding_options_with_http_info(
+    async def get_branding_options_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -656,11 +656,11 @@ class BrandingApi:
             '200': "BrandingOptionsDto",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -668,7 +668,7 @@ class BrandingApi:
 
 
     @validate_call
-    def get_branding_options_without_preload_content(
+    async def get_branding_options_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -719,7 +719,7 @@ class BrandingApi:
             '200': "BrandingOptionsDto",
             '503': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

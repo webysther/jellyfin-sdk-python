@@ -52,7 +52,7 @@ class TrailersApi:
 
 
     @validate_call
-    def get_trailers(
+    async def get_trailers(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id supplied as query parameter; this is required when not using an API key.")] = None,
         max_official_rating: Annotated[Optional[StrictStr], Field(description="Optional filter by maximum official rating (PG, PG-13, TV-MA, etc).")] = None,
@@ -440,11 +440,11 @@ class TrailersApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -452,7 +452,7 @@ class TrailersApi:
 
 
     @validate_call
-    def get_trailers_with_http_info(
+    async def get_trailers_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id supplied as query parameter; this is required when not using an API key.")] = None,
         max_official_rating: Annotated[Optional[StrictStr], Field(description="Optional filter by maximum official rating (PG, PG-13, TV-MA, etc).")] = None,
@@ -840,11 +840,11 @@ class TrailersApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -852,7 +852,7 @@ class TrailersApi:
 
 
     @validate_call
-    def get_trailers_without_preload_content(
+    async def get_trailers_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id supplied as query parameter; this is required when not using an API key.")] = None,
         max_official_rating: Annotated[Optional[StrictStr], Field(description="Optional filter by maximum official rating (PG, PG-13, TV-MA, etc).")] = None,
@@ -1240,7 +1240,7 @@ class TrailersApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

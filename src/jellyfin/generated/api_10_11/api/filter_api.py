@@ -44,7 +44,7 @@ class FilterApi:
 
 
     @validate_call
-    def get_query_filters(
+    async def get_query_filters(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. User id.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.")] = None,
@@ -137,11 +137,11 @@ class FilterApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -149,7 +149,7 @@ class FilterApi:
 
 
     @validate_call
-    def get_query_filters_with_http_info(
+    async def get_query_filters_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. User id.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.")] = None,
@@ -242,11 +242,11 @@ class FilterApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -254,7 +254,7 @@ class FilterApi:
 
 
     @validate_call
-    def get_query_filters_without_preload_content(
+    async def get_query_filters_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. User id.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.")] = None,
@@ -347,7 +347,7 @@ class FilterApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -470,7 +470,7 @@ class FilterApi:
 
 
     @validate_call
-    def get_query_filters_legacy(
+    async def get_query_filters_legacy(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. User id.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Optional. Parent id.")] = None,
@@ -539,11 +539,11 @@ class FilterApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -551,7 +551,7 @@ class FilterApi:
 
 
     @validate_call
-    def get_query_filters_legacy_with_http_info(
+    async def get_query_filters_legacy_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. User id.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Optional. Parent id.")] = None,
@@ -620,11 +620,11 @@ class FilterApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -632,7 +632,7 @@ class FilterApi:
 
 
     @validate_call
-    def get_query_filters_legacy_without_preload_content(
+    async def get_query_filters_legacy_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. User id.")] = None,
         parent_id: Annotated[Optional[UUID], Field(description="Optional. Parent id.")] = None,
@@ -701,7 +701,7 @@ class FilterApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

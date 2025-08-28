@@ -44,7 +44,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def add_media_path(
+    async def add_media_path(
         self,
         media_path_dto: Annotated[MediaPathDto, Field(description="The media path dto.")],
         refresh_library: Annotated[Optional[StrictBool], Field(description="Whether to refresh the library.")] = None,
@@ -105,11 +105,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -117,7 +117,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def add_media_path_with_http_info(
+    async def add_media_path_with_http_info(
         self,
         media_path_dto: Annotated[MediaPathDto, Field(description="The media path dto.")],
         refresh_library: Annotated[Optional[StrictBool], Field(description="Whether to refresh the library.")] = None,
@@ -178,11 +178,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -190,7 +190,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def add_media_path_without_preload_content(
+    async def add_media_path_without_preload_content(
         self,
         media_path_dto: Annotated[MediaPathDto, Field(description="The media path dto.")],
         refresh_library: Annotated[Optional[StrictBool], Field(description="Whether to refresh the library.")] = None,
@@ -251,7 +251,7 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -343,7 +343,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def add_virtual_folder(
+    async def add_virtual_folder(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the virtual folder.")] = None,
         collection_type: Annotated[Optional[StrictStr], Field(description="The type of the collection.")] = None,
@@ -416,11 +416,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -428,7 +428,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def add_virtual_folder_with_http_info(
+    async def add_virtual_folder_with_http_info(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the virtual folder.")] = None,
         collection_type: Annotated[Optional[StrictStr], Field(description="The type of the collection.")] = None,
@@ -501,11 +501,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -513,7 +513,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def add_virtual_folder_without_preload_content(
+    async def add_virtual_folder_without_preload_content(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the virtual folder.")] = None,
         collection_type: Annotated[Optional[StrictStr], Field(description="The type of the collection.")] = None,
@@ -586,7 +586,7 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -694,7 +694,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def get_virtual_folders(
+    async def get_virtual_folders(
         self,
         _request_timeout: Union[
             None,
@@ -747,11 +747,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -759,7 +759,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def get_virtual_folders_with_http_info(
+    async def get_virtual_folders_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -812,11 +812,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -824,7 +824,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def get_virtual_folders_without_preload_content(
+    async def get_virtual_folders_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -877,7 +877,7 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -949,7 +949,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def remove_media_path(
+    async def remove_media_path(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the library.")] = None,
         path: Annotated[Optional[StrictStr], Field(description="The path to remove.")] = None,
@@ -1014,11 +1014,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1026,7 +1026,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def remove_media_path_with_http_info(
+    async def remove_media_path_with_http_info(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the library.")] = None,
         path: Annotated[Optional[StrictStr], Field(description="The path to remove.")] = None,
@@ -1091,11 +1091,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1103,7 +1103,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def remove_media_path_without_preload_content(
+    async def remove_media_path_without_preload_content(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the library.")] = None,
         path: Annotated[Optional[StrictStr], Field(description="The path to remove.")] = None,
@@ -1168,7 +1168,7 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1252,7 +1252,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def remove_virtual_folder(
+    async def remove_virtual_folder(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the folder.")] = None,
         refresh_library: Annotated[Optional[StrictBool], Field(description="Whether to refresh the library.")] = None,
@@ -1314,11 +1314,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1326,7 +1326,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def remove_virtual_folder_with_http_info(
+    async def remove_virtual_folder_with_http_info(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the folder.")] = None,
         refresh_library: Annotated[Optional[StrictBool], Field(description="Whether to refresh the library.")] = None,
@@ -1388,11 +1388,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1400,7 +1400,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def remove_virtual_folder_without_preload_content(
+    async def remove_virtual_folder_without_preload_content(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the folder.")] = None,
         refresh_library: Annotated[Optional[StrictBool], Field(description="Whether to refresh the library.")] = None,
@@ -1462,7 +1462,7 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1541,7 +1541,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def rename_virtual_folder(
+    async def rename_virtual_folder(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the virtual folder.")] = None,
         new_name: Annotated[Optional[StrictStr], Field(description="The new name.")] = None,
@@ -1608,11 +1608,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1620,7 +1620,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def rename_virtual_folder_with_http_info(
+    async def rename_virtual_folder_with_http_info(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the virtual folder.")] = None,
         new_name: Annotated[Optional[StrictStr], Field(description="The new name.")] = None,
@@ -1687,11 +1687,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1699,7 +1699,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def rename_virtual_folder_without_preload_content(
+    async def rename_virtual_folder_without_preload_content(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the virtual folder.")] = None,
         new_name: Annotated[Optional[StrictStr], Field(description="The new name.")] = None,
@@ -1766,7 +1766,7 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1853,7 +1853,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def update_library_options(
+    async def update_library_options(
         self,
         update_library_options_dto: Annotated[Optional[UpdateLibraryOptionsDto], Field(description="The library name and options.")] = None,
         _request_timeout: Union[
@@ -1911,11 +1911,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1923,7 +1923,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def update_library_options_with_http_info(
+    async def update_library_options_with_http_info(
         self,
         update_library_options_dto: Annotated[Optional[UpdateLibraryOptionsDto], Field(description="The library name and options.")] = None,
         _request_timeout: Union[
@@ -1981,11 +1981,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1993,7 +1993,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def update_library_options_without_preload_content(
+    async def update_library_options_without_preload_content(
         self,
         update_library_options_dto: Annotated[Optional[UpdateLibraryOptionsDto], Field(description="The library name and options.")] = None,
         _request_timeout: Union[
@@ -2051,7 +2051,7 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2141,7 +2141,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def update_media_path(
+    async def update_media_path(
         self,
         update_media_path_request_dto: Annotated[UpdateMediaPathRequestDto, Field(description="The name of the library and path infos.")],
         _request_timeout: Union[
@@ -2198,11 +2198,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2210,7 +2210,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def update_media_path_with_http_info(
+    async def update_media_path_with_http_info(
         self,
         update_media_path_request_dto: Annotated[UpdateMediaPathRequestDto, Field(description="The name of the library and path infos.")],
         _request_timeout: Union[
@@ -2267,11 +2267,11 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2279,7 +2279,7 @@ class LibraryStructureApi:
 
 
     @validate_call
-    def update_media_path_without_preload_content(
+    async def update_media_path_without_preload_content(
         self,
         update_media_path_request_dto: Annotated[UpdateMediaPathRequestDto, Field(description="The name of the library and path infos.")],
         _request_timeout: Union[
@@ -2336,7 +2336,7 @@ class LibraryStructureApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

@@ -54,7 +54,7 @@ class ItemsApi:
 
 
     @validate_call
-    def get_item_user_data(
+    async def get_item_user_data(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -116,11 +116,11 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -128,7 +128,7 @@ class ItemsApi:
 
 
     @validate_call
-    def get_item_user_data_with_http_info(
+    async def get_item_user_data_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -190,11 +190,11 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -202,7 +202,7 @@ class ItemsApi:
 
 
     @validate_call
-    def get_item_user_data_without_preload_content(
+    async def get_item_user_data_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -264,7 +264,7 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -344,7 +344,7 @@ class ItemsApi:
 
 
     @validate_call
-    def get_items(
+    async def get_items(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id supplied as query parameter; this is required when not using an API key.")] = None,
         max_official_rating: Annotated[Optional[StrictStr], Field(description="Optional filter by maximum official rating (PG, PG-13, TV-MA, etc).")] = None,
@@ -741,11 +741,11 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -753,7 +753,7 @@ class ItemsApi:
 
 
     @validate_call
-    def get_items_with_http_info(
+    async def get_items_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id supplied as query parameter; this is required when not using an API key.")] = None,
         max_official_rating: Annotated[Optional[StrictStr], Field(description="Optional filter by maximum official rating (PG, PG-13, TV-MA, etc).")] = None,
@@ -1150,11 +1150,11 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1162,7 +1162,7 @@ class ItemsApi:
 
 
     @validate_call
-    def get_items_without_preload_content(
+    async def get_items_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id supplied as query parameter; this is required when not using an API key.")] = None,
         max_official_rating: Annotated[Optional[StrictStr], Field(description="Optional filter by maximum official rating (PG, PG-13, TV-MA, etc).")] = None,
@@ -1559,7 +1559,7 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2128,7 +2128,7 @@ class ItemsApi:
 
 
     @validate_call
-    def get_resume_items(
+    async def get_resume_items(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="The start index.")] = None,
@@ -2241,11 +2241,11 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2253,7 +2253,7 @@ class ItemsApi:
 
 
     @validate_call
-    def get_resume_items_with_http_info(
+    async def get_resume_items_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="The start index.")] = None,
@@ -2366,11 +2366,11 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2378,7 +2378,7 @@ class ItemsApi:
 
 
     @validate_call
-    def get_resume_items_without_preload_content(
+    async def get_resume_items_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="The start index.")] = None,
@@ -2491,7 +2491,7 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2643,7 +2643,7 @@ class ItemsApi:
 
 
     @validate_call
-    def update_item_user_data(
+    async def update_item_user_data(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         update_user_item_data_dto: Annotated[UpdateUserItemDataDto, Field(description="New user data object.")],
@@ -2709,11 +2709,11 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2721,7 +2721,7 @@ class ItemsApi:
 
 
     @validate_call
-    def update_item_user_data_with_http_info(
+    async def update_item_user_data_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         update_user_item_data_dto: Annotated[UpdateUserItemDataDto, Field(description="New user data object.")],
@@ -2787,11 +2787,11 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2799,7 +2799,7 @@ class ItemsApi:
 
 
     @validate_call
-    def update_item_user_data_without_preload_content(
+    async def update_item_user_data_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         update_user_item_data_dto: Annotated[UpdateUserItemDataDto, Field(description="New user data object.")],
@@ -2865,7 +2865,7 @@ class ItemsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

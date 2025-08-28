@@ -48,7 +48,7 @@ class YearsApi:
 
 
     @validate_call
-    def get_year(
+    async def get_year(
         self,
         year: Annotated[StrictInt, Field(description="The year.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -110,11 +110,11 @@ class YearsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -122,7 +122,7 @@ class YearsApi:
 
 
     @validate_call
-    def get_year_with_http_info(
+    async def get_year_with_http_info(
         self,
         year: Annotated[StrictInt, Field(description="The year.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -184,11 +184,11 @@ class YearsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -196,7 +196,7 @@ class YearsApi:
 
 
     @validate_call
-    def get_year_without_preload_content(
+    async def get_year_without_preload_content(
         self,
         year: Annotated[StrictInt, Field(description="The year.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -258,7 +258,7 @@ class YearsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -338,7 +338,7 @@ class YearsApi:
 
 
     @validate_call
-    def get_years(
+    async def get_years(
         self,
         start_index: Annotated[Optional[StrictInt], Field(description="Skips over a given number of items within the results. Use for paging.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
@@ -451,11 +451,11 @@ class YearsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -463,7 +463,7 @@ class YearsApi:
 
 
     @validate_call
-    def get_years_with_http_info(
+    async def get_years_with_http_info(
         self,
         start_index: Annotated[Optional[StrictInt], Field(description="Skips over a given number of items within the results. Use for paging.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
@@ -576,11 +576,11 @@ class YearsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -588,7 +588,7 @@ class YearsApi:
 
 
     @validate_call
-    def get_years_without_preload_content(
+    async def get_years_without_preload_content(
         self,
         start_index: Annotated[Optional[StrictInt], Field(description="Skips over a given number of items within the results. Use for paging.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
@@ -701,7 +701,7 @@ class YearsApi:
             '401': None,
             '403': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
