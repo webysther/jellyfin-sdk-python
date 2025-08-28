@@ -1,5 +1,7 @@
 [project]
 name = "jellyfin-sdk"
+Documentation = "https://url.webysther.org/jellyfin-sdk-docs"
+Repository = "https://github.com/webysther/jellyfin-sdk-python"
 version = "0.1.0"
 description = "Python SDK for Jellyfin"
 readme = "README.md"
