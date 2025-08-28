@@ -18,6 +18,13 @@ Main unique features:
 - Allows reducing the level of abstraction to access advanced or unavailable options through lower-level interfaces.
 - Works like [AWS CDK Constructs Level](https://blog.shikisoft.com/aws-cdk-construct-levels/), more abstraction, more simple.
 
+<div align="center">
+<img width="682" height="762" alt="image" src="https://github.com/user-attachments/assets/5e878d51-6c0f-441b-a35b-94e93d9c3340" />
+
+
+<em><small>How modules work together</small></em>
+</div>
+
 This project is mainly inspired by good python library like these:
 - [tmdbsimple](https://github.com/celiao/tmdbsimple)
 - [plexapi](https://github.com/pushingkarmaorg/python-plexapi)
