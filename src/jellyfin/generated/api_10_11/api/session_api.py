@@ -47,7 +47,7 @@ class SessionApi:
 
 
     @validate_call
-    async def add_user_to_session(
+    def add_user_to_session(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -108,11 +108,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -120,7 +120,7 @@ class SessionApi:
 
 
     @validate_call
-    async def add_user_to_session_with_http_info(
+    def add_user_to_session_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -181,11 +181,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -193,7 +193,7 @@ class SessionApi:
 
 
     @validate_call
-    async def add_user_to_session_without_preload_content(
+    def add_user_to_session_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -254,7 +254,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -329,7 +329,7 @@ class SessionApi:
 
 
     @validate_call
-    async def display_content(
+    def display_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The session Id.")],
         item_type: Annotated[StrictStr, Field(description="The type of item to browse to.")],
@@ -398,11 +398,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -410,7 +410,7 @@ class SessionApi:
 
 
     @validate_call
-    async def display_content_with_http_info(
+    def display_content_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The session Id.")],
         item_type: Annotated[StrictStr, Field(description="The type of item to browse to.")],
@@ -479,11 +479,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -491,7 +491,7 @@ class SessionApi:
 
 
     @validate_call
-    async def display_content_without_preload_content(
+    def display_content_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The session Id.")],
         item_type: Annotated[StrictStr, Field(description="The type of item to browse to.")],
@@ -560,7 +560,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -647,7 +647,7 @@ class SessionApi:
 
 
     @validate_call
-    async def get_auth_providers(
+    def get_auth_providers(
         self,
         _request_timeout: Union[
             None,
@@ -700,11 +700,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -712,7 +712,7 @@ class SessionApi:
 
 
     @validate_call
-    async def get_auth_providers_with_http_info(
+    def get_auth_providers_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -765,11 +765,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -777,7 +777,7 @@ class SessionApi:
 
 
     @validate_call
-    async def get_auth_providers_without_preload_content(
+    def get_auth_providers_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -830,7 +830,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -902,7 +902,7 @@ class SessionApi:
 
 
     @validate_call
-    async def get_password_reset_providers(
+    def get_password_reset_providers(
         self,
         _request_timeout: Union[
             None,
@@ -955,11 +955,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -967,7 +967,7 @@ class SessionApi:
 
 
     @validate_call
-    async def get_password_reset_providers_with_http_info(
+    def get_password_reset_providers_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1020,11 +1020,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1032,7 +1032,7 @@ class SessionApi:
 
 
     @validate_call
-    async def get_password_reset_providers_without_preload_content(
+    def get_password_reset_providers_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1085,7 +1085,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1157,7 +1157,7 @@ class SessionApi:
 
 
     @validate_call
-    async def get_sessions(
+    def get_sessions(
         self,
         controllable_by_user_id: Annotated[Optional[UUID], Field(description="Filter by sessions that a given user is allowed to remote control.")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="Filter by device Id.")] = None,
@@ -1222,11 +1222,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1234,7 +1234,7 @@ class SessionApi:
 
 
     @validate_call
-    async def get_sessions_with_http_info(
+    def get_sessions_with_http_info(
         self,
         controllable_by_user_id: Annotated[Optional[UUID], Field(description="Filter by sessions that a given user is allowed to remote control.")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="Filter by device Id.")] = None,
@@ -1299,11 +1299,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1311,7 +1311,7 @@ class SessionApi:
 
 
     @validate_call
-    async def get_sessions_without_preload_content(
+    def get_sessions_without_preload_content(
         self,
         controllable_by_user_id: Annotated[Optional[UUID], Field(description="Filter by sessions that a given user is allowed to remote control.")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="Filter by device Id.")] = None,
@@ -1376,7 +1376,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1463,7 +1463,7 @@ class SessionApi:
 
 
     @validate_call
-    async def play(
+    def play(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         play_command: Annotated[StrictStr, Field(description="The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now.")],
@@ -1548,11 +1548,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1560,7 +1560,7 @@ class SessionApi:
 
 
     @validate_call
-    async def play_with_http_info(
+    def play_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         play_command: Annotated[StrictStr, Field(description="The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now.")],
@@ -1645,11 +1645,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1657,7 +1657,7 @@ class SessionApi:
 
 
     @validate_call
-    async def play_without_preload_content(
+    def play_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         play_command: Annotated[StrictStr, Field(description="The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now.")],
@@ -1742,7 +1742,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1850,7 +1850,7 @@ class SessionApi:
 
 
     @validate_call
-    async def post_capabilities(
+    def post_capabilities(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The session id.")] = None,
         playable_media_types: Annotated[Optional[List[MediaType]], Field(description="A list of playable media types, comma delimited. Audio, Video, Book, Photo.")] = None,
@@ -1923,11 +1923,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1935,7 +1935,7 @@ class SessionApi:
 
 
     @validate_call
-    async def post_capabilities_with_http_info(
+    def post_capabilities_with_http_info(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The session id.")] = None,
         playable_media_types: Annotated[Optional[List[MediaType]], Field(description="A list of playable media types, comma delimited. Audio, Video, Book, Photo.")] = None,
@@ -2008,11 +2008,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2020,7 +2020,7 @@ class SessionApi:
 
 
     @validate_call
-    async def post_capabilities_without_preload_content(
+    def post_capabilities_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The session id.")] = None,
         playable_media_types: Annotated[Optional[List[MediaType]], Field(description="A list of playable media types, comma delimited. Audio, Video, Book, Photo.")] = None,
@@ -2093,7 +2093,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2189,7 +2189,7 @@ class SessionApi:
 
 
     @validate_call
-    async def post_full_capabilities(
+    def post_full_capabilities(
         self,
         client_capabilities_dto: Annotated[ClientCapabilitiesDto, Field(description="The MediaBrowser.Model.Session.ClientCapabilities.")],
         id: Annotated[Optional[StrictStr], Field(description="The session id.")] = None,
@@ -2250,11 +2250,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2262,7 +2262,7 @@ class SessionApi:
 
 
     @validate_call
-    async def post_full_capabilities_with_http_info(
+    def post_full_capabilities_with_http_info(
         self,
         client_capabilities_dto: Annotated[ClientCapabilitiesDto, Field(description="The MediaBrowser.Model.Session.ClientCapabilities.")],
         id: Annotated[Optional[StrictStr], Field(description="The session id.")] = None,
@@ -2323,11 +2323,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2335,7 +2335,7 @@ class SessionApi:
 
 
     @validate_call
-    async def post_full_capabilities_without_preload_content(
+    def post_full_capabilities_without_preload_content(
         self,
         client_capabilities_dto: Annotated[ClientCapabilitiesDto, Field(description="The MediaBrowser.Model.Session.ClientCapabilities.")],
         id: Annotated[Optional[StrictStr], Field(description="The session id.")] = None,
@@ -2396,7 +2396,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2488,7 +2488,7 @@ class SessionApi:
 
 
     @validate_call
-    async def remove_user_from_session(
+    def remove_user_from_session(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -2549,11 +2549,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2561,7 +2561,7 @@ class SessionApi:
 
 
     @validate_call
-    async def remove_user_from_session_with_http_info(
+    def remove_user_from_session_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -2622,11 +2622,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2634,7 +2634,7 @@ class SessionApi:
 
 
     @validate_call
-    async def remove_user_from_session_without_preload_content(
+    def remove_user_from_session_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -2695,7 +2695,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2770,7 +2770,7 @@ class SessionApi:
 
 
     @validate_call
-    async def report_session_ended(
+    def report_session_ended(
         self,
         _request_timeout: Union[
             None,
@@ -2823,11 +2823,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2835,7 +2835,7 @@ class SessionApi:
 
 
     @validate_call
-    async def report_session_ended_with_http_info(
+    def report_session_ended_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2888,11 +2888,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2900,7 +2900,7 @@ class SessionApi:
 
 
     @validate_call
-    async def report_session_ended_without_preload_content(
+    def report_session_ended_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2953,7 +2953,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3022,7 +3022,7 @@ class SessionApi:
 
 
     @validate_call
-    async def report_viewing(
+    def report_viewing(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         session_id: Annotated[Optional[StrictStr], Field(description="The session id.")] = None,
@@ -3083,11 +3083,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3095,7 +3095,7 @@ class SessionApi:
 
 
     @validate_call
-    async def report_viewing_with_http_info(
+    def report_viewing_with_http_info(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         session_id: Annotated[Optional[StrictStr], Field(description="The session id.")] = None,
@@ -3156,11 +3156,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3168,7 +3168,7 @@ class SessionApi:
 
 
     @validate_call
-    async def report_viewing_without_preload_content(
+    def report_viewing_without_preload_content(
         self,
         item_id: Annotated[StrictStr, Field(description="The item id.")],
         session_id: Annotated[Optional[StrictStr], Field(description="The session id.")] = None,
@@ -3229,7 +3229,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3308,7 +3308,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_full_general_command(
+    def send_full_general_command(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         general_command: Annotated[GeneralCommand, Field(description="The MediaBrowser.Model.Session.GeneralCommand.")],
@@ -3369,11 +3369,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3381,7 +3381,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_full_general_command_with_http_info(
+    def send_full_general_command_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         general_command: Annotated[GeneralCommand, Field(description="The MediaBrowser.Model.Session.GeneralCommand.")],
@@ -3442,11 +3442,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3454,7 +3454,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_full_general_command_without_preload_content(
+    def send_full_general_command_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         general_command: Annotated[GeneralCommand, Field(description="The MediaBrowser.Model.Session.GeneralCommand.")],
@@ -3515,7 +3515,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3605,7 +3605,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_general_command(
+    def send_general_command(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         command: Annotated[StrictStr, Field(description="The command to send.")],
@@ -3666,11 +3666,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3678,7 +3678,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_general_command_with_http_info(
+    def send_general_command_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         command: Annotated[StrictStr, Field(description="The command to send.")],
@@ -3739,11 +3739,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3751,7 +3751,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_general_command_without_preload_content(
+    def send_general_command_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         command: Annotated[StrictStr, Field(description="The command to send.")],
@@ -3812,7 +3812,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3887,7 +3887,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_message_command(
+    def send_message_command(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         message_command: Annotated[MessageCommand, Field(description="The MediaBrowser.Model.Session.MessageCommand object containing Header, Message Text, and TimeoutMs.")],
@@ -3948,11 +3948,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3960,7 +3960,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_message_command_with_http_info(
+    def send_message_command_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         message_command: Annotated[MessageCommand, Field(description="The MediaBrowser.Model.Session.MessageCommand object containing Header, Message Text, and TimeoutMs.")],
@@ -4021,11 +4021,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4033,7 +4033,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_message_command_without_preload_content(
+    def send_message_command_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         message_command: Annotated[MessageCommand, Field(description="The MediaBrowser.Model.Session.MessageCommand object containing Header, Message Text, and TimeoutMs.")],
@@ -4094,7 +4094,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4184,7 +4184,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_playstate_command(
+    def send_playstate_command(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         command: Annotated[StrictStr, Field(description="The MediaBrowser.Model.Session.PlaystateCommand.")],
@@ -4253,11 +4253,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4265,7 +4265,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_playstate_command_with_http_info(
+    def send_playstate_command_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         command: Annotated[StrictStr, Field(description="The MediaBrowser.Model.Session.PlaystateCommand.")],
@@ -4334,11 +4334,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4346,7 +4346,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_playstate_command_without_preload_content(
+    def send_playstate_command_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         command: Annotated[StrictStr, Field(description="The MediaBrowser.Model.Session.PlaystateCommand.")],
@@ -4415,7 +4415,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4500,7 +4500,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_system_command(
+    def send_system_command(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         command: Annotated[StrictStr, Field(description="The command to send.")],
@@ -4561,11 +4561,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4573,7 +4573,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_system_command_with_http_info(
+    def send_system_command_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         command: Annotated[StrictStr, Field(description="The command to send.")],
@@ -4634,11 +4634,11 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4646,7 +4646,7 @@ class SessionApi:
 
 
     @validate_call
-    async def send_system_command_without_preload_content(
+    def send_system_command_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The session id.")],
         command: Annotated[StrictStr, Field(description="The command to send.")],
@@ -4707,7 +4707,7 @@ class SessionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

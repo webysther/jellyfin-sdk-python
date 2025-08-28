@@ -52,7 +52,7 @@ class UserApi:
 
 
     @validate_call
-    async def authenticate_user_by_name(
+    def authenticate_user_by_name(
         self,
         authenticate_user_by_name: Annotated[AuthenticateUserByName, Field(description="The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request.")],
         _request_timeout: Union[
@@ -106,11 +106,11 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthenticationResult",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -118,7 +118,7 @@ class UserApi:
 
 
     @validate_call
-    async def authenticate_user_by_name_with_http_info(
+    def authenticate_user_by_name_with_http_info(
         self,
         authenticate_user_by_name: Annotated[AuthenticateUserByName, Field(description="The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request.")],
         _request_timeout: Union[
@@ -172,11 +172,11 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthenticationResult",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -184,7 +184,7 @@ class UserApi:
 
 
     @validate_call
-    async def authenticate_user_by_name_without_preload_content(
+    def authenticate_user_by_name_without_preload_content(
         self,
         authenticate_user_by_name: Annotated[AuthenticateUserByName, Field(description="The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request.")],
         _request_timeout: Union[
@@ -238,7 +238,7 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthenticationResult",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -326,7 +326,7 @@ class UserApi:
 
 
     @validate_call
-    async def authenticate_with_quick_connect(
+    def authenticate_with_quick_connect(
         self,
         quick_connect_dto: Annotated[QuickConnectDto, Field(description="The Jellyfin.Api.Models.UserDtos.QuickConnectDto request.")],
         _request_timeout: Union[
@@ -381,11 +381,11 @@ class UserApi:
             '200': "AuthenticationResult",
             '400': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -393,7 +393,7 @@ class UserApi:
 
 
     @validate_call
-    async def authenticate_with_quick_connect_with_http_info(
+    def authenticate_with_quick_connect_with_http_info(
         self,
         quick_connect_dto: Annotated[QuickConnectDto, Field(description="The Jellyfin.Api.Models.UserDtos.QuickConnectDto request.")],
         _request_timeout: Union[
@@ -448,11 +448,11 @@ class UserApi:
             '200': "AuthenticationResult",
             '400': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -460,7 +460,7 @@ class UserApi:
 
 
     @validate_call
-    async def authenticate_with_quick_connect_without_preload_content(
+    def authenticate_with_quick_connect_without_preload_content(
         self,
         quick_connect_dto: Annotated[QuickConnectDto, Field(description="The Jellyfin.Api.Models.UserDtos.QuickConnectDto request.")],
         _request_timeout: Union[
@@ -515,7 +515,7 @@ class UserApi:
             '200': "AuthenticationResult",
             '400': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -603,7 +603,7 @@ class UserApi:
 
 
     @validate_call
-    async def create_user_by_name(
+    def create_user_by_name(
         self,
         create_user_by_name: Annotated[CreateUserByName, Field(description="The create user by name request body.")],
         _request_timeout: Union[
@@ -659,11 +659,11 @@ class UserApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -671,7 +671,7 @@ class UserApi:
 
 
     @validate_call
-    async def create_user_by_name_with_http_info(
+    def create_user_by_name_with_http_info(
         self,
         create_user_by_name: Annotated[CreateUserByName, Field(description="The create user by name request body.")],
         _request_timeout: Union[
@@ -727,11 +727,11 @@ class UserApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -739,7 +739,7 @@ class UserApi:
 
 
     @validate_call
-    async def create_user_by_name_without_preload_content(
+    def create_user_by_name_without_preload_content(
         self,
         create_user_by_name: Annotated[CreateUserByName, Field(description="The create user by name request body.")],
         _request_timeout: Union[
@@ -795,7 +795,7 @@ class UserApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -884,7 +884,7 @@ class UserApi:
 
 
     @validate_call
-    async def delete_user(
+    def delete_user(
         self,
         user_id: Annotated[UUID, Field(description="The user id.")],
         _request_timeout: Union[
@@ -941,11 +941,11 @@ class UserApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -953,7 +953,7 @@ class UserApi:
 
 
     @validate_call
-    async def delete_user_with_http_info(
+    def delete_user_with_http_info(
         self,
         user_id: Annotated[UUID, Field(description="The user id.")],
         _request_timeout: Union[
@@ -1010,11 +1010,11 @@ class UserApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1022,7 +1022,7 @@ class UserApi:
 
 
     @validate_call
-    async def delete_user_without_preload_content(
+    def delete_user_without_preload_content(
         self,
         user_id: Annotated[UUID, Field(description="The user id.")],
         _request_timeout: Union[
@@ -1079,7 +1079,7 @@ class UserApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1153,7 +1153,7 @@ class UserApi:
 
 
     @validate_call
-    async def forgot_password(
+    def forgot_password(
         self,
         forgot_password_dto: Annotated[ForgotPasswordDto, Field(description="The forgot password request containing the entered username.")],
         _request_timeout: Union[
@@ -1207,11 +1207,11 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ForgotPasswordResult",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1219,7 +1219,7 @@ class UserApi:
 
 
     @validate_call
-    async def forgot_password_with_http_info(
+    def forgot_password_with_http_info(
         self,
         forgot_password_dto: Annotated[ForgotPasswordDto, Field(description="The forgot password request containing the entered username.")],
         _request_timeout: Union[
@@ -1273,11 +1273,11 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ForgotPasswordResult",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1285,7 +1285,7 @@ class UserApi:
 
 
     @validate_call
-    async def forgot_password_without_preload_content(
+    def forgot_password_without_preload_content(
         self,
         forgot_password_dto: Annotated[ForgotPasswordDto, Field(description="The forgot password request containing the entered username.")],
         _request_timeout: Union[
@@ -1339,7 +1339,7 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ForgotPasswordResult",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1427,7 +1427,7 @@ class UserApi:
 
 
     @validate_call
-    async def forgot_password_pin(
+    def forgot_password_pin(
         self,
         forgot_password_pin_dto: Annotated[ForgotPasswordPinDto, Field(description="The forgot password pin request containing the entered pin.")],
         _request_timeout: Union[
@@ -1481,11 +1481,11 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PinRedeemResult",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1493,7 +1493,7 @@ class UserApi:
 
 
     @validate_call
-    async def forgot_password_pin_with_http_info(
+    def forgot_password_pin_with_http_info(
         self,
         forgot_password_pin_dto: Annotated[ForgotPasswordPinDto, Field(description="The forgot password pin request containing the entered pin.")],
         _request_timeout: Union[
@@ -1547,11 +1547,11 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PinRedeemResult",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1559,7 +1559,7 @@ class UserApi:
 
 
     @validate_call
-    async def forgot_password_pin_without_preload_content(
+    def forgot_password_pin_without_preload_content(
         self,
         forgot_password_pin_dto: Annotated[ForgotPasswordPinDto, Field(description="The forgot password pin request containing the entered pin.")],
         _request_timeout: Union[
@@ -1613,7 +1613,7 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PinRedeemResult",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1701,7 +1701,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_current_user(
+    def get_current_user(
         self,
         _request_timeout: Union[
             None,
@@ -1754,11 +1754,11 @@ class UserApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1766,7 +1766,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_current_user_with_http_info(
+    def get_current_user_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1819,11 +1819,11 @@ class UserApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1831,7 +1831,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_current_user_without_preload_content(
+    def get_current_user_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1884,7 +1884,7 @@ class UserApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1955,7 +1955,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_public_users(
+    def get_public_users(
         self,
         _request_timeout: Union[
             None,
@@ -2005,11 +2005,11 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[UserDto]",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2017,7 +2017,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_public_users_with_http_info(
+    def get_public_users_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2067,11 +2067,11 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[UserDto]",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2079,7 +2079,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_public_users_without_preload_content(
+    def get_public_users_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2129,7 +2129,7 @@ class UserApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[UserDto]",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2199,7 +2199,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_user_by_id(
+    def get_user_by_id(
         self,
         user_id: Annotated[UUID, Field(description="The user id.")],
         _request_timeout: Union[
@@ -2256,11 +2256,11 @@ class UserApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2268,7 +2268,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_user_by_id_with_http_info(
+    def get_user_by_id_with_http_info(
         self,
         user_id: Annotated[UUID, Field(description="The user id.")],
         _request_timeout: Union[
@@ -2325,11 +2325,11 @@ class UserApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2337,7 +2337,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_user_by_id_without_preload_content(
+    def get_user_by_id_without_preload_content(
         self,
         user_id: Annotated[UUID, Field(description="The user id.")],
         _request_timeout: Union[
@@ -2394,7 +2394,7 @@ class UserApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2468,7 +2468,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_users(
+    def get_users(
         self,
         is_hidden: Annotated[Optional[StrictBool], Field(description="Optional filter by IsHidden=true or false.")] = None,
         is_disabled: Annotated[Optional[StrictBool], Field(description="Optional filter by IsDisabled=true or false.")] = None,
@@ -2528,11 +2528,11 @@ class UserApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2540,7 +2540,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_users_with_http_info(
+    def get_users_with_http_info(
         self,
         is_hidden: Annotated[Optional[StrictBool], Field(description="Optional filter by IsHidden=true or false.")] = None,
         is_disabled: Annotated[Optional[StrictBool], Field(description="Optional filter by IsDisabled=true or false.")] = None,
@@ -2600,11 +2600,11 @@ class UserApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2612,7 +2612,7 @@ class UserApi:
 
 
     @validate_call
-    async def get_users_without_preload_content(
+    def get_users_without_preload_content(
         self,
         is_hidden: Annotated[Optional[StrictBool], Field(description="Optional filter by IsHidden=true or false.")] = None,
         is_disabled: Annotated[Optional[StrictBool], Field(description="Optional filter by IsDisabled=true or false.")] = None,
@@ -2672,7 +2672,7 @@ class UserApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2753,7 +2753,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user(
+    def update_user(
         self,
         user_dto: Annotated[UserDto, Field(description="The updated user model.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -2814,11 +2814,11 @@ class UserApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2826,7 +2826,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_with_http_info(
+    def update_user_with_http_info(
         self,
         user_dto: Annotated[UserDto, Field(description="The updated user model.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -2887,11 +2887,11 @@ class UserApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2899,7 +2899,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_without_preload_content(
+    def update_user_without_preload_content(
         self,
         user_dto: Annotated[UserDto, Field(description="The updated user model.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -2960,7 +2960,7 @@ class UserApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3054,7 +3054,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_configuration(
+    def update_user_configuration(
         self,
         user_configuration: Annotated[UserConfiguration, Field(description="The new user configuration.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -3114,11 +3114,11 @@ class UserApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3126,7 +3126,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_configuration_with_http_info(
+    def update_user_configuration_with_http_info(
         self,
         user_configuration: Annotated[UserConfiguration, Field(description="The new user configuration.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -3186,11 +3186,11 @@ class UserApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3198,7 +3198,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_configuration_without_preload_content(
+    def update_user_configuration_without_preload_content(
         self,
         user_configuration: Annotated[UserConfiguration, Field(description="The new user configuration.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -3258,7 +3258,7 @@ class UserApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3352,7 +3352,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_password(
+    def update_user_password(
         self,
         update_user_password: Annotated[UpdateUserPassword, Field(description="The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Nullable{System.Guid},Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -3413,11 +3413,11 @@ class UserApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3425,7 +3425,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_password_with_http_info(
+    def update_user_password_with_http_info(
         self,
         update_user_password: Annotated[UpdateUserPassword, Field(description="The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Nullable{System.Guid},Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -3486,11 +3486,11 @@ class UserApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3498,7 +3498,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_password_without_preload_content(
+    def update_user_password_without_preload_content(
         self,
         update_user_password: Annotated[UpdateUserPassword, Field(description="The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Nullable{System.Guid},Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -3559,7 +3559,7 @@ class UserApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3653,7 +3653,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_policy(
+    def update_user_policy(
         self,
         user_id: Annotated[UUID, Field(description="The user id.")],
         user_policy: Annotated[UserPolicy, Field(description="The new user policy.")],
@@ -3714,11 +3714,11 @@ class UserApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3726,7 +3726,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_policy_with_http_info(
+    def update_user_policy_with_http_info(
         self,
         user_id: Annotated[UUID, Field(description="The user id.")],
         user_policy: Annotated[UserPolicy, Field(description="The new user policy.")],
@@ -3787,11 +3787,11 @@ class UserApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3799,7 +3799,7 @@ class UserApi:
 
 
     @validate_call
-    async def update_user_policy_without_preload_content(
+    def update_user_policy_without_preload_content(
         self,
         user_id: Annotated[UUID, Field(description="The user id.")],
         user_policy: Annotated[UserPolicy, Field(description="The new user policy.")],
@@ -3860,7 +3860,7 @@ class UserApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

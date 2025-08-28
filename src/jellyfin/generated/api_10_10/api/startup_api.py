@@ -42,7 +42,7 @@ class StartupApi:
 
 
     @validate_call
-    async def complete_wizard(
+    def complete_wizard(
         self,
         _request_timeout: Union[
             None,
@@ -94,11 +94,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -106,7 +106,7 @@ class StartupApi:
 
 
     @validate_call
-    async def complete_wizard_with_http_info(
+    def complete_wizard_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -158,11 +158,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -170,7 +170,7 @@ class StartupApi:
 
 
     @validate_call
-    async def complete_wizard_without_preload_content(
+    def complete_wizard_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -222,7 +222,7 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -284,7 +284,7 @@ class StartupApi:
 
 
     @validate_call
-    async def get_first_user(
+    def get_first_user(
         self,
         _request_timeout: Union[
             None,
@@ -336,11 +336,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -348,7 +348,7 @@ class StartupApi:
 
 
     @validate_call
-    async def get_first_user_with_http_info(
+    def get_first_user_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -400,11 +400,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -412,7 +412,7 @@ class StartupApi:
 
 
     @validate_call
-    async def get_first_user_without_preload_content(
+    def get_first_user_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -464,7 +464,7 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -535,7 +535,7 @@ class StartupApi:
 
 
     @validate_call
-    async def get_first_user2(
+    def get_first_user2(
         self,
         _request_timeout: Union[
             None,
@@ -587,11 +587,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -599,7 +599,7 @@ class StartupApi:
 
 
     @validate_call
-    async def get_first_user2_with_http_info(
+    def get_first_user2_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -651,11 +651,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -663,7 +663,7 @@ class StartupApi:
 
 
     @validate_call
-    async def get_first_user2_without_preload_content(
+    def get_first_user2_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -715,7 +715,7 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -786,7 +786,7 @@ class StartupApi:
 
 
     @validate_call
-    async def get_startup_configuration(
+    def get_startup_configuration(
         self,
         _request_timeout: Union[
             None,
@@ -838,11 +838,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -850,7 +850,7 @@ class StartupApi:
 
 
     @validate_call
-    async def get_startup_configuration_with_http_info(
+    def get_startup_configuration_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -902,11 +902,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -914,7 +914,7 @@ class StartupApi:
 
 
     @validate_call
-    async def get_startup_configuration_without_preload_content(
+    def get_startup_configuration_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -966,7 +966,7 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1037,7 +1037,7 @@ class StartupApi:
 
 
     @validate_call
-    async def set_remote_access(
+    def set_remote_access(
         self,
         startup_remote_access_dto: Annotated[StartupRemoteAccessDto, Field(description="The startup remote access dto.")],
         _request_timeout: Union[
@@ -1093,11 +1093,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1105,7 +1105,7 @@ class StartupApi:
 
 
     @validate_call
-    async def set_remote_access_with_http_info(
+    def set_remote_access_with_http_info(
         self,
         startup_remote_access_dto: Annotated[StartupRemoteAccessDto, Field(description="The startup remote access dto.")],
         _request_timeout: Union[
@@ -1161,11 +1161,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1173,7 +1173,7 @@ class StartupApi:
 
 
     @validate_call
-    async def set_remote_access_without_preload_content(
+    def set_remote_access_without_preload_content(
         self,
         startup_remote_access_dto: Annotated[StartupRemoteAccessDto, Field(description="The startup remote access dto.")],
         _request_timeout: Union[
@@ -1229,7 +1229,7 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1309,7 +1309,7 @@ class StartupApi:
 
 
     @validate_call
-    async def update_initial_configuration(
+    def update_initial_configuration(
         self,
         startup_configuration_dto: Annotated[StartupConfigurationDto, Field(description="The updated startup configuration.")],
         _request_timeout: Union[
@@ -1365,11 +1365,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1377,7 +1377,7 @@ class StartupApi:
 
 
     @validate_call
-    async def update_initial_configuration_with_http_info(
+    def update_initial_configuration_with_http_info(
         self,
         startup_configuration_dto: Annotated[StartupConfigurationDto, Field(description="The updated startup configuration.")],
         _request_timeout: Union[
@@ -1433,11 +1433,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1445,7 +1445,7 @@ class StartupApi:
 
 
     @validate_call
-    async def update_initial_configuration_without_preload_content(
+    def update_initial_configuration_without_preload_content(
         self,
         startup_configuration_dto: Annotated[StartupConfigurationDto, Field(description="The updated startup configuration.")],
         _request_timeout: Union[
@@ -1501,7 +1501,7 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1581,7 +1581,7 @@ class StartupApi:
 
 
     @validate_call
-    async def update_startup_user(
+    def update_startup_user(
         self,
         startup_user_dto: Annotated[Optional[StartupUserDto], Field(description="The DTO containing username and password.")] = None,
         _request_timeout: Union[
@@ -1637,11 +1637,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1649,7 +1649,7 @@ class StartupApi:
 
 
     @validate_call
-    async def update_startup_user_with_http_info(
+    def update_startup_user_with_http_info(
         self,
         startup_user_dto: Annotated[Optional[StartupUserDto], Field(description="The DTO containing username and password.")] = None,
         _request_timeout: Union[
@@ -1705,11 +1705,11 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1717,7 +1717,7 @@ class StartupApi:
 
 
     @validate_call
-    async def update_startup_user_without_preload_content(
+    def update_startup_user_without_preload_content(
         self,
         startup_user_dto: Annotated[Optional[StartupUserDto], Field(description="The DTO containing username and password.")] = None,
         _request_timeout: Union[
@@ -1773,7 +1773,7 @@ class StartupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

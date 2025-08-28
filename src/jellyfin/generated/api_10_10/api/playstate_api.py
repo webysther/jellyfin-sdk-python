@@ -47,7 +47,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def mark_played_item(
+    def mark_played_item(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -112,11 +112,11 @@ class PlaystateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -124,7 +124,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def mark_played_item_with_http_info(
+    def mark_played_item_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -189,11 +189,11 @@ class PlaystateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -201,7 +201,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def mark_played_item_without_preload_content(
+    def mark_played_item_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -266,7 +266,7 @@ class PlaystateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -359,7 +359,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def mark_unplayed_item(
+    def mark_unplayed_item(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -420,11 +420,11 @@ class PlaystateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -432,7 +432,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def mark_unplayed_item_with_http_info(
+    def mark_unplayed_item_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -493,11 +493,11 @@ class PlaystateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -505,7 +505,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def mark_unplayed_item_without_preload_content(
+    def mark_unplayed_item_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -566,7 +566,7 @@ class PlaystateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -645,7 +645,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def on_playback_progress(
+    def on_playback_progress(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         media_source_id: Annotated[Optional[StrictStr], Field(description="The id of the MediaSource.")] = None,
@@ -745,11 +745,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -757,7 +757,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def on_playback_progress_with_http_info(
+    def on_playback_progress_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         media_source_id: Annotated[Optional[StrictStr], Field(description="The id of the MediaSource.")] = None,
@@ -857,11 +857,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -869,7 +869,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def on_playback_progress_without_preload_content(
+    def on_playback_progress_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         media_source_id: Annotated[Optional[StrictStr], Field(description="The id of the MediaSource.")] = None,
@@ -969,7 +969,7 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1089,7 +1089,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def on_playback_start(
+    def on_playback_start(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         media_source_id: Annotated[Optional[StrictStr], Field(description="The id of the MediaSource.")] = None,
@@ -1173,11 +1173,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1185,7 +1185,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def on_playback_start_with_http_info(
+    def on_playback_start_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         media_source_id: Annotated[Optional[StrictStr], Field(description="The id of the MediaSource.")] = None,
@@ -1269,11 +1269,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1281,7 +1281,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def on_playback_start_without_preload_content(
+    def on_playback_start_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         media_source_id: Annotated[Optional[StrictStr], Field(description="The id of the MediaSource.")] = None,
@@ -1365,7 +1365,7 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1465,7 +1465,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def on_playback_stopped(
+    def on_playback_stopped(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         media_source_id: Annotated[Optional[StrictStr], Field(description="The id of the MediaSource.")] = None,
@@ -1541,11 +1541,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1553,7 +1553,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def on_playback_stopped_with_http_info(
+    def on_playback_stopped_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         media_source_id: Annotated[Optional[StrictStr], Field(description="The id of the MediaSource.")] = None,
@@ -1629,11 +1629,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1641,7 +1641,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def on_playback_stopped_without_preload_content(
+    def on_playback_stopped_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         media_source_id: Annotated[Optional[StrictStr], Field(description="The id of the MediaSource.")] = None,
@@ -1717,7 +1717,7 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1807,7 +1807,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def ping_playback_session(
+    def ping_playback_session(
         self,
         play_session_id: Annotated[StrictStr, Field(description="Playback session id.")],
         _request_timeout: Union[
@@ -1863,11 +1863,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1875,7 +1875,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def ping_playback_session_with_http_info(
+    def ping_playback_session_with_http_info(
         self,
         play_session_id: Annotated[StrictStr, Field(description="Playback session id.")],
         _request_timeout: Union[
@@ -1931,11 +1931,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1943,7 +1943,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def ping_playback_session_without_preload_content(
+    def ping_playback_session_without_preload_content(
         self,
         play_session_id: Annotated[StrictStr, Field(description="Playback session id.")],
         _request_timeout: Union[
@@ -1999,7 +1999,7 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2066,7 +2066,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def report_playback_progress(
+    def report_playback_progress(
         self,
         playback_progress_info: Annotated[Optional[PlaybackProgressInfo], Field(description="The playback progress info.")] = None,
         _request_timeout: Union[
@@ -2122,11 +2122,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2134,7 +2134,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def report_playback_progress_with_http_info(
+    def report_playback_progress_with_http_info(
         self,
         playback_progress_info: Annotated[Optional[PlaybackProgressInfo], Field(description="The playback progress info.")] = None,
         _request_timeout: Union[
@@ -2190,11 +2190,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2202,7 +2202,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def report_playback_progress_without_preload_content(
+    def report_playback_progress_without_preload_content(
         self,
         playback_progress_info: Annotated[Optional[PlaybackProgressInfo], Field(description="The playback progress info.")] = None,
         _request_timeout: Union[
@@ -2258,7 +2258,7 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2338,7 +2338,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def report_playback_start(
+    def report_playback_start(
         self,
         playback_start_info: Annotated[Optional[PlaybackStartInfo], Field(description="The playback start info.")] = None,
         _request_timeout: Union[
@@ -2394,11 +2394,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2406,7 +2406,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def report_playback_start_with_http_info(
+    def report_playback_start_with_http_info(
         self,
         playback_start_info: Annotated[Optional[PlaybackStartInfo], Field(description="The playback start info.")] = None,
         _request_timeout: Union[
@@ -2462,11 +2462,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2474,7 +2474,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def report_playback_start_without_preload_content(
+    def report_playback_start_without_preload_content(
         self,
         playback_start_info: Annotated[Optional[PlaybackStartInfo], Field(description="The playback start info.")] = None,
         _request_timeout: Union[
@@ -2530,7 +2530,7 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2610,7 +2610,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def report_playback_stopped(
+    def report_playback_stopped(
         self,
         playback_stop_info: Annotated[Optional[PlaybackStopInfo], Field(description="The playback stop info.")] = None,
         _request_timeout: Union[
@@ -2666,11 +2666,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2678,7 +2678,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def report_playback_stopped_with_http_info(
+    def report_playback_stopped_with_http_info(
         self,
         playback_stop_info: Annotated[Optional[PlaybackStopInfo], Field(description="The playback stop info.")] = None,
         _request_timeout: Union[
@@ -2734,11 +2734,11 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2746,7 +2746,7 @@ class PlaystateApi:
 
 
     @validate_call
-    async def report_playback_stopped_without_preload_content(
+    def report_playback_stopped_without_preload_content(
         self,
         playback_stop_info: Annotated[Optional[PlaybackStopInfo], Field(description="The playback stop info.")] = None,
         _request_timeout: Union[
@@ -2802,7 +2802,7 @@ class PlaystateApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

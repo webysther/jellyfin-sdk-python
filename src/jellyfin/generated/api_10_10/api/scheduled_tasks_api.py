@@ -41,7 +41,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def get_task(
+    def get_task(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         _request_timeout: Union[
@@ -98,11 +98,11 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -110,7 +110,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def get_task_with_http_info(
+    def get_task_with_http_info(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         _request_timeout: Union[
@@ -167,11 +167,11 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -179,7 +179,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def get_task_without_preload_content(
+    def get_task_without_preload_content(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         _request_timeout: Union[
@@ -236,7 +236,7 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -310,7 +310,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def get_tasks(
+    def get_tasks(
         self,
         is_hidden: Annotated[Optional[StrictBool], Field(description="Optional filter tasks that are hidden, or not.")] = None,
         is_enabled: Annotated[Optional[StrictBool], Field(description="Optional filter tasks that are enabled, or not.")] = None,
@@ -370,11 +370,11 @@ class ScheduledTasksApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -382,7 +382,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def get_tasks_with_http_info(
+    def get_tasks_with_http_info(
         self,
         is_hidden: Annotated[Optional[StrictBool], Field(description="Optional filter tasks that are hidden, or not.")] = None,
         is_enabled: Annotated[Optional[StrictBool], Field(description="Optional filter tasks that are enabled, or not.")] = None,
@@ -442,11 +442,11 @@ class ScheduledTasksApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -454,7 +454,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def get_tasks_without_preload_content(
+    def get_tasks_without_preload_content(
         self,
         is_hidden: Annotated[Optional[StrictBool], Field(description="Optional filter tasks that are hidden, or not.")] = None,
         is_enabled: Annotated[Optional[StrictBool], Field(description="Optional filter tasks that are enabled, or not.")] = None,
@@ -514,7 +514,7 @@ class ScheduledTasksApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -595,7 +595,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def start_task(
+    def start_task(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         _request_timeout: Union[
@@ -652,11 +652,11 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -664,7 +664,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def start_task_with_http_info(
+    def start_task_with_http_info(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         _request_timeout: Union[
@@ -721,11 +721,11 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -733,7 +733,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def start_task_without_preload_content(
+    def start_task_without_preload_content(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         _request_timeout: Union[
@@ -790,7 +790,7 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -864,7 +864,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def stop_task(
+    def stop_task(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         _request_timeout: Union[
@@ -921,11 +921,11 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -933,7 +933,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def stop_task_with_http_info(
+    def stop_task_with_http_info(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         _request_timeout: Union[
@@ -990,11 +990,11 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1002,7 +1002,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def stop_task_without_preload_content(
+    def stop_task_without_preload_content(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         _request_timeout: Union[
@@ -1059,7 +1059,7 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1133,7 +1133,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def update_task(
+    def update_task(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         task_trigger_info: Annotated[List[TaskTriggerInfo], Field(description="Triggers.")],
@@ -1194,11 +1194,11 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1206,7 +1206,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def update_task_with_http_info(
+    def update_task_with_http_info(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         task_trigger_info: Annotated[List[TaskTriggerInfo], Field(description="Triggers.")],
@@ -1267,11 +1267,11 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1279,7 +1279,7 @@ class ScheduledTasksApi:
 
 
     @validate_call
-    async def update_task_without_preload_content(
+    def update_task_without_preload_content(
         self,
         task_id: Annotated[StrictStr, Field(description="Task Id.")],
         task_trigger_info: Annotated[List[TaskTriggerInfo], Field(description="Triggers.")],
@@ -1340,7 +1340,7 @@ class ScheduledTasksApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

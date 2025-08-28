@@ -20,8 +20,6 @@ Main unique features:
 - Supports targeting the Jellyfin server version to maintain compatibility.
 - It is possible to access multiple servers with different versions.
 - Allows gradually increasing the depth of access to more primitive objectives.
-- 100% API coverage with dataclasses.
-- Uses asyncio internally.
 
 ## Install
 

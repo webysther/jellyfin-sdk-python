@@ -44,7 +44,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_episodes(
+    def get_episodes(
         self,
         series_id: Annotated[UUID, Field(description="The series id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -158,11 +158,11 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -170,7 +170,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_episodes_with_http_info(
+    def get_episodes_with_http_info(
         self,
         series_id: Annotated[UUID, Field(description="The series id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -284,11 +284,11 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -296,7 +296,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_episodes_without_preload_content(
+    def get_episodes_without_preload_content(
         self,
         series_id: Annotated[UUID, Field(description="The series id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -410,7 +410,7 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -557,7 +557,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_next_up(
+    def get_next_up(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id of the user to get the next up episodes for.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -670,11 +670,11 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -682,7 +682,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_next_up_with_http_info(
+    def get_next_up_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id of the user to get the next up episodes for.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -795,11 +795,11 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -807,7 +807,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_next_up_without_preload_content(
+    def get_next_up_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id of the user to get the next up episodes for.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -920,7 +920,7 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1078,7 +1078,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_seasons(
+    def get_seasons(
         self,
         series_id: Annotated[UUID, Field(description="The series id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -1172,11 +1172,11 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1184,7 +1184,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_seasons_with_http_info(
+    def get_seasons_with_http_info(
         self,
         series_id: Annotated[UUID, Field(description="The series id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -1278,11 +1278,11 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1290,7 +1290,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_seasons_without_preload_content(
+    def get_seasons_without_preload_content(
         self,
         series_id: Annotated[UUID, Field(description="The series id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -1384,7 +1384,7 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1506,7 +1506,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_upcoming_episodes(
+    def get_upcoming_episodes(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id of the user to get the upcoming episodes for.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1595,11 +1595,11 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1607,7 +1607,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_upcoming_episodes_with_http_info(
+    def get_upcoming_episodes_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id of the user to get the upcoming episodes for.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1696,11 +1696,11 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1708,7 +1708,7 @@ class TvShowsApi:
 
 
     @validate_call
-    async def get_upcoming_episodes_without_preload_content(
+    def get_upcoming_episodes_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="The user id of the user to get the upcoming episodes for.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1797,7 +1797,7 @@ class TvShowsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

@@ -42,7 +42,7 @@ class PackageApi:
 
 
     @validate_call
-    async def cancel_package_installation(
+    def cancel_package_installation(
         self,
         package_id: Annotated[UUID, Field(description="Installation Id.")],
         _request_timeout: Union[
@@ -98,11 +98,11 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -110,7 +110,7 @@ class PackageApi:
 
 
     @validate_call
-    async def cancel_package_installation_with_http_info(
+    def cancel_package_installation_with_http_info(
         self,
         package_id: Annotated[UUID, Field(description="Installation Id.")],
         _request_timeout: Union[
@@ -166,11 +166,11 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -178,7 +178,7 @@ class PackageApi:
 
 
     @validate_call
-    async def cancel_package_installation_without_preload_content(
+    def cancel_package_installation_without_preload_content(
         self,
         package_id: Annotated[UUID, Field(description="Installation Id.")],
         _request_timeout: Union[
@@ -234,7 +234,7 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -299,7 +299,7 @@ class PackageApi:
 
 
     @validate_call
-    async def get_package_info(
+    def get_package_info(
         self,
         name: Annotated[StrictStr, Field(description="The name of the package.")],
         assembly_guid: Annotated[Optional[UUID], Field(description="The GUID of the associated assembly.")] = None,
@@ -359,11 +359,11 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -371,7 +371,7 @@ class PackageApi:
 
 
     @validate_call
-    async def get_package_info_with_http_info(
+    def get_package_info_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="The name of the package.")],
         assembly_guid: Annotated[Optional[UUID], Field(description="The GUID of the associated assembly.")] = None,
@@ -431,11 +431,11 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -443,7 +443,7 @@ class PackageApi:
 
 
     @validate_call
-    async def get_package_info_without_preload_content(
+    def get_package_info_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="The name of the package.")],
         assembly_guid: Annotated[Optional[UUID], Field(description="The GUID of the associated assembly.")] = None,
@@ -503,7 +503,7 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -582,7 +582,7 @@ class PackageApi:
 
 
     @validate_call
-    async def get_packages(
+    def get_packages(
         self,
         _request_timeout: Union[
             None,
@@ -634,11 +634,11 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -646,7 +646,7 @@ class PackageApi:
 
 
     @validate_call
-    async def get_packages_with_http_info(
+    def get_packages_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -698,11 +698,11 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -710,7 +710,7 @@ class PackageApi:
 
 
     @validate_call
-    async def get_packages_without_preload_content(
+    def get_packages_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -762,7 +762,7 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -833,7 +833,7 @@ class PackageApi:
 
 
     @validate_call
-    async def get_repositories(
+    def get_repositories(
         self,
         _request_timeout: Union[
             None,
@@ -885,11 +885,11 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -897,7 +897,7 @@ class PackageApi:
 
 
     @validate_call
-    async def get_repositories_with_http_info(
+    def get_repositories_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -949,11 +949,11 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -961,7 +961,7 @@ class PackageApi:
 
 
     @validate_call
-    async def get_repositories_without_preload_content(
+    def get_repositories_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1013,7 +1013,7 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1084,7 +1084,7 @@ class PackageApi:
 
 
     @validate_call
-    async def install_package(
+    def install_package(
         self,
         name: Annotated[StrictStr, Field(description="Package name.")],
         assembly_guid: Annotated[Optional[UUID], Field(description="GUID of the associated assembly.")] = None,
@@ -1153,11 +1153,11 @@ class PackageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1165,7 +1165,7 @@ class PackageApi:
 
 
     @validate_call
-    async def install_package_with_http_info(
+    def install_package_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Package name.")],
         assembly_guid: Annotated[Optional[UUID], Field(description="GUID of the associated assembly.")] = None,
@@ -1234,11 +1234,11 @@ class PackageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1246,7 +1246,7 @@ class PackageApi:
 
 
     @validate_call
-    async def install_package_without_preload_content(
+    def install_package_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Package name.")],
         assembly_guid: Annotated[Optional[UUID], Field(description="GUID of the associated assembly.")] = None,
@@ -1315,7 +1315,7 @@ class PackageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1404,7 +1404,7 @@ class PackageApi:
 
 
     @validate_call
-    async def set_repositories(
+    def set_repositories(
         self,
         repository_info: Annotated[List[RepositoryInfo], Field(description="The list of package repositories.")],
         _request_timeout: Union[
@@ -1460,11 +1460,11 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1472,7 +1472,7 @@ class PackageApi:
 
 
     @validate_call
-    async def set_repositories_with_http_info(
+    def set_repositories_with_http_info(
         self,
         repository_info: Annotated[List[RepositoryInfo], Field(description="The list of package repositories.")],
         _request_timeout: Union[
@@ -1528,11 +1528,11 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1540,7 +1540,7 @@ class PackageApi:
 
 
     @validate_call
-    async def set_repositories_without_preload_content(
+    def set_repositories_without_preload_content(
         self,
         repository_info: Annotated[List[RepositoryInfo], Field(description="The list of package repositories.")],
         _request_timeout: Union[
@@ -1596,7 +1596,7 @@ class PackageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

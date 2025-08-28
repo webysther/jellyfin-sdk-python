@@ -42,7 +42,7 @@ class ItemUpdateApi:
 
 
     @validate_call
-    async def get_metadata_editor_info(
+    def get_metadata_editor_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -99,11 +99,11 @@ class ItemUpdateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -111,7 +111,7 @@ class ItemUpdateApi:
 
 
     @validate_call
-    async def get_metadata_editor_info_with_http_info(
+    def get_metadata_editor_info_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -168,11 +168,11 @@ class ItemUpdateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -180,7 +180,7 @@ class ItemUpdateApi:
 
 
     @validate_call
-    async def get_metadata_editor_info_without_preload_content(
+    def get_metadata_editor_info_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -237,7 +237,7 @@ class ItemUpdateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -311,7 +311,7 @@ class ItemUpdateApi:
 
 
     @validate_call
-    async def update_item(
+    def update_item(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         base_item_dto: Annotated[BaseItemDto, Field(description="The new item properties.")],
@@ -372,11 +372,11 @@ class ItemUpdateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -384,7 +384,7 @@ class ItemUpdateApi:
 
 
     @validate_call
-    async def update_item_with_http_info(
+    def update_item_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         base_item_dto: Annotated[BaseItemDto, Field(description="The new item properties.")],
@@ -445,11 +445,11 @@ class ItemUpdateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -457,7 +457,7 @@ class ItemUpdateApi:
 
 
     @validate_call
-    async def update_item_without_preload_content(
+    def update_item_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         base_item_dto: Annotated[BaseItemDto, Field(description="The new item properties.")],
@@ -518,7 +518,7 @@ class ItemUpdateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -610,7 +610,7 @@ class ItemUpdateApi:
 
 
     @validate_call
-    async def update_item_content_type(
+    def update_item_content_type(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         content_type: Annotated[Optional[StrictStr], Field(description="The content type of the item.")] = None,
@@ -671,11 +671,11 @@ class ItemUpdateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -683,7 +683,7 @@ class ItemUpdateApi:
 
 
     @validate_call
-    async def update_item_content_type_with_http_info(
+    def update_item_content_type_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         content_type: Annotated[Optional[StrictStr], Field(description="The content type of the item.")] = None,
@@ -744,11 +744,11 @@ class ItemUpdateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -756,7 +756,7 @@ class ItemUpdateApi:
 
 
     @validate_call
-    async def update_item_content_type_without_preload_content(
+    def update_item_content_type_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         content_type: Annotated[Optional[StrictStr], Field(description="The content type of the item.")] = None,
@@ -817,7 +817,7 @@ class ItemUpdateApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

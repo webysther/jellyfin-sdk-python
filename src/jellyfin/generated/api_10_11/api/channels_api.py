@@ -46,7 +46,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_all_channel_features(
+    def get_all_channel_features(
         self,
         _request_timeout: Union[
             None,
@@ -99,11 +99,11 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -111,7 +111,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_all_channel_features_with_http_info(
+    def get_all_channel_features_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -164,11 +164,11 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -176,7 +176,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_all_channel_features_without_preload_content(
+    def get_all_channel_features_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -229,7 +229,7 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -301,7 +301,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_channel_features(
+    def get_channel_features(
         self,
         channel_id: Annotated[UUID, Field(description="Channel id.")],
         _request_timeout: Union[
@@ -358,11 +358,11 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -370,7 +370,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_channel_features_with_http_info(
+    def get_channel_features_with_http_info(
         self,
         channel_id: Annotated[UUID, Field(description="Channel id.")],
         _request_timeout: Union[
@@ -427,11 +427,11 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -439,7 +439,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_channel_features_without_preload_content(
+    def get_channel_features_without_preload_content(
         self,
         channel_id: Annotated[UUID, Field(description="Channel id.")],
         _request_timeout: Union[
@@ -496,7 +496,7 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -571,7 +571,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_channel_items(
+    def get_channel_items(
         self,
         channel_id: Annotated[UUID, Field(description="Channel Id.")],
         folder_id: Annotated[Optional[UUID], Field(description="Optional. Folder Id.")] = None,
@@ -660,11 +660,11 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -672,7 +672,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_channel_items_with_http_info(
+    def get_channel_items_with_http_info(
         self,
         channel_id: Annotated[UUID, Field(description="Channel Id.")],
         folder_id: Annotated[Optional[UUID], Field(description="Optional. Folder Id.")] = None,
@@ -761,11 +761,11 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -773,7 +773,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_channel_items_without_preload_content(
+    def get_channel_items_without_preload_content(
         self,
         channel_id: Annotated[UUID, Field(description="Channel Id.")],
         folder_id: Annotated[Optional[UUID], Field(description="Optional. Folder Id.")] = None,
@@ -862,7 +862,7 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -981,7 +981,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_channels(
+    def get_channels(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User Id to filter by. Use System.Guid.Empty to not filter by user.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1058,11 +1058,11 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1070,7 +1070,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_channels_with_http_info(
+    def get_channels_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User Id to filter by. Use System.Guid.Empty to not filter by user.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1147,11 +1147,11 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1159,7 +1159,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_channels_without_preload_content(
+    def get_channels_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User Id to filter by. Use System.Guid.Empty to not filter by user.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1236,7 +1236,7 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1338,7 +1338,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_latest_channel_items(
+    def get_latest_channel_items(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. User Id.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1415,11 +1415,11 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1427,7 +1427,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_latest_channel_items_with_http_info(
+    def get_latest_channel_items_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. User Id.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1504,11 +1504,11 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1516,7 +1516,7 @@ class ChannelsApi:
 
 
     @validate_call
-    async def get_latest_channel_items_without_preload_content(
+    def get_latest_channel_items_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="Optional. User Id.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1593,7 +1593,7 @@ class ChannelsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

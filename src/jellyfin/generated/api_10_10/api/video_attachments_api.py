@@ -40,7 +40,7 @@ class VideoAttachmentsApi:
 
 
     @validate_call
-    async def get_attachment(
+    def get_attachment(
         self,
         video_id: Annotated[UUID, Field(description="Video ID.")],
         media_source_id: Annotated[StrictStr, Field(description="Media Source ID.")],
@@ -103,11 +103,11 @@ class VideoAttachmentsApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -115,7 +115,7 @@ class VideoAttachmentsApi:
 
 
     @validate_call
-    async def get_attachment_with_http_info(
+    def get_attachment_with_http_info(
         self,
         video_id: Annotated[UUID, Field(description="Video ID.")],
         media_source_id: Annotated[StrictStr, Field(description="Media Source ID.")],
@@ -178,11 +178,11 @@ class VideoAttachmentsApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -190,7 +190,7 @@ class VideoAttachmentsApi:
 
 
     @validate_call
-    async def get_attachment_without_preload_content(
+    def get_attachment_without_preload_content(
         self,
         video_id: Annotated[UUID, Field(description="Video ID.")],
         media_source_id: Annotated[StrictStr, Field(description="Media Source ID.")],
@@ -253,7 +253,7 @@ class VideoAttachmentsApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

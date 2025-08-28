@@ -43,7 +43,7 @@ class UserViewsApi:
 
 
     @validate_call
-    async def get_grouping_options(
+    def get_grouping_options(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         _request_timeout: Union[
@@ -101,11 +101,11 @@ class UserViewsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -113,7 +113,7 @@ class UserViewsApi:
 
 
     @validate_call
-    async def get_grouping_options_with_http_info(
+    def get_grouping_options_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         _request_timeout: Union[
@@ -171,11 +171,11 @@ class UserViewsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -183,7 +183,7 @@ class UserViewsApi:
 
 
     @validate_call
-    async def get_grouping_options_without_preload_content(
+    def get_grouping_options_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         _request_timeout: Union[
@@ -241,7 +241,7 @@ class UserViewsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -318,7 +318,7 @@ class UserViewsApi:
 
 
     @validate_call
-    async def get_user_views(
+    def get_user_views(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         include_external_content: Annotated[Optional[StrictBool], Field(description="Whether or not to include external views such as channels or live tv.")] = None,
@@ -387,11 +387,11 @@ class UserViewsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -399,7 +399,7 @@ class UserViewsApi:
 
 
     @validate_call
-    async def get_user_views_with_http_info(
+    def get_user_views_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         include_external_content: Annotated[Optional[StrictBool], Field(description="Whether or not to include external views such as channels or live tv.")] = None,
@@ -468,11 +468,11 @@ class UserViewsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -480,7 +480,7 @@ class UserViewsApi:
 
 
     @validate_call
-    async def get_user_views_without_preload_content(
+    def get_user_views_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         include_external_content: Annotated[Optional[StrictBool], Field(description="Whether or not to include external views such as channels or live tv.")] = None,
@@ -549,7 +549,7 @@ class UserViewsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

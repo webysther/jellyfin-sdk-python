@@ -49,7 +49,7 @@ class ArtistsApi:
 
 
     @validate_call
-    async def get_album_artists(
+    def get_album_artists(
         self,
         min_community_rating: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Optional filter by minimum community rating.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -229,11 +229,11 @@ class ArtistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -241,7 +241,7 @@ class ArtistsApi:
 
 
     @validate_call
-    async def get_album_artists_with_http_info(
+    def get_album_artists_with_http_info(
         self,
         min_community_rating: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Optional filter by minimum community rating.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -421,11 +421,11 @@ class ArtistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -433,7 +433,7 @@ class ArtistsApi:
 
 
     @validate_call
-    async def get_album_artists_without_preload_content(
+    def get_album_artists_without_preload_content(
         self,
         min_community_rating: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Optional filter by minimum community rating.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -613,7 +613,7 @@ class ArtistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -861,7 +861,7 @@ class ArtistsApi:
 
 
     @validate_call
-    async def get_artist_by_name(
+    def get_artist_by_name(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -921,11 +921,11 @@ class ArtistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -933,7 +933,7 @@ class ArtistsApi:
 
 
     @validate_call
-    async def get_artist_by_name_with_http_info(
+    def get_artist_by_name_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -993,11 +993,11 @@ class ArtistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1005,7 +1005,7 @@ class ArtistsApi:
 
 
     @validate_call
-    async def get_artist_by_name_without_preload_content(
+    def get_artist_by_name_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         user_id: Annotated[Optional[UUID], Field(description="Optional. Filter by user id, and attach user data.")] = None,
@@ -1065,7 +1065,7 @@ class ArtistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1144,7 +1144,7 @@ class ArtistsApi:
 
 
     @validate_call
-    async def get_artists(
+    def get_artists(
         self,
         min_community_rating: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Optional filter by minimum community rating.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1324,11 +1324,11 @@ class ArtistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1336,7 +1336,7 @@ class ArtistsApi:
 
 
     @validate_call
-    async def get_artists_with_http_info(
+    def get_artists_with_http_info(
         self,
         min_community_rating: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Optional filter by minimum community rating.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1516,11 +1516,11 @@ class ArtistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1528,7 +1528,7 @@ class ArtistsApi:
 
 
     @validate_call
-    async def get_artists_without_preload_content(
+    def get_artists_without_preload_content(
         self,
         min_community_rating: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Optional filter by minimum community rating.")] = None,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
@@ -1708,7 +1708,7 @@ class ArtistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

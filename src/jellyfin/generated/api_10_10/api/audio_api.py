@@ -42,7 +42,7 @@ class AudioApi:
 
 
     @validate_call
-    async def get_audio_stream(
+    def get_audio_stream(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The audio container.")] = None,
@@ -292,11 +292,11 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -304,7 +304,7 @@ class AudioApi:
 
 
     @validate_call
-    async def get_audio_stream_with_http_info(
+    def get_audio_stream_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The audio container.")] = None,
@@ -554,11 +554,11 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -566,7 +566,7 @@ class AudioApi:
 
 
     @validate_call
-    async def get_audio_stream_without_preload_content(
+    def get_audio_stream_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The audio container.")] = None,
@@ -816,7 +816,7 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1132,7 +1132,7 @@ class AudioApi:
 
 
     @validate_call
-    async def get_audio_stream_by_container(
+    def get_audio_stream_by_container(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The audio container.")],
@@ -1382,11 +1382,11 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1394,7 +1394,7 @@ class AudioApi:
 
 
     @validate_call
-    async def get_audio_stream_by_container_with_http_info(
+    def get_audio_stream_by_container_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The audio container.")],
@@ -1644,11 +1644,11 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1656,7 +1656,7 @@ class AudioApi:
 
 
     @validate_call
-    async def get_audio_stream_by_container_without_preload_content(
+    def get_audio_stream_by_container_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The audio container.")],
@@ -1906,7 +1906,7 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2220,7 +2220,7 @@ class AudioApi:
 
 
     @validate_call
-    async def head_audio_stream(
+    def head_audio_stream(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The audio container.")] = None,
@@ -2470,11 +2470,11 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2482,7 +2482,7 @@ class AudioApi:
 
 
     @validate_call
-    async def head_audio_stream_with_http_info(
+    def head_audio_stream_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The audio container.")] = None,
@@ -2732,11 +2732,11 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2744,7 +2744,7 @@ class AudioApi:
 
 
     @validate_call
-    async def head_audio_stream_without_preload_content(
+    def head_audio_stream_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The audio container.")] = None,
@@ -2994,7 +2994,7 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3310,7 +3310,7 @@ class AudioApi:
 
 
     @validate_call
-    async def head_audio_stream_by_container(
+    def head_audio_stream_by_container(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The audio container.")],
@@ -3560,11 +3560,11 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3572,7 +3572,7 @@ class AudioApi:
 
 
     @validate_call
-    async def head_audio_stream_by_container_with_http_info(
+    def head_audio_stream_by_container_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The audio container.")],
@@ -3822,11 +3822,11 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3834,7 +3834,7 @@ class AudioApi:
 
 
     @validate_call
-    async def head_audio_stream_by_container_without_preload_content(
+    def head_audio_stream_by_container_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[StrictStr, Field(description="The audio container.")],
@@ -4084,7 +4084,7 @@ class AudioApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

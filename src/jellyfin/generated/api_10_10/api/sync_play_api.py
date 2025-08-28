@@ -56,7 +56,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_buffering(
+    def sync_play_buffering(
         self,
         buffer_request_dto: Annotated[BufferRequestDto, Field(description="The player status.")],
         _request_timeout: Union[
@@ -112,11 +112,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -124,7 +124,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_buffering_with_http_info(
+    def sync_play_buffering_with_http_info(
         self,
         buffer_request_dto: Annotated[BufferRequestDto, Field(description="The player status.")],
         _request_timeout: Union[
@@ -180,11 +180,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -192,7 +192,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_buffering_without_preload_content(
+    def sync_play_buffering_without_preload_content(
         self,
         buffer_request_dto: Annotated[BufferRequestDto, Field(description="The player status.")],
         _request_timeout: Union[
@@ -248,7 +248,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -328,7 +328,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_create_group(
+    def sync_play_create_group(
         self,
         new_group_request_dto: Annotated[NewGroupRequestDto, Field(description="The settings of the new group.")],
         _request_timeout: Union[
@@ -384,11 +384,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -396,7 +396,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_create_group_with_http_info(
+    def sync_play_create_group_with_http_info(
         self,
         new_group_request_dto: Annotated[NewGroupRequestDto, Field(description="The settings of the new group.")],
         _request_timeout: Union[
@@ -452,11 +452,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -464,7 +464,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_create_group_without_preload_content(
+    def sync_play_create_group_without_preload_content(
         self,
         new_group_request_dto: Annotated[NewGroupRequestDto, Field(description="The settings of the new group.")],
         _request_timeout: Union[
@@ -520,7 +520,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -600,7 +600,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_get_groups(
+    def sync_play_get_groups(
         self,
         _request_timeout: Union[
             None,
@@ -652,11 +652,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -664,7 +664,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_get_groups_with_http_info(
+    def sync_play_get_groups_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -716,11 +716,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -728,7 +728,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_get_groups_without_preload_content(
+    def sync_play_get_groups_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -780,7 +780,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -851,7 +851,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_join_group(
+    def sync_play_join_group(
         self,
         join_group_request_dto: Annotated[JoinGroupRequestDto, Field(description="The group to join.")],
         _request_timeout: Union[
@@ -907,11 +907,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -919,7 +919,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_join_group_with_http_info(
+    def sync_play_join_group_with_http_info(
         self,
         join_group_request_dto: Annotated[JoinGroupRequestDto, Field(description="The group to join.")],
         _request_timeout: Union[
@@ -975,11 +975,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -987,7 +987,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_join_group_without_preload_content(
+    def sync_play_join_group_without_preload_content(
         self,
         join_group_request_dto: Annotated[JoinGroupRequestDto, Field(description="The group to join.")],
         _request_timeout: Union[
@@ -1043,7 +1043,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1123,7 +1123,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_leave_group(
+    def sync_play_leave_group(
         self,
         _request_timeout: Union[
             None,
@@ -1175,11 +1175,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1187,7 +1187,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_leave_group_with_http_info(
+    def sync_play_leave_group_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1239,11 +1239,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1251,7 +1251,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_leave_group_without_preload_content(
+    def sync_play_leave_group_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1303,7 +1303,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1365,7 +1365,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_move_playlist_item(
+    def sync_play_move_playlist_item(
         self,
         move_playlist_item_request_dto: Annotated[MovePlaylistItemRequestDto, Field(description="The new position for the item.")],
         _request_timeout: Union[
@@ -1421,11 +1421,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1433,7 +1433,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_move_playlist_item_with_http_info(
+    def sync_play_move_playlist_item_with_http_info(
         self,
         move_playlist_item_request_dto: Annotated[MovePlaylistItemRequestDto, Field(description="The new position for the item.")],
         _request_timeout: Union[
@@ -1489,11 +1489,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1501,7 +1501,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_move_playlist_item_without_preload_content(
+    def sync_play_move_playlist_item_without_preload_content(
         self,
         move_playlist_item_request_dto: Annotated[MovePlaylistItemRequestDto, Field(description="The new position for the item.")],
         _request_timeout: Union[
@@ -1557,7 +1557,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1637,7 +1637,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_next_item(
+    def sync_play_next_item(
         self,
         next_item_request_dto: Annotated[NextItemRequestDto, Field(description="The current item information.")],
         _request_timeout: Union[
@@ -1693,11 +1693,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1705,7 +1705,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_next_item_with_http_info(
+    def sync_play_next_item_with_http_info(
         self,
         next_item_request_dto: Annotated[NextItemRequestDto, Field(description="The current item information.")],
         _request_timeout: Union[
@@ -1761,11 +1761,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1773,7 +1773,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_next_item_without_preload_content(
+    def sync_play_next_item_without_preload_content(
         self,
         next_item_request_dto: Annotated[NextItemRequestDto, Field(description="The current item information.")],
         _request_timeout: Union[
@@ -1829,7 +1829,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1909,7 +1909,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_pause(
+    def sync_play_pause(
         self,
         _request_timeout: Union[
             None,
@@ -1961,11 +1961,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1973,7 +1973,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_pause_with_http_info(
+    def sync_play_pause_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2025,11 +2025,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2037,7 +2037,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_pause_without_preload_content(
+    def sync_play_pause_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2089,7 +2089,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2151,7 +2151,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_ping(
+    def sync_play_ping(
         self,
         ping_request_dto: Annotated[PingRequestDto, Field(description="The new ping.")],
         _request_timeout: Union[
@@ -2207,11 +2207,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2219,7 +2219,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_ping_with_http_info(
+    def sync_play_ping_with_http_info(
         self,
         ping_request_dto: Annotated[PingRequestDto, Field(description="The new ping.")],
         _request_timeout: Union[
@@ -2275,11 +2275,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2287,7 +2287,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_ping_without_preload_content(
+    def sync_play_ping_without_preload_content(
         self,
         ping_request_dto: Annotated[PingRequestDto, Field(description="The new ping.")],
         _request_timeout: Union[
@@ -2343,7 +2343,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2423,7 +2423,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_previous_item(
+    def sync_play_previous_item(
         self,
         previous_item_request_dto: Annotated[PreviousItemRequestDto, Field(description="The current item information.")],
         _request_timeout: Union[
@@ -2479,11 +2479,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2491,7 +2491,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_previous_item_with_http_info(
+    def sync_play_previous_item_with_http_info(
         self,
         previous_item_request_dto: Annotated[PreviousItemRequestDto, Field(description="The current item information.")],
         _request_timeout: Union[
@@ -2547,11 +2547,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2559,7 +2559,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_previous_item_without_preload_content(
+    def sync_play_previous_item_without_preload_content(
         self,
         previous_item_request_dto: Annotated[PreviousItemRequestDto, Field(description="The current item information.")],
         _request_timeout: Union[
@@ -2615,7 +2615,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2695,7 +2695,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_queue(
+    def sync_play_queue(
         self,
         queue_request_dto: Annotated[QueueRequestDto, Field(description="The items to add.")],
         _request_timeout: Union[
@@ -2751,11 +2751,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2763,7 +2763,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_queue_with_http_info(
+    def sync_play_queue_with_http_info(
         self,
         queue_request_dto: Annotated[QueueRequestDto, Field(description="The items to add.")],
         _request_timeout: Union[
@@ -2819,11 +2819,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2831,7 +2831,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_queue_without_preload_content(
+    def sync_play_queue_without_preload_content(
         self,
         queue_request_dto: Annotated[QueueRequestDto, Field(description="The items to add.")],
         _request_timeout: Union[
@@ -2887,7 +2887,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2967,7 +2967,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_ready(
+    def sync_play_ready(
         self,
         ready_request_dto: Annotated[ReadyRequestDto, Field(description="The player status.")],
         _request_timeout: Union[
@@ -3023,11 +3023,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3035,7 +3035,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_ready_with_http_info(
+    def sync_play_ready_with_http_info(
         self,
         ready_request_dto: Annotated[ReadyRequestDto, Field(description="The player status.")],
         _request_timeout: Union[
@@ -3091,11 +3091,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3103,7 +3103,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_ready_without_preload_content(
+    def sync_play_ready_without_preload_content(
         self,
         ready_request_dto: Annotated[ReadyRequestDto, Field(description="The player status.")],
         _request_timeout: Union[
@@ -3159,7 +3159,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3239,7 +3239,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_remove_from_playlist(
+    def sync_play_remove_from_playlist(
         self,
         remove_from_playlist_request_dto: Annotated[RemoveFromPlaylistRequestDto, Field(description="The items to remove.")],
         _request_timeout: Union[
@@ -3295,11 +3295,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3307,7 +3307,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_remove_from_playlist_with_http_info(
+    def sync_play_remove_from_playlist_with_http_info(
         self,
         remove_from_playlist_request_dto: Annotated[RemoveFromPlaylistRequestDto, Field(description="The items to remove.")],
         _request_timeout: Union[
@@ -3363,11 +3363,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3375,7 +3375,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_remove_from_playlist_without_preload_content(
+    def sync_play_remove_from_playlist_without_preload_content(
         self,
         remove_from_playlist_request_dto: Annotated[RemoveFromPlaylistRequestDto, Field(description="The items to remove.")],
         _request_timeout: Union[
@@ -3431,7 +3431,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3511,7 +3511,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_seek(
+    def sync_play_seek(
         self,
         seek_request_dto: Annotated[SeekRequestDto, Field(description="The new playback position.")],
         _request_timeout: Union[
@@ -3567,11 +3567,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3579,7 +3579,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_seek_with_http_info(
+    def sync_play_seek_with_http_info(
         self,
         seek_request_dto: Annotated[SeekRequestDto, Field(description="The new playback position.")],
         _request_timeout: Union[
@@ -3635,11 +3635,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3647,7 +3647,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_seek_without_preload_content(
+    def sync_play_seek_without_preload_content(
         self,
         seek_request_dto: Annotated[SeekRequestDto, Field(description="The new playback position.")],
         _request_timeout: Union[
@@ -3703,7 +3703,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3783,7 +3783,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_ignore_wait(
+    def sync_play_set_ignore_wait(
         self,
         ignore_wait_request_dto: Annotated[IgnoreWaitRequestDto, Field(description="The settings to set.")],
         _request_timeout: Union[
@@ -3839,11 +3839,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3851,7 +3851,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_ignore_wait_with_http_info(
+    def sync_play_set_ignore_wait_with_http_info(
         self,
         ignore_wait_request_dto: Annotated[IgnoreWaitRequestDto, Field(description="The settings to set.")],
         _request_timeout: Union[
@@ -3907,11 +3907,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3919,7 +3919,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_ignore_wait_without_preload_content(
+    def sync_play_set_ignore_wait_without_preload_content(
         self,
         ignore_wait_request_dto: Annotated[IgnoreWaitRequestDto, Field(description="The settings to set.")],
         _request_timeout: Union[
@@ -3975,7 +3975,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4055,7 +4055,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_new_queue(
+    def sync_play_set_new_queue(
         self,
         play_request_dto: Annotated[PlayRequestDto, Field(description="The new playlist to play in the group.")],
         _request_timeout: Union[
@@ -4111,11 +4111,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4123,7 +4123,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_new_queue_with_http_info(
+    def sync_play_set_new_queue_with_http_info(
         self,
         play_request_dto: Annotated[PlayRequestDto, Field(description="The new playlist to play in the group.")],
         _request_timeout: Union[
@@ -4179,11 +4179,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4191,7 +4191,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_new_queue_without_preload_content(
+    def sync_play_set_new_queue_without_preload_content(
         self,
         play_request_dto: Annotated[PlayRequestDto, Field(description="The new playlist to play in the group.")],
         _request_timeout: Union[
@@ -4247,7 +4247,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4327,7 +4327,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_playlist_item(
+    def sync_play_set_playlist_item(
         self,
         set_playlist_item_request_dto: Annotated[SetPlaylistItemRequestDto, Field(description="The new item to play.")],
         _request_timeout: Union[
@@ -4383,11 +4383,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4395,7 +4395,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_playlist_item_with_http_info(
+    def sync_play_set_playlist_item_with_http_info(
         self,
         set_playlist_item_request_dto: Annotated[SetPlaylistItemRequestDto, Field(description="The new item to play.")],
         _request_timeout: Union[
@@ -4451,11 +4451,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4463,7 +4463,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_playlist_item_without_preload_content(
+    def sync_play_set_playlist_item_without_preload_content(
         self,
         set_playlist_item_request_dto: Annotated[SetPlaylistItemRequestDto, Field(description="The new item to play.")],
         _request_timeout: Union[
@@ -4519,7 +4519,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4599,7 +4599,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_repeat_mode(
+    def sync_play_set_repeat_mode(
         self,
         set_repeat_mode_request_dto: Annotated[SetRepeatModeRequestDto, Field(description="The new repeat mode.")],
         _request_timeout: Union[
@@ -4655,11 +4655,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4667,7 +4667,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_repeat_mode_with_http_info(
+    def sync_play_set_repeat_mode_with_http_info(
         self,
         set_repeat_mode_request_dto: Annotated[SetRepeatModeRequestDto, Field(description="The new repeat mode.")],
         _request_timeout: Union[
@@ -4723,11 +4723,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4735,7 +4735,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_repeat_mode_without_preload_content(
+    def sync_play_set_repeat_mode_without_preload_content(
         self,
         set_repeat_mode_request_dto: Annotated[SetRepeatModeRequestDto, Field(description="The new repeat mode.")],
         _request_timeout: Union[
@@ -4791,7 +4791,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4871,7 +4871,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_shuffle_mode(
+    def sync_play_set_shuffle_mode(
         self,
         set_shuffle_mode_request_dto: Annotated[SetShuffleModeRequestDto, Field(description="The new shuffle mode.")],
         _request_timeout: Union[
@@ -4927,11 +4927,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4939,7 +4939,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_shuffle_mode_with_http_info(
+    def sync_play_set_shuffle_mode_with_http_info(
         self,
         set_shuffle_mode_request_dto: Annotated[SetShuffleModeRequestDto, Field(description="The new shuffle mode.")],
         _request_timeout: Union[
@@ -4995,11 +4995,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5007,7 +5007,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_set_shuffle_mode_without_preload_content(
+    def sync_play_set_shuffle_mode_without_preload_content(
         self,
         set_shuffle_mode_request_dto: Annotated[SetShuffleModeRequestDto, Field(description="The new shuffle mode.")],
         _request_timeout: Union[
@@ -5063,7 +5063,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5143,7 +5143,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_stop(
+    def sync_play_stop(
         self,
         _request_timeout: Union[
             None,
@@ -5195,11 +5195,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5207,7 +5207,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_stop_with_http_info(
+    def sync_play_stop_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -5259,11 +5259,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5271,7 +5271,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_stop_without_preload_content(
+    def sync_play_stop_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -5323,7 +5323,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5385,7 +5385,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_unpause(
+    def sync_play_unpause(
         self,
         _request_timeout: Union[
             None,
@@ -5437,11 +5437,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5449,7 +5449,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_unpause_with_http_info(
+    def sync_play_unpause_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -5501,11 +5501,11 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5513,7 +5513,7 @@ class SyncPlayApi:
 
 
     @validate_call
-    async def sync_play_unpause_without_preload_content(
+    def sync_play_unpause_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -5565,7 +5565,7 @@ class SyncPlayApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

@@ -47,7 +47,7 @@ class GenresApi:
 
 
     @validate_call
-    async def get_genre(
+    def get_genre(
         self,
         genre_name: Annotated[StrictStr, Field(description="The genre name.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -108,11 +108,11 @@ class GenresApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -120,7 +120,7 @@ class GenresApi:
 
 
     @validate_call
-    async def get_genre_with_http_info(
+    def get_genre_with_http_info(
         self,
         genre_name: Annotated[StrictStr, Field(description="The genre name.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -181,11 +181,11 @@ class GenresApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -193,7 +193,7 @@ class GenresApi:
 
 
     @validate_call
-    async def get_genre_without_preload_content(
+    def get_genre_without_preload_content(
         self,
         genre_name: Annotated[StrictStr, Field(description="The genre name.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -254,7 +254,7 @@ class GenresApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -334,7 +334,7 @@ class GenresApi:
 
 
     @validate_call
-    async def get_genres(
+    def get_genres(
         self,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
@@ -459,11 +459,11 @@ class GenresApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -471,7 +471,7 @@ class GenresApi:
 
 
     @validate_call
-    async def get_genres_with_http_info(
+    def get_genres_with_http_info(
         self,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
@@ -596,11 +596,11 @@ class GenresApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -608,7 +608,7 @@ class GenresApi:
 
 
     @validate_call
-    async def get_genres_without_preload_content(
+    def get_genres_without_preload_content(
         self,
         start_index: Annotated[Optional[StrictInt], Field(description="Optional. The record index to start at. All items with a lower index will be dropped from the results.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Optional. The maximum number of records to return.")] = None,
@@ -733,7 +733,7 @@ class GenresApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

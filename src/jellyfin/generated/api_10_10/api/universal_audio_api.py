@@ -41,7 +41,7 @@ class UniversalAudioApi:
 
 
     @validate_call
-    async def get_universal_audio_stream(
+    def get_universal_audio_stream(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[List[StrictStr]], Field(description="Optional. The audio container.")] = None,
@@ -171,11 +171,11 @@ class UniversalAudioApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -183,7 +183,7 @@ class UniversalAudioApi:
 
 
     @validate_call
-    async def get_universal_audio_stream_with_http_info(
+    def get_universal_audio_stream_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[List[StrictStr]], Field(description="Optional. The audio container.")] = None,
@@ -313,11 +313,11 @@ class UniversalAudioApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -325,7 +325,7 @@ class UniversalAudioApi:
 
 
     @validate_call
-    async def get_universal_audio_stream_without_preload_content(
+    def get_universal_audio_stream_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[List[StrictStr]], Field(description="Optional. The audio container.")] = None,
@@ -455,7 +455,7 @@ class UniversalAudioApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -621,7 +621,7 @@ class UniversalAudioApi:
 
 
     @validate_call
-    async def head_universal_audio_stream(
+    def head_universal_audio_stream(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[List[StrictStr]], Field(description="Optional. The audio container.")] = None,
@@ -751,11 +751,11 @@ class UniversalAudioApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -763,7 +763,7 @@ class UniversalAudioApi:
 
 
     @validate_call
-    async def head_universal_audio_stream_with_http_info(
+    def head_universal_audio_stream_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[List[StrictStr]], Field(description="Optional. The audio container.")] = None,
@@ -893,11 +893,11 @@ class UniversalAudioApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -905,7 +905,7 @@ class UniversalAudioApi:
 
 
     @validate_call
-    async def head_universal_audio_stream_without_preload_content(
+    def head_universal_audio_stream_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[List[StrictStr]], Field(description="Optional. The audio container.")] = None,
@@ -1035,7 +1035,7 @@ class UniversalAudioApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

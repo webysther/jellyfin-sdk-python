@@ -44,7 +44,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def close_live_stream(
+    def close_live_stream(
         self,
         live_stream_id: Annotated[StrictStr, Field(description="The livestream id.")],
         _request_timeout: Union[
@@ -101,11 +101,11 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -113,7 +113,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def close_live_stream_with_http_info(
+    def close_live_stream_with_http_info(
         self,
         live_stream_id: Annotated[StrictStr, Field(description="The livestream id.")],
         _request_timeout: Union[
@@ -170,11 +170,11 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -182,7 +182,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def close_live_stream_without_preload_content(
+    def close_live_stream_without_preload_content(
         self,
         live_stream_id: Annotated[StrictStr, Field(description="The livestream id.")],
         _request_timeout: Union[
@@ -239,7 +239,7 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -313,7 +313,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def get_bitrate_test_bytes(
+    def get_bitrate_test_bytes(
         self,
         size: Annotated[Optional[Annotated[int, Field(le=100000000, strict=True, ge=1)]], Field(description="The bitrate. Defaults to 102400.")] = None,
         _request_timeout: Union[
@@ -370,11 +370,11 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -382,7 +382,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def get_bitrate_test_bytes_with_http_info(
+    def get_bitrate_test_bytes_with_http_info(
         self,
         size: Annotated[Optional[Annotated[int, Field(le=100000000, strict=True, ge=1)]], Field(description="The bitrate. Defaults to 102400.")] = None,
         _request_timeout: Union[
@@ -439,11 +439,11 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -451,7 +451,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def get_bitrate_test_bytes_without_preload_content(
+    def get_bitrate_test_bytes_without_preload_content(
         self,
         size: Annotated[Optional[Annotated[int, Field(le=100000000, strict=True, ge=1)]], Field(description="The bitrate. Defaults to 102400.")] = None,
         _request_timeout: Union[
@@ -508,7 +508,7 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -583,7 +583,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def get_playback_info(
+    def get_playback_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -645,11 +645,11 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -657,7 +657,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def get_playback_info_with_http_info(
+    def get_playback_info_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -719,11 +719,11 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -731,7 +731,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def get_playback_info_without_preload_content(
+    def get_playback_info_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -793,7 +793,7 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -873,7 +873,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def get_posted_playback_info(
+    def get_posted_playback_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -992,11 +992,11 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1004,7 +1004,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def get_posted_playback_info_with_http_info(
+    def get_posted_playback_info_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -1123,11 +1123,11 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1135,7 +1135,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def get_posted_playback_info_without_preload_content(
+    def get_posted_playback_info_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -1254,7 +1254,7 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1417,7 +1417,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def open_live_stream(
+    def open_live_stream(
         self,
         open_token: Annotated[Optional[StrictStr], Field(description="The open token.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -1522,11 +1522,11 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1534,7 +1534,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def open_live_stream_with_http_info(
+    def open_live_stream_with_http_info(
         self,
         open_token: Annotated[Optional[StrictStr], Field(description="The open token.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -1639,11 +1639,11 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1651,7 +1651,7 @@ class MediaInfoApi:
 
 
     @validate_call
-    async def open_live_stream_without_preload_content(
+    def open_live_stream_without_preload_content(
         self,
         open_token: Annotated[Optional[StrictStr], Field(description="The open token.")] = None,
         user_id: Annotated[Optional[UUID], Field(description="The user id.")] = None,
@@ -1756,7 +1756,7 @@ class MediaInfoApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

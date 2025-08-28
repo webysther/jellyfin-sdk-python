@@ -42,7 +42,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def delete_lyrics(
+    def delete_lyrics(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -99,11 +99,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -111,7 +111,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def delete_lyrics_with_http_info(
+    def delete_lyrics_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -168,11 +168,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -180,7 +180,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def delete_lyrics_without_preload_content(
+    def delete_lyrics_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -237,7 +237,7 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -311,7 +311,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def download_remote_lyrics(
+    def download_remote_lyrics(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         lyric_id: Annotated[StrictStr, Field(description="The lyric id.")],
@@ -372,11 +372,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -384,7 +384,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def download_remote_lyrics_with_http_info(
+    def download_remote_lyrics_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         lyric_id: Annotated[StrictStr, Field(description="The lyric id.")],
@@ -445,11 +445,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -457,7 +457,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def download_remote_lyrics_without_preload_content(
+    def download_remote_lyrics_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         lyric_id: Annotated[StrictStr, Field(description="The lyric id.")],
@@ -518,7 +518,7 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -595,7 +595,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def get_lyrics(
+    def get_lyrics(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         _request_timeout: Union[
@@ -652,11 +652,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -664,7 +664,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def get_lyrics_with_http_info(
+    def get_lyrics_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         _request_timeout: Union[
@@ -721,11 +721,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -733,7 +733,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def get_lyrics_without_preload_content(
+    def get_lyrics_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         _request_timeout: Union[
@@ -790,7 +790,7 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -864,7 +864,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def get_remote_lyrics(
+    def get_remote_lyrics(
         self,
         lyric_id: Annotated[StrictStr, Field(description="The remote provider item id.")],
         _request_timeout: Union[
@@ -921,11 +921,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -933,7 +933,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def get_remote_lyrics_with_http_info(
+    def get_remote_lyrics_with_http_info(
         self,
         lyric_id: Annotated[StrictStr, Field(description="The remote provider item id.")],
         _request_timeout: Union[
@@ -990,11 +990,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1002,7 +1002,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def get_remote_lyrics_without_preload_content(
+    def get_remote_lyrics_without_preload_content(
         self,
         lyric_id: Annotated[StrictStr, Field(description="The remote provider item id.")],
         _request_timeout: Union[
@@ -1059,7 +1059,7 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1133,7 +1133,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def search_remote_lyrics(
+    def search_remote_lyrics(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1190,11 +1190,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1202,7 +1202,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def search_remote_lyrics_with_http_info(
+    def search_remote_lyrics_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1259,11 +1259,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1271,7 +1271,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def search_remote_lyrics_without_preload_content(
+    def search_remote_lyrics_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         _request_timeout: Union[
@@ -1328,7 +1328,7 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1402,7 +1402,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def upload_lyrics(
+    def upload_lyrics(
         self,
         item_id: Annotated[UUID, Field(description="The item the lyric belongs to.")],
         file_name: Annotated[StrictStr, Field(description="Name of the file being uploaded.")],
@@ -1468,11 +1468,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1480,7 +1480,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def upload_lyrics_with_http_info(
+    def upload_lyrics_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item the lyric belongs to.")],
         file_name: Annotated[StrictStr, Field(description="Name of the file being uploaded.")],
@@ -1546,11 +1546,11 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1558,7 +1558,7 @@ class LyricsApi:
 
 
     @validate_call
-    async def upload_lyrics_without_preload_content(
+    def upload_lyrics_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item the lyric belongs to.")],
         file_name: Annotated[StrictStr, Field(description="Name of the file being uploaded.")],
@@ -1624,7 +1624,7 @@ class LyricsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

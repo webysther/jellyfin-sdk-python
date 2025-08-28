@@ -39,7 +39,7 @@ class ClientLogApi:
 
 
     @validate_call
-    async def log_file(
+    def log_file(
         self,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
         _request_timeout: Union[
@@ -96,11 +96,11 @@ class ClientLogApi:
             '403': "ProblemDetails",
             '413': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -108,7 +108,7 @@ class ClientLogApi:
 
 
     @validate_call
-    async def log_file_with_http_info(
+    def log_file_with_http_info(
         self,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
         _request_timeout: Union[
@@ -165,11 +165,11 @@ class ClientLogApi:
             '403': "ProblemDetails",
             '413': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -177,7 +177,7 @@ class ClientLogApi:
 
 
     @validate_call
-    async def log_file_without_preload_content(
+    def log_file_without_preload_content(
         self,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
         _request_timeout: Union[
@@ -234,7 +234,7 @@ class ClientLogApi:
             '403': "ProblemDetails",
             '413': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

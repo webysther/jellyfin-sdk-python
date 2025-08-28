@@ -42,7 +42,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_hls_audio_segment(
+    def get_hls_audio_segment(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -314,11 +314,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -326,7 +326,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_hls_audio_segment_with_http_info(
+    def get_hls_audio_segment_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -598,11 +598,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -610,7 +610,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_hls_audio_segment_without_preload_content(
+    def get_hls_audio_segment_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -882,7 +882,7 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1218,7 +1218,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_hls_video_segment(
+    def get_hls_video_segment(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -1498,11 +1498,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1510,7 +1510,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_hls_video_segment_with_http_info(
+    def get_hls_video_segment_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -1790,11 +1790,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1802,7 +1802,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_hls_video_segment_without_preload_content(
+    def get_hls_video_segment_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
@@ -2082,7 +2082,7 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2428,7 +2428,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_live_hls_stream(
+    def get_live_hls_stream(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The audio container.")] = None,
@@ -2696,11 +2696,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2708,7 +2708,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_live_hls_stream_with_http_info(
+    def get_live_hls_stream_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The audio container.")] = None,
@@ -2976,11 +2976,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2988,7 +2988,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_live_hls_stream_without_preload_content(
+    def get_live_hls_stream_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         container: Annotated[Optional[Annotated[str, Field(strict=True)]], Field(description="The audio container.")] = None,
@@ -3256,7 +3256,7 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3593,7 +3593,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_master_hls_audio_playlist(
+    def get_master_hls_audio_playlist(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -3849,11 +3849,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3861,7 +3861,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_master_hls_audio_playlist_with_http_info(
+    def get_master_hls_audio_playlist_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -4117,11 +4117,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4129,7 +4129,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_master_hls_audio_playlist_without_preload_content(
+    def get_master_hls_audio_playlist_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -4385,7 +4385,7 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4707,7 +4707,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_master_hls_video_playlist(
+    def get_master_hls_video_playlist(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -4975,11 +4975,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4987,7 +4987,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_master_hls_video_playlist_with_http_info(
+    def get_master_hls_video_playlist_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -5255,11 +5255,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5267,7 +5267,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_master_hls_video_playlist_without_preload_content(
+    def get_master_hls_video_playlist_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -5535,7 +5535,7 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5872,7 +5872,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_variant_hls_audio_playlist(
+    def get_variant_hls_audio_playlist(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         static: Annotated[Optional[StrictBool], Field(description="Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.")] = None,
@@ -6124,11 +6124,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6136,7 +6136,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_variant_hls_audio_playlist_with_http_info(
+    def get_variant_hls_audio_playlist_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         static: Annotated[Optional[StrictBool], Field(description="Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.")] = None,
@@ -6388,11 +6388,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6400,7 +6400,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_variant_hls_audio_playlist_without_preload_content(
+    def get_variant_hls_audio_playlist_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         static: Annotated[Optional[StrictBool], Field(description="Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.")] = None,
@@ -6652,7 +6652,7 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -6969,7 +6969,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_variant_hls_video_playlist(
+    def get_variant_hls_video_playlist(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         static: Annotated[Optional[StrictBool], Field(description="Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.")] = None,
@@ -7229,11 +7229,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7241,7 +7241,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_variant_hls_video_playlist_with_http_info(
+    def get_variant_hls_video_playlist_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         static: Annotated[Optional[StrictBool], Field(description="Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.")] = None,
@@ -7501,11 +7501,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7513,7 +7513,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def get_variant_hls_video_playlist_without_preload_content(
+    def get_variant_hls_video_playlist_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         static: Annotated[Optional[StrictBool], Field(description="Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.")] = None,
@@ -7773,7 +7773,7 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -8100,7 +8100,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def head_master_hls_audio_playlist(
+    def head_master_hls_audio_playlist(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -8356,11 +8356,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8368,7 +8368,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def head_master_hls_audio_playlist_with_http_info(
+    def head_master_hls_audio_playlist_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -8624,11 +8624,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8636,7 +8636,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def head_master_hls_audio_playlist_without_preload_content(
+    def head_master_hls_audio_playlist_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -8892,7 +8892,7 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -9214,7 +9214,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def head_master_hls_video_playlist(
+    def head_master_hls_video_playlist(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -9482,11 +9482,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9494,7 +9494,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def head_master_hls_video_playlist_with_http_info(
+    def head_master_hls_video_playlist_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -9762,11 +9762,11 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9774,7 +9774,7 @@ class DynamicHlsApi:
 
 
     @validate_call
-    async def head_master_hls_video_playlist_without_preload_content(
+    def head_master_hls_video_playlist_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         media_source_id: Annotated[StrictStr, Field(description="The media version id, if playing an alternate version.")],
@@ -10042,7 +10042,7 @@ class DynamicHlsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

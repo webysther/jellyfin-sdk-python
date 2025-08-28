@@ -43,7 +43,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_custom_splashscreen(
+    def delete_custom_splashscreen(
         self,
         _request_timeout: Union[
             None,
@@ -95,11 +95,11 @@ class ImageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -107,7 +107,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_custom_splashscreen_with_http_info(
+    def delete_custom_splashscreen_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -159,11 +159,11 @@ class ImageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -171,7 +171,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_custom_splashscreen_without_preload_content(
+    def delete_custom_splashscreen_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -223,7 +223,7 @@ class ImageApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -285,7 +285,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_item_image(
+    def delete_item_image(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -350,11 +350,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -362,7 +362,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_item_image_with_http_info(
+    def delete_item_image_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -427,11 +427,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -439,7 +439,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_item_image_without_preload_content(
+    def delete_item_image_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -504,7 +504,7 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -586,7 +586,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_item_image_by_index(
+    def delete_item_image_by_index(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -651,11 +651,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -663,7 +663,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_item_image_by_index_with_http_info(
+    def delete_item_image_by_index_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -728,11 +728,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -740,7 +740,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_item_image_by_index_without_preload_content(
+    def delete_item_image_by_index_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -805,7 +805,7 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -885,7 +885,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_user_image(
+    def delete_user_image(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User Id.")] = None,
         _request_timeout: Union[
@@ -941,11 +941,11 @@ class ImageApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -953,7 +953,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_user_image_with_http_info(
+    def delete_user_image_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User Id.")] = None,
         _request_timeout: Union[
@@ -1009,11 +1009,11 @@ class ImageApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1021,7 +1021,7 @@ class ImageApi:
 
 
     @validate_call
-    async def delete_user_image_without_preload_content(
+    def delete_user_image_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User Id.")] = None,
         _request_timeout: Union[
@@ -1077,7 +1077,7 @@ class ImageApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1153,7 +1153,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_artist_image(
+    def get_artist_image(
         self,
         name: Annotated[StrictStr, Field(description="Artist name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -1272,11 +1272,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1284,7 +1284,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_artist_image_with_http_info(
+    def get_artist_image_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Artist name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -1403,11 +1403,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1415,7 +1415,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_artist_image_without_preload_content(
+    def get_artist_image_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Artist name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -1534,7 +1534,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1684,7 +1684,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_genre_image(
+    def get_genre_image(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -1803,11 +1803,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1815,7 +1815,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_genre_image_with_http_info(
+    def get_genre_image_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -1934,11 +1934,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1946,7 +1946,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_genre_image_without_preload_content(
+    def get_genre_image_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -2065,7 +2065,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2217,7 +2217,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_genre_image_by_index(
+    def get_genre_image_by_index(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -2336,11 +2336,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2348,7 +2348,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_genre_image_by_index_with_http_info(
+    def get_genre_image_by_index_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -2467,11 +2467,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2479,7 +2479,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_genre_image_by_index_without_preload_content(
+    def get_genre_image_by_index_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -2598,7 +2598,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2748,7 +2748,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image(
+    def get_item_image(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -2867,11 +2867,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2879,7 +2879,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image_with_http_info(
+    def get_item_image_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -2998,11 +2998,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3010,7 +3010,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image_without_preload_content(
+    def get_item_image_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -3129,7 +3129,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3281,7 +3281,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image2(
+    def get_item_image2(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -3400,11 +3400,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3412,7 +3412,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image2_with_http_info(
+    def get_item_image2_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -3531,11 +3531,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3543,7 +3543,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image2_without_preload_content(
+    def get_item_image2_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -3662,7 +3662,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3800,7 +3800,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image_by_index(
+    def get_item_image_by_index(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -3919,11 +3919,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3931,7 +3931,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image_by_index_with_http_info(
+    def get_item_image_by_index_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -4050,11 +4050,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4062,7 +4062,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image_by_index_without_preload_content(
+    def get_item_image_by_index_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -4181,7 +4181,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4331,7 +4331,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image_infos(
+    def get_item_image_infos(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         _request_timeout: Union[
@@ -4388,11 +4388,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4400,7 +4400,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image_infos_with_http_info(
+    def get_item_image_infos_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         _request_timeout: Union[
@@ -4457,11 +4457,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4469,7 +4469,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_item_image_infos_without_preload_content(
+    def get_item_image_infos_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         _request_timeout: Union[
@@ -4526,7 +4526,7 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -4600,7 +4600,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_music_genre_image(
+    def get_music_genre_image(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -4719,11 +4719,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4731,7 +4731,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_music_genre_image_with_http_info(
+    def get_music_genre_image_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -4850,11 +4850,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4862,7 +4862,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_music_genre_image_without_preload_content(
+    def get_music_genre_image_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -4981,7 +4981,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5133,7 +5133,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_music_genre_image_by_index(
+    def get_music_genre_image_by_index(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -5252,11 +5252,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5264,7 +5264,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_music_genre_image_by_index_with_http_info(
+    def get_music_genre_image_by_index_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -5383,11 +5383,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5395,7 +5395,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_music_genre_image_by_index_without_preload_content(
+    def get_music_genre_image_by_index_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -5514,7 +5514,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -5664,7 +5664,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_person_image(
+    def get_person_image(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -5783,11 +5783,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5795,7 +5795,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_person_image_with_http_info(
+    def get_person_image_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -5914,11 +5914,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5926,7 +5926,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_person_image_without_preload_content(
+    def get_person_image_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -6045,7 +6045,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -6197,7 +6197,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_person_image_by_index(
+    def get_person_image_by_index(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -6316,11 +6316,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6328,7 +6328,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_person_image_by_index_with_http_info(
+    def get_person_image_by_index_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -6447,11 +6447,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6459,7 +6459,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_person_image_by_index_without_preload_content(
+    def get_person_image_by_index_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -6578,7 +6578,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -6728,7 +6728,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_splashscreen(
+    def get_splashscreen(
         self,
         tag: Annotated[Optional[StrictStr], Field(description="Supply the cache tag from the item object to receive strong caching headers.")] = None,
         format: Annotated[Optional[ImageFormat], Field(description="Determines the output format of the image - original,gif,jpg,png.")] = None,
@@ -6826,11 +6826,11 @@ class ImageApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6838,7 +6838,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_splashscreen_with_http_info(
+    def get_splashscreen_with_http_info(
         self,
         tag: Annotated[Optional[StrictStr], Field(description="Supply the cache tag from the item object to receive strong caching headers.")] = None,
         format: Annotated[Optional[ImageFormat], Field(description="Determines the output format of the image - original,gif,jpg,png.")] = None,
@@ -6936,11 +6936,11 @@ class ImageApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6948,7 +6948,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_splashscreen_without_preload_content(
+    def get_splashscreen_without_preload_content(
         self,
         tag: Annotated[Optional[StrictStr], Field(description="Supply the cache tag from the item object to receive strong caching headers.")] = None,
         format: Annotated[Optional[ImageFormat], Field(description="Determines the output format of the image - original,gif,jpg,png.")] = None,
@@ -7046,7 +7046,7 @@ class ImageApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -7174,7 +7174,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_studio_image(
+    def get_studio_image(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -7293,11 +7293,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7305,7 +7305,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_studio_image_with_http_info(
+    def get_studio_image_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -7424,11 +7424,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7436,7 +7436,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_studio_image_without_preload_content(
+    def get_studio_image_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -7555,7 +7555,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -7707,7 +7707,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_studio_image_by_index(
+    def get_studio_image_by_index(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -7826,11 +7826,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7838,7 +7838,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_studio_image_by_index_with_http_info(
+    def get_studio_image_by_index_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -7957,11 +7957,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7969,7 +7969,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_studio_image_by_index_without_preload_content(
+    def get_studio_image_by_index_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -8088,7 +8088,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -8238,7 +8238,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_user_image(
+    def get_user_image(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         tag: Annotated[Optional[StrictStr], Field(description="Optional. Supply the cache tag from the item object to receive strong caching headers.")] = None,
@@ -8354,11 +8354,11 @@ class ImageApi:
             '400': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8366,7 +8366,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_user_image_with_http_info(
+    def get_user_image_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         tag: Annotated[Optional[StrictStr], Field(description="Optional. Supply the cache tag from the item object to receive strong caching headers.")] = None,
@@ -8482,11 +8482,11 @@ class ImageApi:
             '400': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8494,7 +8494,7 @@ class ImageApi:
 
 
     @validate_call
-    async def get_user_image_without_preload_content(
+    def get_user_image_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         tag: Annotated[Optional[StrictStr], Field(description="Optional. Supply the cache tag from the item object to receive strong caching headers.")] = None,
@@ -8610,7 +8610,7 @@ class ImageApi:
             '400': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -8761,7 +8761,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_artist_image(
+    def head_artist_image(
         self,
         name: Annotated[StrictStr, Field(description="Artist name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -8880,11 +8880,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8892,7 +8892,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_artist_image_with_http_info(
+    def head_artist_image_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Artist name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -9011,11 +9011,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9023,7 +9023,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_artist_image_without_preload_content(
+    def head_artist_image_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Artist name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -9142,7 +9142,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -9292,7 +9292,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_genre_image(
+    def head_genre_image(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -9411,11 +9411,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9423,7 +9423,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_genre_image_with_http_info(
+    def head_genre_image_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -9542,11 +9542,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9554,7 +9554,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_genre_image_without_preload_content(
+    def head_genre_image_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -9673,7 +9673,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -9825,7 +9825,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_genre_image_by_index(
+    def head_genre_image_by_index(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -9944,11 +9944,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9956,7 +9956,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_genre_image_by_index_with_http_info(
+    def head_genre_image_by_index_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -10075,11 +10075,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10087,7 +10087,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_genre_image_by_index_without_preload_content(
+    def head_genre_image_by_index_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -10206,7 +10206,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -10356,7 +10356,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_item_image(
+    def head_item_image(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -10475,11 +10475,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10487,7 +10487,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_item_image_with_http_info(
+    def head_item_image_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -10606,11 +10606,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10618,7 +10618,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_item_image_without_preload_content(
+    def head_item_image_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -10737,7 +10737,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -10889,7 +10889,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_item_image2(
+    def head_item_image2(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -11008,11 +11008,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11020,7 +11020,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_item_image2_with_http_info(
+    def head_item_image2_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -11139,11 +11139,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11151,7 +11151,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_item_image2_without_preload_content(
+    def head_item_image2_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -11270,7 +11270,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -11408,7 +11408,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_item_image_by_index(
+    def head_item_image_by_index(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -11527,11 +11527,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11539,7 +11539,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_item_image_by_index_with_http_info(
+    def head_item_image_by_index_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -11658,11 +11658,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11670,7 +11670,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_item_image_by_index_without_preload_content(
+    def head_item_image_by_index_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -11789,7 +11789,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -11939,7 +11939,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_music_genre_image(
+    def head_music_genre_image(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -12058,11 +12058,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12070,7 +12070,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_music_genre_image_with_http_info(
+    def head_music_genre_image_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -12189,11 +12189,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12201,7 +12201,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_music_genre_image_without_preload_content(
+    def head_music_genre_image_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -12320,7 +12320,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -12472,7 +12472,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_music_genre_image_by_index(
+    def head_music_genre_image_by_index(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -12591,11 +12591,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12603,7 +12603,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_music_genre_image_by_index_with_http_info(
+    def head_music_genre_image_by_index_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -12722,11 +12722,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12734,7 +12734,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_music_genre_image_by_index_without_preload_content(
+    def head_music_genre_image_by_index_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Music genre name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -12853,7 +12853,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -13003,7 +13003,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_person_image(
+    def head_person_image(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -13122,11 +13122,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -13134,7 +13134,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_person_image_with_http_info(
+    def head_person_image_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -13253,11 +13253,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -13265,7 +13265,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_person_image_without_preload_content(
+    def head_person_image_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -13384,7 +13384,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -13536,7 +13536,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_person_image_by_index(
+    def head_person_image_by_index(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -13655,11 +13655,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -13667,7 +13667,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_person_image_by_index_with_http_info(
+    def head_person_image_by_index_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -13786,11 +13786,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -13798,7 +13798,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_person_image_by_index_without_preload_content(
+    def head_person_image_by_index_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Person name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -13917,7 +13917,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -14067,7 +14067,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_studio_image(
+    def head_studio_image(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -14186,11 +14186,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -14198,7 +14198,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_studio_image_with_http_info(
+    def head_studio_image_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -14317,11 +14317,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -14329,7 +14329,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_studio_image_without_preload_content(
+    def head_studio_image_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -14448,7 +14448,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -14600,7 +14600,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_studio_image_by_index(
+    def head_studio_image_by_index(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -14719,11 +14719,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -14731,7 +14731,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_studio_image_by_index_with_http_info(
+    def head_studio_image_by_index_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -14850,11 +14850,11 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -14862,7 +14862,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_studio_image_by_index_without_preload_content(
+    def head_studio_image_by_index_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="Studio name.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -14981,7 +14981,7 @@ class ImageApi:
             '200': "bytearray",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -15131,7 +15131,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_user_image(
+    def head_user_image(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         tag: Annotated[Optional[StrictStr], Field(description="Optional. Supply the cache tag from the item object to receive strong caching headers.")] = None,
@@ -15247,11 +15247,11 @@ class ImageApi:
             '400': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -15259,7 +15259,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_user_image_with_http_info(
+    def head_user_image_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         tag: Annotated[Optional[StrictStr], Field(description="Optional. Supply the cache tag from the item object to receive strong caching headers.")] = None,
@@ -15375,11 +15375,11 @@ class ImageApi:
             '400': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -15387,7 +15387,7 @@ class ImageApi:
 
 
     @validate_call
-    async def head_user_image_without_preload_content(
+    def head_user_image_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
         tag: Annotated[Optional[StrictStr], Field(description="Optional. Supply the cache tag from the item object to receive strong caching headers.")] = None,
@@ -15503,7 +15503,7 @@ class ImageApi:
             '400': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -15654,7 +15654,7 @@ class ImageApi:
 
 
     @validate_call
-    async def post_user_image(
+    def post_user_image(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User Id.")] = None,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
@@ -15716,11 +15716,11 @@ class ImageApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -15728,7 +15728,7 @@ class ImageApi:
 
 
     @validate_call
-    async def post_user_image_with_http_info(
+    def post_user_image_with_http_info(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User Id.")] = None,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
@@ -15790,11 +15790,11 @@ class ImageApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -15802,7 +15802,7 @@ class ImageApi:
 
 
     @validate_call
-    async def post_user_image_without_preload_content(
+    def post_user_image_without_preload_content(
         self,
         user_id: Annotated[Optional[UUID], Field(description="User Id.")] = None,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
@@ -15864,7 +15864,7 @@ class ImageApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -15964,7 +15964,7 @@ class ImageApi:
 
 
     @validate_call
-    async def set_item_image(
+    def set_item_image(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -16030,11 +16030,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -16042,7 +16042,7 @@ class ImageApi:
 
 
     @validate_call
-    async def set_item_image_with_http_info(
+    def set_item_image_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -16108,11 +16108,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -16120,7 +16120,7 @@ class ImageApi:
 
 
     @validate_call
-    async def set_item_image_without_preload_content(
+    def set_item_image_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -16186,7 +16186,7 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -16287,7 +16287,7 @@ class ImageApi:
 
 
     @validate_call
-    async def set_item_image_by_index(
+    def set_item_image_by_index(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -16357,11 +16357,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -16369,7 +16369,7 @@ class ImageApi:
 
 
     @validate_call
-    async def set_item_image_by_index_with_http_info(
+    def set_item_image_by_index_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -16439,11 +16439,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -16451,7 +16451,7 @@ class ImageApi:
 
 
     @validate_call
-    async def set_item_image_by_index_without_preload_content(
+    def set_item_image_by_index_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -16521,7 +16521,7 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -16625,7 +16625,7 @@ class ImageApi:
 
 
     @validate_call
-    async def update_item_image_index(
+    def update_item_image_index(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -16694,11 +16694,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -16706,7 +16706,7 @@ class ImageApi:
 
 
     @validate_call
-    async def update_item_image_index_with_http_info(
+    def update_item_image_index_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -16775,11 +16775,11 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -16787,7 +16787,7 @@ class ImageApi:
 
 
     @validate_call
-    async def update_item_image_index_without_preload_content(
+    def update_item_image_index_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         image_type: Annotated[ImageType, Field(description="Image type.")],
@@ -16856,7 +16856,7 @@ class ImageApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -16941,7 +16941,7 @@ class ImageApi:
 
 
     @validate_call
-    async def upload_custom_splashscreen(
+    def upload_custom_splashscreen(
         self,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
         _request_timeout: Union[
@@ -16998,11 +16998,11 @@ class ImageApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -17010,7 +17010,7 @@ class ImageApi:
 
 
     @validate_call
-    async def upload_custom_splashscreen_with_http_info(
+    def upload_custom_splashscreen_with_http_info(
         self,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
         _request_timeout: Union[
@@ -17067,11 +17067,11 @@ class ImageApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -17079,7 +17079,7 @@ class ImageApi:
 
 
     @validate_call
-    async def upload_custom_splashscreen_without_preload_content(
+    def upload_custom_splashscreen_without_preload_content(
         self,
         body: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
         _request_timeout: Union[
@@ -17136,7 +17136,7 @@ class ImageApi:
             '401': None,
             '403': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

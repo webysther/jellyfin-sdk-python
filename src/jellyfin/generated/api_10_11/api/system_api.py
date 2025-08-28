@@ -44,7 +44,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_endpoint_info(
+    def get_endpoint_info(
         self,
         _request_timeout: Union[
             None,
@@ -97,11 +97,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -109,7 +109,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_endpoint_info_with_http_info(
+    def get_endpoint_info_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -162,11 +162,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -174,7 +174,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_endpoint_info_without_preload_content(
+    def get_endpoint_info_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -227,7 +227,7 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -299,7 +299,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_log_file(
+    def get_log_file(
         self,
         name: Annotated[StrictStr, Field(description="The name of the log file to get.")],
         _request_timeout: Union[
@@ -357,11 +357,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -369,7 +369,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_log_file_with_http_info(
+    def get_log_file_with_http_info(
         self,
         name: Annotated[StrictStr, Field(description="The name of the log file to get.")],
         _request_timeout: Union[
@@ -427,11 +427,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -439,7 +439,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_log_file_without_preload_content(
+    def get_log_file_without_preload_content(
         self,
         name: Annotated[StrictStr, Field(description="The name of the log file to get.")],
         _request_timeout: Union[
@@ -497,7 +497,7 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -575,7 +575,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_ping_system(
+    def get_ping_system(
         self,
         _request_timeout: Union[
             None,
@@ -626,11 +626,11 @@ class SystemApi:
             '200': "str",
             '503': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -638,7 +638,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_ping_system_with_http_info(
+    def get_ping_system_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -689,11 +689,11 @@ class SystemApi:
             '200': "str",
             '503': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -701,7 +701,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_ping_system_without_preload_content(
+    def get_ping_system_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -752,7 +752,7 @@ class SystemApi:
             '200': "str",
             '503': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -823,7 +823,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_public_system_info(
+    def get_public_system_info(
         self,
         _request_timeout: Union[
             None,
@@ -874,11 +874,11 @@ class SystemApi:
             '200': "PublicSystemInfo",
             '503': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -886,7 +886,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_public_system_info_with_http_info(
+    def get_public_system_info_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -937,11 +937,11 @@ class SystemApi:
             '200': "PublicSystemInfo",
             '503': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -949,7 +949,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_public_system_info_without_preload_content(
+    def get_public_system_info_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1000,7 +1000,7 @@ class SystemApi:
             '200': "PublicSystemInfo",
             '503': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1071,7 +1071,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_server_logs(
+    def get_server_logs(
         self,
         _request_timeout: Union[
             None,
@@ -1124,11 +1124,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1136,7 +1136,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_server_logs_with_http_info(
+    def get_server_logs_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1189,11 +1189,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1201,7 +1201,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_server_logs_without_preload_content(
+    def get_server_logs_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1254,7 +1254,7 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1326,7 +1326,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_system_info(
+    def get_system_info(
         self,
         _request_timeout: Union[
             None,
@@ -1379,11 +1379,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1391,7 +1391,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_system_info_with_http_info(
+    def get_system_info_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1444,11 +1444,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1456,7 +1456,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_system_info_without_preload_content(
+    def get_system_info_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1509,7 +1509,7 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1581,7 +1581,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_system_storage(
+    def get_system_storage(
         self,
         _request_timeout: Union[
             None,
@@ -1634,11 +1634,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1646,7 +1646,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_system_storage_with_http_info(
+    def get_system_storage_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1699,11 +1699,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1711,7 +1711,7 @@ class SystemApi:
 
 
     @validate_call
-    async def get_system_storage_without_preload_content(
+    def get_system_storage_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1764,7 +1764,7 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1836,7 +1836,7 @@ class SystemApi:
 
 
     @validate_call
-    async def post_ping_system(
+    def post_ping_system(
         self,
         _request_timeout: Union[
             None,
@@ -1887,11 +1887,11 @@ class SystemApi:
             '200': "str",
             '503': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1899,7 +1899,7 @@ class SystemApi:
 
 
     @validate_call
-    async def post_ping_system_with_http_info(
+    def post_ping_system_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1950,11 +1950,11 @@ class SystemApi:
             '200': "str",
             '503': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1962,7 +1962,7 @@ class SystemApi:
 
 
     @validate_call
-    async def post_ping_system_without_preload_content(
+    def post_ping_system_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2013,7 +2013,7 @@ class SystemApi:
             '200': "str",
             '503': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2084,7 +2084,7 @@ class SystemApi:
 
 
     @validate_call
-    async def restart_application(
+    def restart_application(
         self,
         _request_timeout: Union[
             None,
@@ -2137,11 +2137,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2149,7 +2149,7 @@ class SystemApi:
 
 
     @validate_call
-    async def restart_application_with_http_info(
+    def restart_application_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2202,11 +2202,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2214,7 +2214,7 @@ class SystemApi:
 
 
     @validate_call
-    async def restart_application_without_preload_content(
+    def restart_application_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2267,7 +2267,7 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2339,7 +2339,7 @@ class SystemApi:
 
 
     @validate_call
-    async def shutdown_application(
+    def shutdown_application(
         self,
         _request_timeout: Union[
             None,
@@ -2392,11 +2392,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2404,7 +2404,7 @@ class SystemApi:
 
 
     @validate_call
-    async def shutdown_application_with_http_info(
+    def shutdown_application_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2457,11 +2457,11 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2469,7 +2469,7 @@ class SystemApi:
 
 
     @validate_call
-    async def shutdown_application_without_preload_content(
+    def shutdown_application_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2522,7 +2522,7 @@ class SystemApi:
             '503': None,
             '401': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

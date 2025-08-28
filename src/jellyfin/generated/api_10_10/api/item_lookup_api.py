@@ -51,7 +51,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def apply_search_criteria(
+    def apply_search_criteria(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         remote_search_result: Annotated[RemoteSearchResult, Field(description="The remote search result.")],
@@ -116,11 +116,11 @@ class ItemLookupApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -128,7 +128,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def apply_search_criteria_with_http_info(
+    def apply_search_criteria_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         remote_search_result: Annotated[RemoteSearchResult, Field(description="The remote search result.")],
@@ -193,11 +193,11 @@ class ItemLookupApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -205,7 +205,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def apply_search_criteria_without_preload_content(
+    def apply_search_criteria_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         remote_search_result: Annotated[RemoteSearchResult, Field(description="The remote search result.")],
@@ -270,7 +270,7 @@ class ItemLookupApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -367,7 +367,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_book_remote_search_results(
+    def get_book_remote_search_results(
         self,
         book_info_remote_search_query: Annotated[BookInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -423,11 +423,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -435,7 +435,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_book_remote_search_results_with_http_info(
+    def get_book_remote_search_results_with_http_info(
         self,
         book_info_remote_search_query: Annotated[BookInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -491,11 +491,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -503,7 +503,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_book_remote_search_results_without_preload_content(
+    def get_book_remote_search_results_without_preload_content(
         self,
         book_info_remote_search_query: Annotated[BookInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -559,7 +559,7 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -648,7 +648,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_box_set_remote_search_results(
+    def get_box_set_remote_search_results(
         self,
         box_set_info_remote_search_query: Annotated[BoxSetInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -704,11 +704,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -716,7 +716,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_box_set_remote_search_results_with_http_info(
+    def get_box_set_remote_search_results_with_http_info(
         self,
         box_set_info_remote_search_query: Annotated[BoxSetInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -772,11 +772,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -784,7 +784,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_box_set_remote_search_results_without_preload_content(
+    def get_box_set_remote_search_results_without_preload_content(
         self,
         box_set_info_remote_search_query: Annotated[BoxSetInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -840,7 +840,7 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -929,7 +929,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_external_id_infos(
+    def get_external_id_infos(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         _request_timeout: Union[
@@ -986,11 +986,11 @@ class ItemLookupApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -998,7 +998,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_external_id_infos_with_http_info(
+    def get_external_id_infos_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         _request_timeout: Union[
@@ -1055,11 +1055,11 @@ class ItemLookupApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1067,7 +1067,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_external_id_infos_without_preload_content(
+    def get_external_id_infos_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="Item id.")],
         _request_timeout: Union[
@@ -1124,7 +1124,7 @@ class ItemLookupApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1198,7 +1198,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_movie_remote_search_results(
+    def get_movie_remote_search_results(
         self,
         movie_info_remote_search_query: Annotated[MovieInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -1254,11 +1254,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1266,7 +1266,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_movie_remote_search_results_with_http_info(
+    def get_movie_remote_search_results_with_http_info(
         self,
         movie_info_remote_search_query: Annotated[MovieInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -1322,11 +1322,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1334,7 +1334,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_movie_remote_search_results_without_preload_content(
+    def get_movie_remote_search_results_without_preload_content(
         self,
         movie_info_remote_search_query: Annotated[MovieInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -1390,7 +1390,7 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1479,7 +1479,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_music_album_remote_search_results(
+    def get_music_album_remote_search_results(
         self,
         album_info_remote_search_query: Annotated[AlbumInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -1535,11 +1535,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1547,7 +1547,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_music_album_remote_search_results_with_http_info(
+    def get_music_album_remote_search_results_with_http_info(
         self,
         album_info_remote_search_query: Annotated[AlbumInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -1603,11 +1603,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1615,7 +1615,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_music_album_remote_search_results_without_preload_content(
+    def get_music_album_remote_search_results_without_preload_content(
         self,
         album_info_remote_search_query: Annotated[AlbumInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -1671,7 +1671,7 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1760,7 +1760,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_music_artist_remote_search_results(
+    def get_music_artist_remote_search_results(
         self,
         artist_info_remote_search_query: Annotated[ArtistInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -1816,11 +1816,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1828,7 +1828,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_music_artist_remote_search_results_with_http_info(
+    def get_music_artist_remote_search_results_with_http_info(
         self,
         artist_info_remote_search_query: Annotated[ArtistInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -1884,11 +1884,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1896,7 +1896,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_music_artist_remote_search_results_without_preload_content(
+    def get_music_artist_remote_search_results_without_preload_content(
         self,
         artist_info_remote_search_query: Annotated[ArtistInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -1952,7 +1952,7 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2041,7 +2041,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_music_video_remote_search_results(
+    def get_music_video_remote_search_results(
         self,
         music_video_info_remote_search_query: Annotated[MusicVideoInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -2097,11 +2097,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2109,7 +2109,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_music_video_remote_search_results_with_http_info(
+    def get_music_video_remote_search_results_with_http_info(
         self,
         music_video_info_remote_search_query: Annotated[MusicVideoInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -2165,11 +2165,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2177,7 +2177,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_music_video_remote_search_results_without_preload_content(
+    def get_music_video_remote_search_results_without_preload_content(
         self,
         music_video_info_remote_search_query: Annotated[MusicVideoInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -2233,7 +2233,7 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2322,7 +2322,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_person_remote_search_results(
+    def get_person_remote_search_results(
         self,
         person_lookup_info_remote_search_query: Annotated[PersonLookupInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -2378,11 +2378,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2390,7 +2390,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_person_remote_search_results_with_http_info(
+    def get_person_remote_search_results_with_http_info(
         self,
         person_lookup_info_remote_search_query: Annotated[PersonLookupInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -2446,11 +2446,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2458,7 +2458,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_person_remote_search_results_without_preload_content(
+    def get_person_remote_search_results_without_preload_content(
         self,
         person_lookup_info_remote_search_query: Annotated[PersonLookupInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -2514,7 +2514,7 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2603,7 +2603,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_series_remote_search_results(
+    def get_series_remote_search_results(
         self,
         series_info_remote_search_query: Annotated[SeriesInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -2659,11 +2659,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2671,7 +2671,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_series_remote_search_results_with_http_info(
+    def get_series_remote_search_results_with_http_info(
         self,
         series_info_remote_search_query: Annotated[SeriesInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -2727,11 +2727,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2739,7 +2739,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_series_remote_search_results_without_preload_content(
+    def get_series_remote_search_results_without_preload_content(
         self,
         series_info_remote_search_query: Annotated[SeriesInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -2795,7 +2795,7 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2884,7 +2884,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_trailer_remote_search_results(
+    def get_trailer_remote_search_results(
         self,
         trailer_info_remote_search_query: Annotated[TrailerInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -2940,11 +2940,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2952,7 +2952,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_trailer_remote_search_results_with_http_info(
+    def get_trailer_remote_search_results_with_http_info(
         self,
         trailer_info_remote_search_query: Annotated[TrailerInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -3008,11 +3008,11 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3020,7 +3020,7 @@ class ItemLookupApi:
 
 
     @validate_call
-    async def get_trailer_remote_search_results_without_preload_content(
+    def get_trailer_remote_search_results_without_preload_content(
         self,
         trailer_info_remote_search_query: Annotated[TrailerInfoRemoteSearchQuery, Field(description="Remote search query.")],
         _request_timeout: Union[
@@ -3076,7 +3076,7 @@ class ItemLookupApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

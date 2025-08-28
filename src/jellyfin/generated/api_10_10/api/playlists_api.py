@@ -50,7 +50,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def add_item_to_playlist(
+    def add_item_to_playlist(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         ids: Annotated[Optional[List[UUID]], Field(description="Item id, comma delimited.")] = None,
@@ -115,11 +115,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -127,7 +127,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def add_item_to_playlist_with_http_info(
+    def add_item_to_playlist_with_http_info(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         ids: Annotated[Optional[List[UUID]], Field(description="Item id, comma delimited.")] = None,
@@ -192,11 +192,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -204,7 +204,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def add_item_to_playlist_without_preload_content(
+    def add_item_to_playlist_without_preload_content(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         ids: Annotated[Optional[List[UUID]], Field(description="Item id, comma delimited.")] = None,
@@ -269,7 +269,7 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -354,7 +354,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def create_playlist(
+    def create_playlist(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The playlist name.")] = None,
         ids: Annotated[Optional[List[UUID]], Field(description="The item ids.")] = None,
@@ -427,11 +427,11 @@ class PlaylistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -439,7 +439,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def create_playlist_with_http_info(
+    def create_playlist_with_http_info(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The playlist name.")] = None,
         ids: Annotated[Optional[List[UUID]], Field(description="The item ids.")] = None,
@@ -512,11 +512,11 @@ class PlaylistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -524,7 +524,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def create_playlist_without_preload_content(
+    def create_playlist_without_preload_content(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The playlist name.")] = None,
         ids: Annotated[Optional[List[UUID]], Field(description="The item ids.")] = None,
@@ -597,7 +597,7 @@ class PlaylistsApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -707,7 +707,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist(
+    def get_playlist(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         _request_timeout: Union[
@@ -764,11 +764,11 @@ class PlaylistsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -776,7 +776,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_with_http_info(
+    def get_playlist_with_http_info(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         _request_timeout: Union[
@@ -833,11 +833,11 @@ class PlaylistsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -845,7 +845,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_without_preload_content(
+    def get_playlist_without_preload_content(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         _request_timeout: Union[
@@ -902,7 +902,7 @@ class PlaylistsApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -976,7 +976,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_items(
+    def get_playlist_items(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -1065,11 +1065,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1077,7 +1077,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_items_with_http_info(
+    def get_playlist_items_with_http_info(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -1166,11 +1166,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1178,7 +1178,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_items_without_preload_content(
+    def get_playlist_items_without_preload_content(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[Optional[UUID], Field(description="User id.")] = None,
@@ -1267,7 +1267,7 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1383,7 +1383,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_user(
+    def get_playlist_user(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -1444,11 +1444,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1456,7 +1456,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_user_with_http_info(
+    def get_playlist_user_with_http_info(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -1517,11 +1517,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1529,7 +1529,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_user_without_preload_content(
+    def get_playlist_user_without_preload_content(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -1590,7 +1590,7 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1667,7 +1667,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_users(
+    def get_playlist_users(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         _request_timeout: Union[
@@ -1724,11 +1724,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1736,7 +1736,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_users_with_http_info(
+    def get_playlist_users_with_http_info(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         _request_timeout: Union[
@@ -1793,11 +1793,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1805,7 +1805,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def get_playlist_users_without_preload_content(
+    def get_playlist_users_without_preload_content(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         _request_timeout: Union[
@@ -1862,7 +1862,7 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1936,7 +1936,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def move_item(
+    def move_item(
         self,
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
         item_id: Annotated[StrictStr, Field(description="The item id.")],
@@ -2001,11 +2001,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2013,7 +2013,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def move_item_with_http_info(
+    def move_item_with_http_info(
         self,
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
         item_id: Annotated[StrictStr, Field(description="The item id.")],
@@ -2078,11 +2078,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2090,7 +2090,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def move_item_without_preload_content(
+    def move_item_without_preload_content(
         self,
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
         item_id: Annotated[StrictStr, Field(description="The item id.")],
@@ -2155,7 +2155,7 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2235,7 +2235,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def remove_item_from_playlist(
+    def remove_item_from_playlist(
         self,
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
         entry_ids: Annotated[Optional[List[StrictStr]], Field(description="The item ids, comma delimited.")] = None,
@@ -2296,11 +2296,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2308,7 +2308,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def remove_item_from_playlist_with_http_info(
+    def remove_item_from_playlist_with_http_info(
         self,
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
         entry_ids: Annotated[Optional[List[StrictStr]], Field(description="The item ids, comma delimited.")] = None,
@@ -2369,11 +2369,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2381,7 +2381,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def remove_item_from_playlist_without_preload_content(
+    def remove_item_from_playlist_without_preload_content(
         self,
         playlist_id: Annotated[StrictStr, Field(description="The playlist id.")],
         entry_ids: Annotated[Optional[List[StrictStr]], Field(description="The item ids, comma delimited.")] = None,
@@ -2442,7 +2442,7 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2522,7 +2522,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def remove_user_from_playlist(
+    def remove_user_from_playlist(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -2583,11 +2583,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2595,7 +2595,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def remove_user_from_playlist_with_http_info(
+    def remove_user_from_playlist_with_http_info(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -2656,11 +2656,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2668,7 +2668,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def remove_user_from_playlist_without_preload_content(
+    def remove_user_from_playlist_without_preload_content(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -2729,7 +2729,7 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2806,7 +2806,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def update_playlist(
+    def update_playlist(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         update_playlist_dto: Annotated[UpdatePlaylistDto, Field(description="The Jellyfin.Api.Models.PlaylistDtos.UpdatePlaylistDto id.")],
@@ -2867,11 +2867,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2879,7 +2879,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def update_playlist_with_http_info(
+    def update_playlist_with_http_info(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         update_playlist_dto: Annotated[UpdatePlaylistDto, Field(description="The Jellyfin.Api.Models.PlaylistDtos.UpdatePlaylistDto id.")],
@@ -2940,11 +2940,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2952,7 +2952,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def update_playlist_without_preload_content(
+    def update_playlist_without_preload_content(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         update_playlist_dto: Annotated[UpdatePlaylistDto, Field(description="The Jellyfin.Api.Models.PlaylistDtos.UpdatePlaylistDto id.")],
@@ -3013,7 +3013,7 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -3105,7 +3105,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def update_playlist_user(
+    def update_playlist_user(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -3170,11 +3170,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3182,7 +3182,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def update_playlist_user_with_http_info(
+    def update_playlist_user_with_http_info(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -3247,11 +3247,11 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3259,7 +3259,7 @@ class PlaylistsApi:
 
 
     @validate_call
-    async def update_playlist_user_without_preload_content(
+    def update_playlist_user_without_preload_content(
         self,
         playlist_id: Annotated[UUID, Field(description="The playlist id.")],
         user_id: Annotated[UUID, Field(description="The user id.")],
@@ -3324,7 +3324,7 @@ class PlaylistsApi:
             '403': "ProblemDetails",
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

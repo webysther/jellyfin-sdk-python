@@ -40,7 +40,7 @@ class TrickplayApi:
 
 
     @validate_call
-    async def get_trickplay_hls_playlist(
+    def get_trickplay_hls_playlist(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         width: Annotated[StrictInt, Field(description="The width of a single tile.")],
@@ -105,11 +105,11 @@ class TrickplayApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -117,7 +117,7 @@ class TrickplayApi:
 
 
     @validate_call
-    async def get_trickplay_hls_playlist_with_http_info(
+    def get_trickplay_hls_playlist_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         width: Annotated[StrictInt, Field(description="The width of a single tile.")],
@@ -182,11 +182,11 @@ class TrickplayApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -194,7 +194,7 @@ class TrickplayApi:
 
 
     @validate_call
-    async def get_trickplay_hls_playlist_without_preload_content(
+    def get_trickplay_hls_playlist_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         width: Annotated[StrictInt, Field(description="The width of a single tile.")],
@@ -259,7 +259,7 @@ class TrickplayApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -342,7 +342,7 @@ class TrickplayApi:
 
 
     @validate_call
-    async def get_trickplay_tile_image(
+    def get_trickplay_tile_image(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         width: Annotated[StrictInt, Field(description="The width of a single tile.")],
@@ -411,11 +411,11 @@ class TrickplayApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -423,7 +423,7 @@ class TrickplayApi:
 
 
     @validate_call
-    async def get_trickplay_tile_image_with_http_info(
+    def get_trickplay_tile_image_with_http_info(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         width: Annotated[StrictInt, Field(description="The width of a single tile.")],
@@ -492,11 +492,11 @@ class TrickplayApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -504,7 +504,7 @@ class TrickplayApi:
 
 
     @validate_call
-    async def get_trickplay_tile_image_without_preload_content(
+    def get_trickplay_tile_image_without_preload_content(
         self,
         item_id: Annotated[UUID, Field(description="The item id.")],
         width: Annotated[StrictInt, Field(description="The width of a single tile.")],
@@ -573,7 +573,7 @@ class TrickplayApi:
             '403': None,
             '404': "ProblemDetails",
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

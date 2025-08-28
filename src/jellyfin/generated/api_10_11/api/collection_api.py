@@ -41,7 +41,7 @@ class CollectionApi:
 
 
     @validate_call
-    async def add_to_collection(
+    def add_to_collection(
         self,
         collection_id: Annotated[UUID, Field(description="The collection id.")],
         ids: Annotated[List[UUID], Field(description="Item ids, comma delimited.")],
@@ -102,11 +102,11 @@ class CollectionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -114,7 +114,7 @@ class CollectionApi:
 
 
     @validate_call
-    async def add_to_collection_with_http_info(
+    def add_to_collection_with_http_info(
         self,
         collection_id: Annotated[UUID, Field(description="The collection id.")],
         ids: Annotated[List[UUID], Field(description="Item ids, comma delimited.")],
@@ -175,11 +175,11 @@ class CollectionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -187,7 +187,7 @@ class CollectionApi:
 
 
     @validate_call
-    async def add_to_collection_without_preload_content(
+    def add_to_collection_without_preload_content(
         self,
         collection_id: Annotated[UUID, Field(description="The collection id.")],
         ids: Annotated[List[UUID], Field(description="Item ids, comma delimited.")],
@@ -248,7 +248,7 @@ class CollectionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -326,7 +326,7 @@ class CollectionApi:
 
 
     @validate_call
-    async def create_collection(
+    def create_collection(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the collection.")] = None,
         ids: Annotated[Optional[List[StrictStr]], Field(description="Item Ids to add to the collection.")] = None,
@@ -395,11 +395,11 @@ class CollectionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -407,7 +407,7 @@ class CollectionApi:
 
 
     @validate_call
-    async def create_collection_with_http_info(
+    def create_collection_with_http_info(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the collection.")] = None,
         ids: Annotated[Optional[List[StrictStr]], Field(description="Item Ids to add to the collection.")] = None,
@@ -476,11 +476,11 @@ class CollectionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -488,7 +488,7 @@ class CollectionApi:
 
 
     @validate_call
-    async def create_collection_without_preload_content(
+    def create_collection_without_preload_content(
         self,
         name: Annotated[Optional[StrictStr], Field(description="The name of the collection.")] = None,
         ids: Annotated[Optional[List[StrictStr]], Field(description="Item Ids to add to the collection.")] = None,
@@ -557,7 +557,7 @@ class CollectionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -650,7 +650,7 @@ class CollectionApi:
 
 
     @validate_call
-    async def remove_from_collection(
+    def remove_from_collection(
         self,
         collection_id: Annotated[UUID, Field(description="The collection id.")],
         ids: Annotated[List[UUID], Field(description="Item ids, comma delimited.")],
@@ -711,11 +711,11 @@ class CollectionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -723,7 +723,7 @@ class CollectionApi:
 
 
     @validate_call
-    async def remove_from_collection_with_http_info(
+    def remove_from_collection_with_http_info(
         self,
         collection_id: Annotated[UUID, Field(description="The collection id.")],
         ids: Annotated[List[UUID], Field(description="Item ids, comma delimited.")],
@@ -784,11 +784,11 @@ class CollectionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -796,7 +796,7 @@ class CollectionApi:
 
 
     @validate_call
-    async def remove_from_collection_without_preload_content(
+    def remove_from_collection_without_preload_content(
         self,
         collection_id: Annotated[UUID, Field(description="The collection id.")],
         ids: Annotated[List[UUID], Field(description="Item ids, comma delimited.")],
@@ -857,7 +857,7 @@ class CollectionApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

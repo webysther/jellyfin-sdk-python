@@ -37,7 +37,7 @@ class TmdbApi:
 
 
     @validate_call
-    async def tmdb_client_configuration(
+    def tmdb_client_configuration(
         self,
         _request_timeout: Union[
             None,
@@ -90,11 +90,11 @@ class TmdbApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -102,7 +102,7 @@ class TmdbApi:
 
 
     @validate_call
-    async def tmdb_client_configuration_with_http_info(
+    def tmdb_client_configuration_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -155,11 +155,11 @@ class TmdbApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        await response_data.read()
+        response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -167,7 +167,7 @@ class TmdbApi:
 
 
     @validate_call
-    async def tmdb_client_configuration_without_preload_content(
+    def tmdb_client_configuration_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -220,7 +220,7 @@ class TmdbApi:
             '401': None,
             '403': None,
         }
-        response_data = await self.api_client.call_api(
+        response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
