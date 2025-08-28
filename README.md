@@ -10,6 +10,8 @@ A Possible Official Python SDK for Jellyfin.
 
 > Warning: This project is under active development, so API changes may occur.
 
+Why Possible Official? Because just works, no fuzz.
+
 ## Install
 
 ```sh
