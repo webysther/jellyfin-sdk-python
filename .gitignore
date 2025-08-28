@@ -1,0 +1,10 @@
+dist/
+.venv/
+uv.lock
+src/README.md
+*.egg-info/
+*.pyc
+__pycache__/
+.idea/
+.vscode/
+.DS_Store
