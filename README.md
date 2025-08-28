@@ -130,6 +130,42 @@ jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"), '10.11')
 jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"), '99')
 ```
 
+### List all libraries of an user
+
+When using `API_KEY` some endpoints need the user_id (don't me ask why!), almost all issues with jellyfin is around this.
+To help to identify this not-so-much-edge-cases we raise a exception to help with that:
+
+```python
+
+jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.libraries
+
+>>> jellyfin.api('https://video.webysther.org', 'f674245b80ea4a3ea9c011e01ce73ef9').user.libraries
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/code/jellyfin-sdk-python/src/jellyfin/user.py", line 16, in libraries
+    return self.views
+  File "/code/jellyfin-sdk-python/src/jellyfin/user.py", line 21, in views
+    raise ValueError("User ID is not set. Use the 'of(user_id)' method to set the user context.")
+ValueError: User ID is not set. Use the 'of(user_id)' method to set the user context.
+
+
+jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('asdasjdkhasdjlkasdjalsdjklasjdk').libraries
+```
+
+### List all items
+
+Item can be any object in the server, in fact that's how works, one huge table recursive linked.
+
+```python
+jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).items.all
+```
+
+We still don't give you the automatic pagination with a `Iterator`, for this cases use the `filter`.
+In this example will be returned 10k items. For slice the pagination use `start_index`.
+
+```python
+jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).items.filter(limit=10000)
+```
 
 ### Supported Jellyfin Versions
 

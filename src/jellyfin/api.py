@@ -1,6 +1,8 @@
 from enum import Enum
 import importlib
 from .system import System
+from .items import Items
+from .user import User
 
 class Version(Enum):
     V10_10 = "10.10"
@@ -15,7 +17,9 @@ class Inject():
 
 class Api:
     _system = None
-    
+    _items = None
+    _user = None
+
     def __init__(self, url, api_key, version: Version = Version.V10_10):
         try:
             version = Version(version)
@@ -39,3 +43,15 @@ class Api:
         if self._system is None:
             self._system = System(self._module.SystemApi(self.client))
         return self._system
+
+    @property
+    def items(self):
+        if self._items is None:
+            self._items = Items(self._module.ItemsApi(self.client))
+        return self._items
+    
+    @property
+    def user(self):
+        if self._user is None:
+            self._user = User(self._module.UserViewsApi(self.client))
+        return self._user
