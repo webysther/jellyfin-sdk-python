@@ -1,5 +1,5 @@
 """
-Module `user` - High-level interface for UserAPI and UserViewsAPI.
+Module `user` - High-level interface for UserApi and UserViewsApi.
 """
 
 import uuid
@@ -11,8 +11,8 @@ class User:
         """Initializes the User API wrapper.
 
         Args:
-            user_api (object): An instance of the generated UserApi class.
-            user_views_api (object): An instance of the generated UserViewsApi class.
+            user_api (UserApi): An instance of the generated UserApi class.
+            user_views_api (UserViewsApi): An instance of the generated UserViewsApi class.
         """
         self.user_api = user_api
         self.user_views_api = user_views_api
