@@ -1,4 +1,4 @@
-<h1 align="center">jellyfin-sdk-python</h1>
+<h1 align="center">Jellyfin SDK for Python</h1>
 
 ---
 
@@ -6,7 +6,7 @@
 <img alt="Logo Banner" src="https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/banner-logo-solid.svg?sanitize=true"/>
 </p>
 
-A [Possible Official](https://jellyfin.org/docs/general/contributing/branding) Python SDK for Jellyfin.
+A High-level Wrapper for OpenAPI Generated Bindings for Jellyfin API.
 
 > Warning: API changes will occur only in the final classes, bindings and legacy don't change
 
@@ -54,7 +54,7 @@ This library includes the old legacy client (which is almost unmaintained) to he
 
 ```sh
 pip uninstall jellyfin-apiclient-python
-pip install jellyfin-sdk
+pip install jellyfin-sdk[legacy]
 ```
 
 ```python
@@ -69,55 +69,67 @@ from jellyfin.legacy.api import API
 
 ### Login
 
-To get started with login, in most cases you only need to do something simple:
-
 ```python
 import os
 
-os.environ["JELLYFIN_URL"] = "https://jellyfin.example.com"
-os.environ["JELLYFIN_API_KEY"] = "MY_TOKEN"
+os.environ["URL"] = "https://jellyfin.example.com"
+os.environ["API_KEY"] = "MY_TOKEN"
 ```
 
-#### Simple with high level of abstraction
+#### Using SDK
 
 ```python
 import jellyfin
 
-api = jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"))
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
 
-print(api.system.info.version, api.system.info.server_name)
+print(
+    api.system.info.version,
+    api.system.info.server_name
+)
 ```
 
-#### Generated Binding with OpenAPI Specification
+#### Direct with Generated Bindings
 
 ```python
 from jellyfin.generated.api_10_10 import Configuration, ApiClient, SystemApi
 
-client = ApiClient(
-    Configuration(host = os.getenv("JELLYFIN_URL")), 
-    header_name='X-Emby-Token', 
-    header_value=os.getenv("JELLYFIN_API_KEY")
+configuration = Configuration(
+    host = os.getenv("URL"),
+    api_key={'CustomAuthentication': f'Token="{os.getenv("API_KEY")}"'}, 
+    api_key_prefix={'CustomAuthentication': 'MediaBrowser'}
 )
-system_info = SystemApi(client).get_system_info()
 
-print(system_info.version, system_info.server_name)
+client = ApiClient(configuration)
+system = SystemApi(client)
+
+print(
+    system.get_system_info().version, 
+    system.get_system_info().server_name
+)
 ```
 
-#### Legacy ([jellyfin-apiclient-python](https://github.com/jellyfin/jellyfin-apiclient-python))
+#### Legacy
 
 ```python
 from jellyfin.legacy import JellyfinClient
 client = JellyfinClient()
 client.authenticate(
     {"Servers": [{
-        "AccessToken": os.getenv("JELLYFIN_API_KEY"), 
-        "address": os.getenv("JELLYFIN_URL")
+        "AccessToken": os.getenv("API_KEY"), 
+        "address": os.getenv("URL")
     }]}, 
     discover=False
 )
 system_info = client.jellyfin.get_system_info()
 
-print(system_info.get("Version"), system_info.get("ServerName"))
+print(
+    system_info.get("Version"), 
+    system_info.get("ServerName")
+)
 ```
 
 ### Jellyfin Server API Version
@@ -129,17 +141,34 @@ To avoid this, you can set an API target version, similar to how it's done in An
 from jellyfin.api import Version
 import jellyfin
 
-# this will use the default which is the lastest stable
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"))
+# By default will use the lastest stable
+jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
 
 # now let's test the new API (version 10.11) for breaking changes in same endpoint
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"), Version.V10_11)
+jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY"), 
+    Version.V10_11
+)
 
-# but keep simple
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"), '10.11')
+# but str is allow to: 10.10, 10.11 and etc
+jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY"), 
+    '10.11'
+)
 
 # let's test a wrong version
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY"), '99')
+jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY"), 
+    '99'
+)
+
+> ValueError: Unsupported version: 99. Supported versions are: ['10.10', '10.11']
 ```
 
 ### List all libraries of an user
@@ -149,21 +178,24 @@ To help to identify this not-so-much-edge-cases we raise a exception to help wit
 
 ```python
 
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.libraries
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
 
->>> jellyfin.api('https://jellyfin.example.com', 'f674245b84ea4d3ea9cf11').user.libraries
-Traceback (most recent call last):
-  ...
-  ValueError: User ID is not set. Use the 'of(user_id)' method to set the user context.
+api.user.libraries
+
+> ValueError: User ID is not set. Use the 'of(user_id)' method to set the user context.
 
 
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('f674245b84ea4d3ea9cf11').libraries
+api.user.of('f674245b84ea4d3ea9cf11').libraries
 
 # works also with the user name
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('niels').libraries
+api.user.of('niels').libraries
 
-# don't be afraid, go crazy
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('niels').id
+# when using 'of' the attribute of dataclasses 
+# user and user_view can be accessed directly
+api.user.of('niels').id
 ```
 
 ### List all items
@@ -171,24 +203,39 @@ jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.of('
 Item can be any object in the server, in fact that's how works, one huge table recursive linked.
 
 ```python
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).items.all
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
+
+api.items.all
 ```
 
 We still don't give you the automatic pagination with a `Iterator`, for this cases use the `filter`.
 In this example will be returned 10k items. For slice the pagination use `start_index`.
 
 ```python
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).items.filter(limit=10000)
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
+
+api.items.filter(limit=10000)
 ```
+
+All filter options is available [here](https://webysther.github.io/jellyfin-sdk-python.github.io/api_10_10/docs/ItemsApi/#get_items).
 
 ### Let's get the User ID by name or ID
 
-The id is a `UUID` to get the str just use the attribute `hex`
-
 ```python
-uuid = jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.by_name('niels').id.hex
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
 
-jellyfin.api(os.getenv("JELLYFIN_URL"), os.getenv("JELLYFIN_API_KEY")).user.by_id(uuid).name
+uuid = api.user.by_name('joshua').id
+
+api.user.by_id(uuid).name
 ```
 
 ### Supported Jellyfin Versions
