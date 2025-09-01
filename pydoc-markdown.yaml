@@ -1,0 +1,20 @@
+loaders:
+- type: python
+  search_path: [src]
+  modules:
+  - jellyfin
+  - jellyfin.api
+  - jellyfin.user
+  - jellyfin.items
+  - jellyfin.system
+renderer:
+  type: mkdocs
+  pages:
+  - title: SDK Documentation
+    name: sdk
+    contents:
+    - '*'
+  mkdocs_config:
+    theme: readthedocs
+  markdown:
+    add_full_prefix: true
