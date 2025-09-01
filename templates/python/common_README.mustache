@@ -1,14 +1,14 @@
 ```python
 {{#apiInfo}}{{#apis}}{{#-last}}{{#hasHttpSignatureMethods}}import datetime{{/hasHttpSignatureMethods}}{{/-last}}{{/apis}}{{/apiInfo}}
 import {{{packageName}}}
+from {{{packageName}}} import ApiClient, Configuration
 from {{{packageName}}}.rest import ApiException
 from pprint import pprint
 {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
 {{> python_doc_auth_partial}}
 
-
 # Enter a context with an instance of the API client
-{{#asyncio}}async {{/asyncio}}with {{{packageName}}}.ApiClient(configuration) as api_client:
+{{#asyncio}}async {{/asyncio}}with ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = {{{packageName}}}.{{{classname}}}(api_client)
     {{#allParams}}
@@ -42,44 +42,3 @@ Class | Method | HTTP request | Description
 
 {{#models}}{{#model}} - [{{{classname}}}]({{modelDocPath}}{{{classname}}}.md)
 {{/model}}{{/models}}
-
-<a id="documentation-for-authorization"></a>
-## Documentation For Authorization
-
-{{^authMethods}}Endpoints do not require authorization.{{/authMethods}}
-{{#hasAuthMethods}}Authentication schemes defined for the API:{{/hasAuthMethods}}
-{{#authMethods}}
-<a id="{{name}}"></a>
-### {{{name}}}
-
-{{#isApiKey}}
-- **Type**: API key
-- **API key parameter name**: {{{keyParamName}}}
-- **Location**: {{#isKeyInQuery}}URL query string{{/isKeyInQuery}}{{#isKeyInHeader}}HTTP header{{/isKeyInHeader}}
-{{/isApiKey}}
-{{#isBasic}}
-{{#isBasicBasic}}
-- **Type**: HTTP basic authentication
-{{/isBasicBasic}}
-{{#isBasicBearer}}
-- **Type**: Bearer authentication{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}
-{{/isBasicBearer}}
-{{#isHttpSignature}}
-- **Type**: HTTP signature authentication
-{{/isHttpSignature}}
-{{/isBasic}}
-{{#isOAuth}}
-- **Type**: OAuth
-- **Flow**: {{{flow}}}
-- **Authorization URL**: {{{authorizationUrl}}}
-- **Scopes**: {{^scopes}}N/A{{/scopes}}
-{{#scopes}} - **{{{scope}}}**: {{{description}}}
-{{/scopes}}
-{{/isOAuth}}
-
-{{/authMethods}}
-
-## Author
-
-{{#apiInfo}}{{#apis}}{{#-last}}{{infoEmail}}
-{{/-last}}{{/apis}}{{/apiInfo}}

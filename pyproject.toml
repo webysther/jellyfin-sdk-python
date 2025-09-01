@@ -20,9 +20,11 @@ dependencies = [
     "httpx >= 0.24.1, < 1.0.0",
     "httpx-oauth >= 0.6.0, < 1.0.0",
     "websockets >= 11.0.3, < 12.0.0",
-    "jellyfin-apiclient-python>=1.11.0",
     "jmespath>=1.0.1",
 ]
+
+[project.optional-dependencies]
+legacy = ["jellyfin-apiclient-python"]
 
 [project.urls]
 GitHub = "https://github.com/webysther/jellyfin-sdk-python"

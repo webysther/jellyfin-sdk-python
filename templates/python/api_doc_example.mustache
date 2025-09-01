@@ -1,6 +1,7 @@
 
 ```python
 import {{{packageName}}}
+from {{{packageName}}} import ApiClient, Configuration
 {{#vendorExtensions.x-py-example-import}}
 {{{.}}}
 {{/vendorExtensions.x-py-example-import}}
@@ -10,7 +11,7 @@ from pprint import pprint
 {{> python_doc_auth_partial}}
 
 # Enter a context with an instance of the API client
-{{#asyncio}}async {{/asyncio}}with {{{packageName}}}.ApiClient(configuration) as api_client:
+{{#asyncio}}async {{/asyncio}}with ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = {{{packageName}}}.{{{classname}}}(api_client)
     {{#allParams}}
