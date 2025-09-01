@@ -1,0 +1,46 @@
+<mxfile host="draw.webysther.org" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="28.0.6">
+  <diagram name="Page-1" id="VF4tretUii33Jk20oOzO">
+    <mxGraphModel dx="2066" dy="1103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IDjl4RTHBbRseVV7VbDp-1" value="jellyfin.generated" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" vertex="1" parent="1">
+          <mxGeometry x="260" y="570" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IDjl4RTHBbRseVV7VbDp-2" value="jellyfin.legacy" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+          <mxGeometry x="440" y="585" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IDjl4RTHBbRseVV7VbDp-6" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;startArrow=block;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="354.5" y="490" as="sourcePoint" />
+            <mxPoint x="354.5" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IDjl4RTHBbRseVV7VbDp-8" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;startArrow=block;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="494.5" y="490" as="sourcePoint" />
+            <mxPoint x="494.5" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IDjl4RTHBbRseVV7VbDp-9" value="jellyfin" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="260" y="460" width="290" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="IDjl4RTHBbRseVV7VbDp-10" value="Jellyfin Server API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="260" y="730" width="290" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IDjl4RTHBbRseVV7VbDp-11" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;startArrow=block;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="353" y="640" as="sourcePoint" />
+            <mxPoint x="353" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IDjl4RTHBbRseVV7VbDp-12" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;startArrow=block;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="494.5" y="640" as="sourcePoint" />
+            <mxPoint x="494.5" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
