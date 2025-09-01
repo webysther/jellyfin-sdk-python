@@ -95,10 +95,9 @@ configuration = {{{packageName}}}.Configuration(
 {{#isApiKey}}
 
 # Configure API key authorization: {{{name}}}
-configuration.api_key['{{{name}}}'] = os.environ["API_KEY"]
+configuration.api_key['{{{name}}}'] = f'Token="{os.getenv("API_KEY")}"'}
+configuration.api_key_prefix['{{{name}}}'] = "MediaBrowser"
 
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['{{name}}'] = 'Bearer'
 {{/isApiKey}}
 {{#isOAuth}}
 
