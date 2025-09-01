@@ -1,5 +1,4 @@
 .github/
-docs/
 test/
 .gitignore
 .gitlab-ci.yml
@@ -14,4 +13,3 @@ tox.ini
 pyproject.toml
 jellyfin/__init__.py
 .openapi-generator/
-README.md

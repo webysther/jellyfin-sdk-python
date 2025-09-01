@@ -1,4 +1,5 @@
 dist/
+build/
 .venv/
 uv.lock
 src/README.md
