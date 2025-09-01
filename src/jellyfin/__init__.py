@@ -1,12 +1,24 @@
-from .api import Api, Version
+"""
+Entrypoint module for the Jellyfin SDK.
+"""
 
-def api(url, api_key, version=Version.V10_10) -> Api:
+from .api import Api, Version
+from .items import Items
+from .system import System
+from .user import User
+
+__all__ = ['Api', 'Version', 'Items', 'System', 'User']
+
+def api(url: str, api_key: str, version: Version = Version.V10_10) -> Api:
     """
     Create an instance of the Jellyfin API client.
-    
-    :param url: The base URL of the Jellyfin server.
-    :param api_key: The API key for authentication.
-    :param version: The API version to use (default is Version.V10_10).
-    :return: An instance of the Api class.
+
+    Args:
+        url (str): The base URL of the Jellyfin server.
+        api_key (str): The API key for authentication.
+        version (Version): The API version to use (default is Version.V10_10).
+
+    Returns:
+        Api: An instance of the Api class.
     """
     return Api(url, api_key, version)
