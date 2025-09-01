@@ -238,6 +238,12 @@ uuid = api.user.by_name('joshua').id
 api.user.by_id(uuid).name
 ```
 
+### Documentation
+
+- [SDK Reference](https://webysther.github.io/jellyfin-sdk-python.github.io/sdk/)
+- [Jellyfin API 10.10](https://webysther.github.io/jellyfin-sdk-python.github.io/api_10_10/) (Stable)
+- [Jellyfin API 10.11](https://webysther.github.io/jellyfin-sdk-python.github.io/api_10_11/) (Release Candidate)
+
 ### Supported Jellyfin Versions
 
 | SDK Version | Jellyfin API Target |
