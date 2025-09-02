@@ -1,11 +1,16 @@
 """
 Module `user` - High-level interface for UserApi and UserViewsApi.
 """
+from typing import Callable, List
+
+from pydantic import BaseModel
 
 import uuid
 
+from .items import ItemCollection
+
 class User:
-    _user_uuid = None
+    _user = None
 
     def __init__(self, user_api: object, user_views_api: object):
         """Initializes the User API wrapper.
@@ -17,39 +22,36 @@ class User:
         self.user_api = user_api
         self.user_views_api = user_views_api
 
-    def of(self, user_uuid: str | uuid.UUID) -> 'User':
+    def of(self, user_name_or_uuid: str | uuid.UUID) -> 'User':
         """Set user context
         
         Args:
-            user_uuid (str | uuid.UUID): The UUID or name of the user.
-        
+            user_name_or_uuid (str | uuid.UUID): The UUID or name of the user.
+
         Raises:
-            ValueError: If the provided user_uuid is not a valid UUID or name.
-            
+            ValueError: If the provided user_name_or_uuid is not a valid UUID or name.
+
         Returns:
             User: The current User instance with the user context set.
         """
-        if isinstance(user_uuid, uuid.UUID):
-            user_uuid = user_uuid.hex
-        self._user_uuid = user_uuid
-        
-        user = self.by_name(user_uuid)
-        if user is not None:
-            self._user_uuid = user.id.hex
+        try:
+            if isinstance(user_name_or_uuid, uuid.UUID):
+                self._user = self.by_id(user_name_or_uuid)
+                return self
+        except ValueError:
+            raise ValueError(f"Not found UUID: {user_name_or_uuid}")
+        try:
+            self._user = self.by_name(user_name_or_uuid)
             return self
 
-        try:
-            user = self.by_id(uuid.UUID(user_uuid))
-        except ValueError:
-            raise ValueError(f"Invalid or Not found UUID/Name for user: {user_uuid}")
-            
-        if user is not None:
-            self._user_uuid = user.id.hex
-            return self
+            self._user = self.by_id(uuid.UUID(user_name_or_uuid))
+            warnings.warn("User UUID need to be a UUID object.")
+        except Exception:
+            raise ValueError(f"Not found user: {user_name_or_uuid}")
 
         return self
     
-    def by_id(self, user_id: uuid.UUID) -> object:
+    def by_id(self, user_id: uuid.UUID) -> BaseModel:
         """Get user by ID
         
         Args:
@@ -60,21 +62,22 @@ class User:
         """
         return self.user_api.get_user_by_id(user_id=user_id)
 
-    def by_name(self, user_name: str, sensitive: bool = False):
-        """Get user by name"""
-        if sensitive is False:
-            user_name = user_name.lower()
+    def by_name(self, user_name: str) -> BaseModel | None:
+        """Get user by name
         
+        Args:
+            user_name (str): The name of the user.
+            
+        Returns:
+            UserDto | None: The user object if found, otherwise None.
+        """
         for user in self.all:
-            current_name = user.name
-            if sensitive is False:
-                current_name = current_name.lower()
-            if current_name == user_name:
+            if user.name == user_name:
                 return user
         return None
 
     @property
-    def users(self) -> object:
+    def users(self) -> Callable[..., List[BaseModel]]:
         """Get all users.
         
         Returns:
@@ -83,7 +86,7 @@ class User:
         return self.user_api.get_users
     
     @property
-    def all(self) -> object:
+    def all(self) -> Callable[..., List[BaseModel]]:
         """Get all users. Alias for users
         
         Returns:
@@ -92,39 +95,42 @@ class User:
         return self.users()
 
     @property
-    def libraries(self) -> object:
+    def libraries(self) -> ItemCollection:
         """Get libraries. Alias for views
         
         Returns:
-            BaseItemDtoQueryResult: A list of libraries.
+            ItemCollection: A list of libraries.
         """
         return self.views
 
     @property
-    def views(self) -> object:
+    def views(self) -> ItemCollection:
         """Get libraries for the current user context.
         
         Raises:
             ValueError: If user ID is not set.
 
         Returns:
-            BaseItemDtoQueryResult: A list of libraries.
+            ItemCollection: A list of libraries.
         """
-        if self._user_uuid is None:
+        if self._user is None:
             raise ValueError("User ID is not set. Use the 'of(user_id)' method to set the user context.")
-        
-        return self.user_views_api.get_user_views(user_id=self._user_uuid)
-    
-    def get_libraries(user_id: str | uuid.UUID) -> object:
+
+        user_views = self.user_views_api.get_user_views(
+            user_id=self._user.id
+        )
+        return ItemCollection(user_views)
+
+    def get_libraries(user_name_or_uuid: str | uuid.UUID) -> ItemCollection:
         """Get libraries for a specific user.
         
         Args:
-            user_id (str | uuid.UUID): The UUID of the user.
-        
+            user_name_or_uuid (str | uuid.UUID): The UUID or name of the user.
+
         Returns:
-            BaseItemDtoQueryResult: A list of libraries.
+            ItemCollection: A list of libraries.
         """
-        return self.of(user_id).libraries
+        return self.of(user_name_or_uuid).libraries
     
     def __getattr__(self, name):
         """Delegate attribute access to user_api, user_views_api, or the current user object."""
@@ -132,8 +138,7 @@ class User:
             return getattr(self.user_api, name)
         if hasattr(self.user_views_api, name):
             return getattr(self.user_views_api, name)
-        if self._user_uuid is not None:
-            user = self.by_id(uuid.UUID(self._user_uuid))
-            if hasattr(user, name):
-                return getattr(user, name)
+        if self._user is not None:
+            if hasattr(self._user, name):
+                return getattr(self._user, name)
         raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
