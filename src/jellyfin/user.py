@@ -2,12 +2,17 @@
 Module `user` - High-level interface for UserApi and UserViewsApi.
 """
 from typing import Callable, List
+from enum import Enum
 
 from pydantic import BaseModel
 
 import uuid
 
 from .items import ItemCollection
+
+class UserViewKind(Enum):
+    COLLECTION = 'CollectionFolder'
+    PLAYLIST = 'Playlist'
 
 class User:
     _user = None
@@ -101,7 +106,14 @@ class User:
         Returns:
             ItemCollection: A list of libraries.
         """
-        return self.views
+        views = self.views
+        filtered_items = [
+            item for item in views._data.items
+            if item.type in [UserViewKind.COLLECTION.value]
+        ]
+        views._data.items = filtered_items
+        views._data.total_record_count = len(filtered_items)
+        return views
 
     @property
     def views(self) -> ItemCollection:
@@ -120,17 +132,6 @@ class User:
             user_id=self._user.id
         )
         return ItemCollection(user_views)
-
-    def get_libraries(user_name_or_uuid: str | uuid.UUID) -> ItemCollection:
-        """Get libraries for a specific user.
-        
-        Args:
-            user_name_or_uuid (str | uuid.UUID): The UUID or name of the user.
-
-        Returns:
-            ItemCollection: A list of libraries.
-        """
-        return self.of(user_name_or_uuid).libraries
     
     def __getattr__(self, name):
         """Delegate attribute access to user_api, user_views_api, or the current user object."""
