@@ -101,7 +101,7 @@ class User:
 
     @property
     def libraries(self) -> ItemCollection:
-        """Get libraries. Alias for views
+        """Get libraries for the current user context.
         
         Returns:
             ItemCollection: A list of libraries.
@@ -117,7 +117,7 @@ class User:
 
     @property
     def views(self) -> ItemCollection:
-        """Get libraries for the current user context.
+        """Get views for the current user context.
         
         Raises:
             ValueError: If user ID is not set.
