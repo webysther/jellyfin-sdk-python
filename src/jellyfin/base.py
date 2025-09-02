@@ -54,14 +54,20 @@ class Model(BaseModel):
             return pandas.DataFrame(data)
         return pandas.DataFrame([data])
 
-    def summary(self, empty: bool = True) -> None:
+    def summary(self, empty: bool = False, size: int = 80, limit: int = 100) -> None:
         """Prints the simple representation of the model.
         
         Args:
             empty (bool): If True, includes all values. If False, omits empty values (None, "", 0, [], {}).
         """
-        for prop in self._data.__class__.model_fields.keys():
-            value = getattr(self._data, prop)
+        if hasattr(self._data.__class__, "model_fields"):
+            keys = self._data.__class__.model_fields.keys()
+        else:
+            keys = self._data.__dict__.keys()
+        for key in keys:
+            if limit and limit <= 0:
+                break
+            value = getattr(self._data, key, None)
             if not empty:
                 if value is None or value == 0 or value == "":
                     continue
@@ -69,21 +75,12 @@ class Model(BaseModel):
                 if isinstance(value, (list, dict, set, tuple)) and not value:
                     continue
 
-            if hasattr(value, 'to_dict'):
-                print(f"{prop}:")
-                value = value.to_dict()
-                for k, v in value.items():
-                    if not empty:
-                        if v is None or v == 0 or v == "":
-                            continue
-                        
-                        if isinstance(value, (list, dict, set, tuple)) and not value:
-                            continue
+            value_str = str(getattr(self._data, key))
+            if len(value_str) > size:
+                value_str = value_str[:size].rstrip() + "..."
 
-                    print(f"  {k}: {v}")
-                continue
-            
-            print(f"{prop}: {getattr(self._data, prop)}")
+            limit -= 1
+            print(f"{key}={value_str}")
 
     def search(self, term: str) -> any:
         """Extract value using a simplified XPath-like syntax.

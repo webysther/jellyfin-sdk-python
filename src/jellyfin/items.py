@@ -20,11 +20,17 @@ class Item(Model):
         self._data = item
         
     def __repr__(self) -> str:
-        """Returns a string representation of the Item object."""
-        return (
-            f"<Item id={self._data.id} type={self._data.type}"
-            f" name={self._data.name}>"
-        )
+        """Returns a detailed string representation of the Item object, with each attribute on a new line."""
+        attrs = []
+        if hasattr(self._data.__class__, "model_fields"):
+            keys = self._data.__class__.model_fields.keys()
+        else:
+            keys = self._data.__dict__.keys()
+        for key in keys:
+            value = getattr(self._data, key, None)
+            attrs.append(f"  {key}={value!r}")
+        attrs_str = ",\n".join(attrs)
+        return f"<Item\n{attrs_str}\n>"
 
 class ItemCollection(Model):
     _data: BaseItemQueryResult = None
