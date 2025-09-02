@@ -98,7 +98,13 @@ class ItemCollection(Model):
         return None
     
     def __repr__(self) -> str:
-        return (f"<ItemCollection total={self.total} start_index={self.index}>")
+        items = list(getattr(self._data, "items", []))
+        items_repr = ",\n  ".join(repr(Item(item)) for item in items[:10])
+        if len(items) > 10:
+            items_repr += ",\n  ..."
+        return (
+            f"<ItemCollection total={self.total} start_index={self.index} items=[\n  {items_repr}\n]>"
+        )
 
 class Items():
     def __init__(self, items_api: object):
