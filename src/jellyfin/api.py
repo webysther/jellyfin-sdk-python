@@ -2,13 +2,13 @@
 Module `api` - High-level interface for ApiClient and Configuration.
 """
 
-from enum import StrEnum
+from enum import Enum
 import importlib
 from .system import System
 from .items import Items
 from .user import User
 
-class Version(StrEnum):
+class Version(Enum):
     """Enumeration of supported Jellyfin API versions."""
     V10_10 = "10.10"
     V10_11 = "10.11"
@@ -57,12 +57,14 @@ class Api:
         self.api_key = api_key
         self.version = version
         self._module = Inject.get(self.version)
-
-        self.client = self._module.ApiClient(
-            self._module.Configuration(host=self.url), 
-            header_name='X-Emby-Token', 
-            header_value=self.api_key
+        
+        self.configuration = self._module.Configuration(
+            host=self.url,
+            api_key={'CustomAuthentication': f'Token="{self.api_key}"'}, 
+            api_key_prefix={'CustomAuthentication': 'MediaBrowser'}
         )
+
+        self.client = self._module.ApiClient(self.configuration)
     
     @property
     def system(self) -> System:
