@@ -2,10 +2,10 @@
 Module `system` - High-level interface for SystemAPI.
 """
 
-from pydantic import BaseModel
+from .generated import SystemApi, SystemInfo
 
 class System:
-    def __init__(self, system_api: object):
+    def __init__(self, system_api: SystemApi):
         """Initializes the System API wrapper.
 
         Args:
@@ -14,7 +14,7 @@ class System:
         self.system_api = system_api
 
     @property
-    def info(self) -> BaseModel:
+    def info(self) -> SystemInfo:
         """
         Returns system information.
         
