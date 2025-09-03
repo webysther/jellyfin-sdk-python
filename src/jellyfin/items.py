@@ -6,51 +6,27 @@ import copy, warnings
 from pydantic import BaseModel
 from typing import List, Union, Any, Dict, Protocol
 from enum import Enum
-from .typing import BaseItemQueryResult, BaseItem
-from .base import Model
+from .base import Model, Single, CollectionPagination
+from .generated import (
+    BaseItemKind,
+    BaseItemDtoQueryResult, 
+    BaseItemDto, 
+    ItemsApi
+)
 
-class ItemKind(Enum):
-    COLLECTION = 'CollectionFolder'
-    PLAYLIST = 'Playlist'
-
-class Item(Model):
-    _data: BaseItem = None
-
-    def __init__(self, item: BaseItem):
-        """
-        Initializes the Item class.
-
-        Args:
-            item (BaseItem): The item data.
-        """
-        self._data = item
-        
-    def __repr__(self) -> str:
-        """Returns a detailed string representation of the Item object, with each attribute on a new line."""
-        attrs = []
-        if hasattr(self._data.__class__, "model_fields"):
-            keys = self._data.__class__.model_fields.keys()
-        else:
-            keys = self._data.__dict__.keys()
-        for key in keys:
-            value = getattr(self._data, key, None)
-            attrs.append(f"  {key}={value!r}")
-        attrs_str = ",\n".join(attrs)
-        return f"<Item\n{attrs_str}\n>"
-
-class CollectionPagination(Protocol):
-    def next_page(self) -> 'BaseItemDtoQueryResult': ...
+class Item(Single):
+    _naming: str = "Item"
 
 class ItemCollection(Model):
-    _data: BaseItemQueryResult = None
+    _data: BaseItemDtoQueryResult = None
     _pagination: CollectionPagination = None
 
-    def __init__(self, collection: BaseItemQueryResult, pagination: CollectionPagination = None):
+    def __init__(self, collection: BaseItemDtoQueryResult, pagination: CollectionPagination = None):
         """
         Initializes the ItemCollection class.
         
         Args:
-            collection (BaseItemQueryResult): The collection of items.
+            collection (BaseItemDtoQueryResult): The collection of items.
             pagination (CollectionPagination, optional): An optional pagination handler. Defaults to None.
         """
         self._data = collection
@@ -73,19 +49,6 @@ class ItemCollection(Model):
         if self._data is None:
             return []
         
-        for item in self._data.items:
-            yield Item(item)
-            
-    @property
-    def items(self):
-        """
-        Returns the list of items in the collection.
-
-        Returns:
-            List[Item]: A list of Item objects.
-        """
-        if self._data is None:
-            return []
         for item in self._data.items:
             yield Item(item)
 
@@ -412,12 +375,12 @@ class ItemSearch():
 
     def only_library(self) -> 'ItemSearch':
         """ Shortcut to filter only libraries (collections) """
-        self._params["include_item_types"] = [ItemKind.COLLECTION.value]
+        self._params["include_item_types"] = [BaseItemKind.COLLECTIONFOLDER.value]
         self._params["recursive"] = True
         return self
 
 class Items():
-    def __init__(self, items_api: object):
+    def __init__(self, items_api: ItemsApi):
         """
         Initializes the Items API wrapper.
         
@@ -437,7 +400,7 @@ class Items():
         return ItemCollection(self.filter())
 
     @property
-    def filter(self) -> object:
+    def filter(self) -> ItemsApi.get_items:
         """
         Returns a filtered list of items.
 
