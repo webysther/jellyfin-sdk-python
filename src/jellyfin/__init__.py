@@ -2,12 +2,13 @@
 Entrypoint module for the Jellyfin SDK.
 """
 
-from .api import Api, Version
+from .api import Api
 from .items import Items
 from .system import System
 from .user import User
+from .generated import Version
 
-__all__ = ['Api', 'Version', 'Items', 'System', 'User']
+__all__ = ['Api', 'Items', 'System', 'User', 'Version']
 
 def api(url: str, api_key: str, version: Version = Version.V10_10) -> Api:
     """
