@@ -5,10 +5,10 @@ Entrypoint module for the Jellyfin SDK.
 from .api import Api
 from .items import Items
 from .system import System
-from .user import User
+from .users import Users
 from .generated import Version
 
-__all__ = ['Api', 'Items', 'System', 'User', 'Version']
+version = Version  # Now you can use jellyfin.version.V10_11
 
 def api(url: str, api_key: str, version: Version = Version.V10_10) -> Api:
     """
@@ -23,3 +23,5 @@ def api(url: str, api_key: str, version: Version = Version.V10_10) -> Api:
         Api: An instance of the Api class.
     """
     return Api(url, api_key, version)
+
+__all__ = ['Api', 'Items', 'System', 'Users', 'Version', 'api', 'version']

@@ -5,33 +5,19 @@ Module `api` - High-level interface for ApiClient and Configuration.
 from enum import Enum
 import importlib, socket, platform, uuid, distro
 from .system import System
-from .items import Items, ItemKind, ItemCollection
-from .user import User
-
-class Version(Enum):
-    """Enumeration of supported Jellyfin API versions."""
-    V10_10 = "10.10"
-    V10_11 = "10.11"
-
-class Inject():
-    @staticmethod
-    def get(version: Version):
-        """ Dynamically imports the appropriate API module based on the specified version.
-        
-        Args:
-            version (Version): The API version to import.
-            
-        Returns:
-            module: The imported module corresponding to the specified version.
-        """
-        module_target = version.value.replace('.', '_')
-        module_name = f"jellyfin.generated.api_{module_target}"
-        return importlib.import_module(module_name)
+from .items import Items, ItemCollection
+from .users import Users
+from .generated import (
+    Version,
+    Proxy,
+    ApiClient,
+    Configuration
+)
 
 class Api:
     _system: System = None
     _items: Items = None
-    _user: User = None
+    _users: Users = None
     _client = None
     _configuration = None
 
@@ -58,7 +44,7 @@ class Api:
         self.url = url
         self.api_key = api_key
         self.version = version
-        self._module = Inject.get(self.version)
+        self.generated = Proxy.module(version)
         self._auth = f'Token="{self.api_key}"'
         
     def __repr__(self):
@@ -77,10 +63,10 @@ class Api:
         return self.__repr__()
 
     @property
-    def configuration(self) -> 'Configuration':
+    def configuration(self) -> Configuration:
         """Returns the Configuration instance."""
         if self._configuration is None:
-            self._configuration = self._module.Configuration(
+            self._configuration = self.generated.Configuration(
                 host=self.url,
                 api_key={'CustomAuthentication': self._auth},
                 api_key_prefix={'CustomAuthentication': 'MediaBrowser'}
@@ -88,10 +74,10 @@ class Api:
         return self._configuration
     
     @property
-    def client(self) -> 'ApiClient':
+    def client(self) -> ApiClient:
         """Returns the ApiClient instance."""
         if self._client is None:
-            self._client = self._module.ApiClient(self.configuration)
+            self._client = self.generated.ApiClient(self.configuration)
         return self._client
 
     def register_client(self, client_name: str = None, device_name: str = None, device_id: str = None, device_version: str = None) -> 'Api':
@@ -143,7 +129,7 @@ class Api:
             System: An instance of the System API wrapper.
         """
         if self._system is None:
-            self._system = System(self._module.SystemApi(self.client))
+            self._system = System(self.generated.SystemApi(self.client))
         return self._system
 
     @property
@@ -155,13 +141,13 @@ class Api:
             Items: An instance of the Items API wrapper.
         """
         if self._items is None:
-            self._items = Items(self._module.ItemsApi(self.client))
+            self._items = Items(self.generated.ItemsApi(self.client))
         return self._items
     
     @property
     def libraries(self) -> Items:
         """
-        Alias for items of type COLLECTION.
+        Alias for items of type COLLECTIONFOLDER.
         
         Returns:
             ItemCollection: A collection of all libraries.
@@ -169,16 +155,16 @@ class Api:
         return self.items.search.only_library().all
 
     @property
-    def user(self) -> User:
+    def users(self) -> Users:
         """
         Lazy load the User API.
         
         Returns:
-            User: An instance of the User API wrapper.
+            Users: An instance of the User API wrapper.
         """
-        if self._user is None:
-            self._user = User(
-                self._module.UserApi(self.client),
-                self._module.UserViewsApi(self.client)
+        if self._users is None:
+            self._users = Users(
+                self.generated.UserApi(self.client),
+                self.generated.UserViewsApi(self.client)
             )
-        return self._user
+        return self._users

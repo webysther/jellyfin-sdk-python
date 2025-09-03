@@ -9,12 +9,6 @@ class Version(Enum):
 class Proxy:
     _VERSION = Version.V10_10
 
-    def __repr__(self):
-        return f"<Proxy current='{self._VERSION.value}'>"
-
-    def __str__(self):
-        return self._VERSION.value
-
     @property
     def current(self) -> Version:
         return self._VERSION
