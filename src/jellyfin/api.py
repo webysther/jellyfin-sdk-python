@@ -5,7 +5,7 @@ Module `api` - High-level interface for ApiClient and Configuration.
 from enum import Enum
 import importlib
 from .system import System
-from .items import Items
+from .items import Items, ItemKind, ItemCollection
 from .user import User
 
 class Version(Enum):
@@ -90,6 +90,16 @@ class Api:
             self._items = Items(self._module.ItemsApi(self.client))
         return self._items
     
+    @property
+    def libraries(self) -> Items:
+        """
+        Alias for items of type COLLECTION.
+        
+        Returns:
+            ItemCollection: A collection of all libraries.
+        """
+        return self.items.search.only_library().all
+
     @property
     def user(self) -> User:
         """

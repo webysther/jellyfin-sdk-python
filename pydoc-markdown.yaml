@@ -4,9 +4,11 @@ loaders:
   modules:
   - jellyfin
   - jellyfin.api
-  - jellyfin.user
+  - jellyfin.base
   - jellyfin.items
   - jellyfin.system
+  - jellyfin.typing
+  - jellyfin.user
 renderer:
   type: mkdocs
   pages:
