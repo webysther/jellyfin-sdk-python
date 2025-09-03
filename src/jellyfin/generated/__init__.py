@@ -1,45 +1,55 @@
 import importlib
 from enum import Enum
 
-class ServerVersion(Enum):
+class Version(Enum):
     """Enumeration of supported Jellyfin API versions."""
     V10_10 = "10.10"
     V10_11 = "10.11"
 
-class ProxyVersion:
-    _VERSION = ServerVersion.V10_10
+class Proxy:
+    _VERSION = Version.V10_10
 
     def __repr__(self):
-        return f"<ProxyVersion current='{self._VERSION.value}'>"
-    
+        return f"<Proxy current='{self._VERSION.value}'>"
+
     def __str__(self):
         return self._VERSION.value
 
     @property
-    def current(self) -> ServerVersion:
+    def current(self) -> Version:
         return self._VERSION
 
     @classmethod
     @current.setter
-    def current(cls, version: ServerVersion):
+    def current(cls, version: Version):
         """Set the default API version for dynamic imports."""
         cls._VERSION = version
 
     @classmethod
     @property
-    def module(cls):
+    def default(cls):
         """Dynamically imports the appropriate API module based on the specified version."""
-        module_target = cls._VERSION.value.replace('.', '_')
+        return cls.module(cls._VERSION)
+
+    @classmethod
+    def module(cls, version: Version):
+        """Dynamically imports and returns the appropriate API module based on the specified version."""
+        module_target = version.value.replace('.', '_')
         module_name = f"jellyfin.generated.api_{module_target}"
         return importlib.import_module(module_name)
+    
+    @classmethod
+    def factory(cls, name, version: Version):
+        """Factory method to get a class or function from the specified version module."""
+        return getattr(cls.module(version), name)
 
 def __getattr__(name):
     """Dynamically fetch attributes from the default API version module."""
     try:
-        return getattr(ProxyVersion.module, name)
+        return getattr(Proxy.default, name)
     except AttributeError:
         raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
 
 # auto-completion support
 def __dir__():
-    return list(globals().keys()) + dir(ProxyVersion.module)
+    return list(globals().keys()) + dir(Proxy.default)
