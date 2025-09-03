@@ -4,6 +4,8 @@ Module `api` - High-level interface for ApiClient and Configuration.
 
 from enum import Enum
 import importlib, socket, platform, uuid, distro
+from typing_extensions import Self
+
 from .system import System
 from .items import Items, ItemCollection
 from .users import Users
@@ -80,7 +82,7 @@ class Api:
             self._client = self.generated.ApiClient(self.configuration)
         return self._client
 
-    def register_client(self, client_name: str = None, device_name: str = None, device_id: str = None, device_version: str = None) -> 'Api':
+    def register_client(self, client_name: str = None, device_name: str = None, device_id: str = None, device_version: str = None) -> Self:
         """Just register this as a client with the server.
         
         Args:
