@@ -6,7 +6,7 @@ from typing import Callable
 import uuid
 
 from .base import Model, Collection
-from .items import ItemCollection
+from .items import ItemCollection, Item
 from .generated import (
     BaseItemKind,
     UserApi, 
@@ -104,12 +104,10 @@ class Users():
         """
         views = self.views
         filtered_items = [
-            item for item in views._data.items
+            item for item in views.data
             if item.type in [BaseItemKind.COLLECTIONFOLDER.value]
         ]
-        views._data.items = filtered_items
-        views._data.total_record_count = len(filtered_items)
-        return views
+        return ItemCollection(filtered_items)
 
     @property
     def views(self) -> ItemCollection:
@@ -127,8 +125,8 @@ class Users():
         user_views = self._user_views_api.get_user_views(
             user_id=self._user.id
         )
-        return ItemCollection(user_views)
-    
+        return ItemCollection(Item(user_views))
+
     def __getattr__(self, name):
         """Delegate attribute access to user_api, user_views_api, or the current user object."""
         if hasattr(self._user_api, name):

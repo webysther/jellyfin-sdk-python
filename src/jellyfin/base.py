@@ -116,7 +116,8 @@ class Collection(Sequence):
             if len(collection.data) == 0:
                 break
 
-            super().__init__(collection)
+            self._model = collection.model
+            self._data = collection.data
 
     @property
     def model(self) -> Model:
@@ -138,7 +139,7 @@ class Collection(Sequence):
         Returns:
             int: The total number of records.
         """
-        if self.model.total_record_count is None:
+        if not hasattr(self, "model"):
             return len(self.data)
 
         return self.model.total_record_count

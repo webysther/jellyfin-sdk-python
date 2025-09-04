@@ -173,7 +173,17 @@ class Items():
             items_api (ItemsApi): An instance of the generated ItemsApi class.
         """
         self.items_api = items_api
-    
+        
+    @property
+    def all(self) -> ItemCollection:
+        """
+        Returns all items as an ItemCollection.
+
+        Returns:
+            ItemCollection: A collection of all items.
+        """
+        return self.search.recursive().paginate().all
+
     @property
     def search(self) -> ItemSearch:
         """
