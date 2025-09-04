@@ -1,6 +1,6 @@
 [project]
 name = "jellyfin-sdk"
-version = "0.1.3"
+version = "0.1.4"
 keywords = ["api", "sdk", "jellyfin", "dataclass", "openapi", "wrapper-api"]
 description = "A Possible Official Python SDK for Jellyfin."
 readme = "README.md"
