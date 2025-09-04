@@ -104,11 +104,7 @@ class Collection(Sequence):
             collection = ItemCollection(...)
             for item in collection:
                 print(collection.current)  # Always shows the current item
-        """
-        if self._pagination is None:
-            super().__iter__()
-            return
-        
+        """        
         while True:
             for item in self.data:
                 yield self._factory(item)

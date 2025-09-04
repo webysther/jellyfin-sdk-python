@@ -33,11 +33,11 @@ class ItemSearch():
             "user_id": "abc"
         }).all()
     """
-    _page_size: int = 0
 
     def __init__(self, items_api):
         self.items_api = items_api
         self._params = {}
+        self._page_size = 0
 
     def __setattr__(self, name, value):
         """ Set a filter using 'search.attr = value'
