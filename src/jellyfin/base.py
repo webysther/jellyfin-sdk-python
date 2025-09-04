@@ -83,13 +83,44 @@ class Collection(Sequence):
     _factory: Callable = Model
     _model: Model
     _data: List[BaseModel]
+    _pagination: Pagination
 
-    def __init__(self, data: List[BaseModel] | Model):
+    def __init__(self, data: List[BaseModel] | Model, pagination: Pagination = None):
+        if not isinstance(data, (list, Model)):
+            raise TypeError(f"data must be a list or Model, got {type(data)}")
+        
         self._data = data
+        self._pagination = pagination
 
         if isinstance(data, Model):
             self._model = data
             self._data = data.items
+            
+    def __iter__(self):
+        """
+        Returns an iterator for the collection.
+
+        Usage:
+            collection = ItemCollection(...)
+            for item in collection:
+                print(collection.current)  # Always shows the current item
+        """
+        if self._pagination is None:
+            super().__iter__()
+            return
+        
+        while True:
+            for item in self.data:
+                yield self._factory(item)
+
+            if self._pagination is None:
+                break
+
+            collection = self._pagination.next_page()
+            if len(collection.data) == 0:
+                break
+
+            super().__init__(collection)
 
     @property
     def model(self) -> Model:
@@ -103,9 +134,18 @@ class Collection(Sequence):
 
     def __getitem__(self, idx) -> Any:
         return self._factory(self.data[idx])
-
+    
     def __len__(self):
-        return len(self.data)
+        """
+        Returns the total number of records in the collection.
+
+        Returns:
+            int: The total number of records.
+        """
+        if self.model.total_record_count is None:
+            return len(self.data)
+
+        return self.model.total_record_count
 
     @property
     def first(self) -> Model:
