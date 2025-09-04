@@ -1,44 +1,25 @@
 """
 Module `user` - High-level interface for UserApi and UserViewsApi.
 """
-from typing import Callable, List
-from enum import Enum
-
-from pydantic import BaseModel
+from typing import Callable
 
 import uuid
 
-from .base import Model, Single
+from .base import Model, Collection
 from .items import ItemCollection
 from .generated import (
     BaseItemKind,
     UserApi, 
-    UserViewsApi, 
-    UserDto
+    UserViewsApi
 )
 
-class User(Single):
-    _naming: str = "User"
+class User(Model):
+    pass
 
-class UserCollection(Model):
-    _naming: str = "UserCollection"
-    _single: Callable = User
-        
-    @property
-    def items(self) -> List[User]:
-        return super().items
-    
-    @property
-    def all(self) -> List[User]:
-        return super().all
-    
-    def first(self, attr: str, value: Any) -> User | None:
-        return super().first(attr, value)
-    
-    def filter(self, criteria: dict, limit: int = None) -> 'UserCollection':
-        return super().filter(criteria, limit)
+class UserCollection(Collection):
+    _factory: Callable = User
 
-class Users(Model):
+class Users():
     _user = None
 
     def __init__(self, user_api: UserApi, user_views_api: UserViewsApi):
@@ -101,27 +82,18 @@ class Users(Model):
             User | None: The user object if found, otherwise None.
         """
         for user in self.all:
-            if user.name == user_name:
-                return User(user)
+            if user.model.name == user_name:
+                return user
         return None
-
+    
     @property
-    def users(self) -> UserApi.get_users:
+    def all(self) -> UserCollection:
         """Get all users.
         
         Returns:
-            UserApi.get_users: A list of all users.
+            UserCollection: A list of all users.
         """
-        return self._user_api.get_users
-    
-    @property
-    def all(self) -> UserApi.get_users:
-        """Get all users. Alias for users
-        
-        Returns:
-            UserApi.get_users: A list of all users.
-        """
-        return self.users()
+        return UserCollection(self._user_api.get_users())
 
     @property
     def libraries(self) -> ItemCollection:
