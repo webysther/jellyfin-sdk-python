@@ -183,19 +183,19 @@ api = jellyfin.api(
     os.getenv("API_KEY")
 )
 
-api.user.libraries
+api.users.libraries
 
 > ValueError: User ID is not set. Use the 'of(user_id)' method to set the user context.
 
 
-api.user.of('f674245b84ea4d3ea9cf11').libraries
+api.users.of('f674245b84ea4d3ea9cf11').libraries
 
 # works also with the user name
-api.user.of('niels').libraries
+api.users.of('niels').libraries
 
-# when using 'of' the attribute of dataclasses 
+# when using 'of' the attribute of dataclasses
 # user and user_view can be accessed directly
-api.user.of('niels').id
+api.users.of('niels').id
 ```
 
 ### List all items
@@ -209,10 +209,34 @@ api = jellyfin.api(
 )
 
 api.items.all
+
+# Same command but without shorthand
+search = api.items.search
+search
+
+<ItemSearch (no filters set)>
+
+search.paginate(1000)
+
+<ItemSearch filters={
+  start_index=0,
+  limit=1000,
+  enable_total_record_count=True
+}>
+
+search.recursive()
+
+<ItemSearch filters={
+  start_index=0,
+  limit=1000,
+  enable_total_record_count=True,
+  recursive=True
+}>
 ```
 
-We still don't give you the automatic pagination with a `Iterator`, for this cases use the `filter`.
-In this example will be returned 10k items. For slice the pagination use `start_index`.
+All filter options is available [here](https://webysther.github.io/jellyfin-sdk-python.github.io/api_10_10/docs/ItemsApi/#get_items).
+
+The pagination uses a Iterator:
 
 ```python
 api = jellyfin.api(
@@ -220,10 +244,9 @@ api = jellyfin.api(
     os.getenv("API_KEY")
 )
 
-api.items.filter(limit=10000)
+for item in api.items.search.paginate(100).recursive().all:
+    print(item.name)
 ```
-
-All filter options is available [here](https://webysther.github.io/jellyfin-sdk-python.github.io/api_10_10/docs/ItemsApi/#get_items).
 
 ### Let's get the User ID by name or ID
 
