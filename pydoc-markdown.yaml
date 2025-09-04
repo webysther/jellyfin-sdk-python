@@ -7,8 +7,7 @@ loaders:
   - jellyfin.base
   - jellyfin.items
   - jellyfin.system
-  - jellyfin.typing
-  - jellyfin.user
+  - jellyfin.users
 renderer:
   type: mkdocs
   pages:
