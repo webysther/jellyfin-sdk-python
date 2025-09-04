@@ -1,55 +1,48 @@
 from itertools import islice
 from logging import warning
 
+from typing_extensions import Self
 from typing import (
     Any, 
     Dict, 
     List, 
     Protocol, 
     Callable, 
-    TypeVar, 
-    Generic
+    TypeVar
 )
 
 from collections.abc import Iterable, Sequence
 from pydantic import BaseModel
 from .generated import BaseItemDtoQueryResult
 
-JellyfinModel = TypeVar('JellyfinModel', bound=BaseModel)
-
 class Pagination(Protocol):
     """ Protocol for paginated responses. """
     def next_page(self) -> BaseModel: ...
 
-class GeneratedModelWrapper(Generic[JellyfinModel]):
-    _model: JellyfinModel
+class Model():
+    _model: BaseModel
     
-    def __init__(self, model: JellyfinModel):
+    def __init__(self, model: BaseModel):
         self._model = model
 
     @property
     def model(self) -> BaseModel:
         """ Returns the generated model """
         return self._model
-    
-    @property
-    def items(self) -> List[BaseModel] | None:
-        """ Returns the list of items if present in the model, otherwise None """
-        return self._items
 
     def __str__(self) -> str:
         """Returns the string representation of the model."""
-        return str(self.model)
+        return self._model.__str__()
     
     def __repr__(self) -> str:
         """Returns a detailed string representation of the Item object, with each attribute on a new line."""
         attrs = []
-        if hasattr(self.model.__class__, "model_fields"):
-            keys = self.model.__class__.model_fields.keys()
+        if hasattr(self._model.__class__, "model_fields"):
+            keys = self._model.__class__.model_fields.keys()
         else:
-            keys = self.model.__dict__.keys()
+            keys = self._model.__dict__.keys()
         for key in keys:
-            value = getattr(self.model, key, None)
+            value = getattr(self._model, key, None)
             attrs.append(f"  {key}={value!r}")
         attrs_str = ",\n".join(attrs)
         return f"<{self.__class__.__name__}\n{attrs_str}\n>"
@@ -81,20 +74,17 @@ class GeneratedModelWrapper(Generic[JellyfinModel]):
 
             print(f"{key}={value_str}")
 
-class GeneratedListWrapper(Sequence):
-    _model: GeneratedModelWrapper
+class Collection(Sequence):
+    _factory: Callable = Model
+    _model: Model
     _data: List[BaseModel]
-    
-    def __init__(self, data: List[BaseModel] | GeneratedModelWrapper):
+
+    def __init__(self, data: List[BaseModel] | Model):
         self._data = data
-        
-        if isinstance(data, GeneratedModelWrapper):
+
+        if isinstance(data, Model):
             self._model = data
             self._data = self._model.items
-
-    @property
-    def factory(self) -> Callable:
-        return GeneratedModelWrapper
 
     @property
     def data(self) -> List[BaseModel]:
@@ -102,33 +92,26 @@ class GeneratedListWrapper(Sequence):
         return self._data
 
     def __getitem__(self, idx) -> Any:
-        return self.factory(self.data[idx])
+        return self._factory(self.data[idx])
 
     def __len__(self):
         return len(self.data)
 
     @property
-    def first(self) -> GeneratedModelWrapper:
-        return self.factory(self.data[0])
-
-    def filter(self, criteria: dict) -> Self:
-        return [
-            obj for obj in self.data
-            if all(getattr(obj, k, None) == v for k, v in criteria.items())
-        ]
+    def first(self) -> Model:
+        return self[0]
 
     def __repr__(self) -> str:
         if len(self) == 0:
             return f"<{self.__class__.__name__} (no items)>"
 
         parts = []
-        for item in islice(self.items, 10):
+        for item in islice(self, 10):
             attrs = repr(item).split(",\n")
-            parts.append(",\n".join(attrs[:10]))
-            if len(attrs) > 10:
-                parts.append(", ...\n")
+            parts.append(",\n".join(attrs[:10]) + "\n  ...")
 
         if len(self) > 10:
-            parts.append("  ...")
+            parts.append(" ...")
 
-        return f"<{self.__class__.__name__} items=[\n  {',\n'.join(parts)}\n]>"
+        items = '\n'.join(parts)
+        return f"<{self.__class__.__name__} items=[\n  {items}\n]>"
