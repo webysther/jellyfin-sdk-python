@@ -29,20 +29,25 @@ class Model():
     def model(self) -> BaseModel:
         """ Returns the generated model """
         return self._model
+    
+    def __getattr__(self, name):
+        if hasattr(self.model, name):
+            return getattr(self.model, name)
+        raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
 
     def __str__(self) -> str:
         """Returns the string representation of the model."""
-        return self._model.__str__()
+        return self.model.__str__()
     
     def __repr__(self) -> str:
         """Returns a detailed string representation of the Item object, with each attribute on a new line."""
         attrs = []
-        if hasattr(self._model.__class__, "model_fields"):
-            keys = self._model.__class__.model_fields.keys()
+        if hasattr(self.model.__class__, "model_fields"):
+            keys = self.model.__class__.model_fields.keys()
         else:
-            keys = self._model.__dict__.keys()
+            keys = self.model.__dict__.keys()
         for key in keys:
-            value = getattr(self._model, key, None)
+            value = getattr(self.model, key, None)
             attrs.append(f"  {key}={value!r}")
         attrs_str = ",\n".join(attrs)
         return f"<{self.__class__.__name__}\n{attrs_str}\n>"
@@ -84,7 +89,12 @@ class Collection(Sequence):
 
         if isinstance(data, Model):
             self._model = data
-            self._data = self._model.items
+            self._data = data.items
+
+    @property
+    def model(self) -> Model:
+        """Returns the reference model."""
+        return self._model
 
     @property
     def data(self) -> List[BaseModel]:
