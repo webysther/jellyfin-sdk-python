@@ -1,223 +1,22 @@
 """
-Module `items` - High-level interface for ItemsApi, BaseItemDto and BaseItemDtoQueryResult.
+Module `items` - High-level interface for ItemsApi.
 """
 
-import copy, warnings
+import copy
 from pydantic import BaseModel
-from typing import List, Union, Any, Dict, Protocol
-from enum import Enum
-from .base import Model, Single, CollectionPagination
+from typing_extensions import Self
+from typing import List, Any, Callable
+from .base import Model, Collection, Pagination
 from .generated import (
     BaseItemKind,
-    BaseItemDtoQueryResult, 
-    BaseItemDto, 
     ItemsApi
 )
 
-class Item(Single):
-    _naming: str = "Item"
+class Item(Model):
+    pass
 
-class ItemCollection(Model):
-    _data: BaseItemDtoQueryResult = None
-    _pagination: CollectionPagination = None
-
-    def __init__(self, collection: BaseItemDtoQueryResult, pagination: CollectionPagination = None):
-        """
-        Initializes the ItemCollection class.
-        
-        Args:
-            collection (BaseItemDtoQueryResult): The collection of items.
-            pagination (CollectionPagination, optional): An optional pagination handler. Defaults to None.
-        """
-        self._data = collection
-        self._iterator = None
-        self._current = None
-        self._pagination = pagination
-        
-    def to_dict(self) -> Dict[str, Any]:
-        """ Signature method for generated models"""
-        return super().to_dict()['Items']
-        
-    @property
-    def items(self) -> List[Item]:
-        """
-        Returns the list of items in the collection.
-        
-        Returns:
-            List[Item]: A list of Item objects.
-        """
-        if self._data is None:
-            return []
-        
-        for item in self._data.items:
-            yield Item(item)
-
-    def __iter__(self):
-        """
-        Returns an iterator for the collection.
-
-        Usage:
-            collection = ItemCollection(...)
-            for item in collection:
-                print(collection.current)  # Always shows the current item
-        """
-        current = self.items
-        while True:
-            self._iterator = iter(current)
-            self._current = None
-            for item in current:
-                yield item
-                
-            if self._pagination is None:
-                break
-
-            collection = self._pagination.next_page()
-            if collection.current is None:
-                break
-
-            current = collection.items
-            
-        return self
-
-    def __next__(self):
-        """
-        Returns the next item in the iteration.
-        """
-        self._current = next(self._iterator)
-        return self._current
-    
-    def __len__(self):
-        """
-        Returns the number of items in the collection.
-        """
-        return self.total
-
-    @property
-    def current(self):
-        """
-        Returns the current item in the iteration, or None if not started.
-        """
-        if len(self._data.items) == 0:
-            return None
-
-        if len(self._data.items) > 0:
-            return next(self.items)
-        
-        return self._current
-
-    @property
-    def all(self) -> List[Item]:
-        """
-        Returns all items in the collection as a list.
-
-        Returns:
-            List[Item]: A list of all Item objects.
-        """
-        return list(self.items)
-
-    @property
-    def total(self) -> int:
-        """
-        Returns the total number of records in the collection.
-
-        Returns:
-            int: The total number of records.
-        """
-        if self._data is None:
-            return 0
-        
-        if self._data.total_record_count is None:
-            return len(self._data.items)
-        
-        return self._data.total_record_count
-    
-    @property
-    def index(self) -> int:
-        """
-        Returns the start index of the collection.
-        
-        Returns:
-            int: The start index.
-        """
-        if self._data is None:
-            return 0
-        
-        if self._data.start_index is None:
-            return 0
-        
-        return self._data.start_index
-
-    def by_name(self, name: str) -> 'ItemCollection':
-        """
-        Returns all items that match the specified name.
-
-        Args:
-            name (str): The name to search for.
-        """
-        return self.filter({"name": name})
-    
-    def first(self, attr: str, value: Any) -> Item | None:
-        """
-        Returns the first item that matches the specified attribute and value.
-        
-        Args:
-            attr (str): The attribute to search by.
-            value (Any): The value to match.
-        """
-        for item in self.filter({attr: value}, limit=1).items:
-            return item
-        return None
-
-    def filter(self, criteria: dict, limit: int = None) -> 'ItemCollection':
-        """
-        Returns a list of items that match the specified criteria.
-        
-        Args:
-            criteria (dict): A dictionary of attribute-value pairs to filter by.
-            limit (int, optional): The maximum number of items to return. Defaults to None (no limit).
-            
-        Returns:
-            list: A list of Item objects that match the criteria.
-        """
-        if self._data is None or not hasattr(self._data, "items"):
-            return []
-
-        result = []
-        for item in self._data.items:
-            match = True
-            for key, value in criteria.items():
-                if getattr(item, key, None) != value:
-                    match = False
-                    break
-            if match:
-                result.append(item)
-                if limit is not None and len(result) >= limit:
-                    break
-                
-        dto = copy.deepcopy(self._data)
-        dto.items = result
-        dto.total_record_count = len(result)
-        return ItemCollection(dto)
-
-    def __repr__(self) -> str:
-        if len(self._data.items) == 0:
-            return "<ItemCollection (no items)>"
-        
-        items = list(getattr(self._data, "items", []))
-        items_repr = ""
-        
-        for item in items[:10]:
-            attrs = repr(Item(item)).split(',\n')
-            items_repr += ",\n".join(attrs[:10])
-
-            if len(attrs) > 10:
-                items_repr += ", ...\n"
-
-        if len(items) > 10:
-            items_repr += "  ..."
-        return (
-            f"<ItemCollection total={self.total} start_index={self.index} items=[\n  {items_repr}\n]>"
-        )
+class ItemCollection(Collection):
+    _factory: Callable = Item
 
 class ItemSearch():
     """ Based on DataFrame Builder pattern
@@ -279,7 +78,7 @@ class ItemSearch():
         filtros = ",\n  ".join(f"{k}={v!r}" for k, v in self._params.items())
         return f"<ItemSearch filters={{\n  {filtros}\n}}>"
     
-    def add(self, key: str, value: Any) -> 'ItemSearch':
+    def add(self, key: str, value: Any) -> Self:
         """ Add multiple filters at once using 'search.add(attr=value, ...)' 
         
         Args:
@@ -292,7 +91,7 @@ class ItemSearch():
         self._params[key] = value
         return self
     
-    def remove(self, key: str) -> 'ItemSearch':
+    def remove(self, key: str) -> Self:
         """ Remove multiple filters at once using 'search.remove(attr, ...)' 
         
         Args:
@@ -304,44 +103,20 @@ class ItemSearch():
         if key in self._params:
             del self._params[key]
         return self
-
-    def filter(self, criteria: dict) -> 'ItemSearch':
-        """ Add multiple filters at once using 'search.filter({attr: value, ...})' 
-        
-        Args:
-            criteria (dict): A dictionary of attribute-value pairs to filter by.
-
-        Returns:
-            ItemSearch: The current ItemSearch instance (for chaining).
-        """
-        for key, value in criteria.items():
-            self._params[key] = value
-        return self
-
-    def copy(self) -> 'ItemSearch':
-        """
-        Returns an independent copy of the search object (similar to pandas).
-        
-        Returns:
-            ItemSearch: A new instance of ItemSearch with the same filters.
-        """
-        new_search = ItemSearch(self.items_api)
-        new_search._params = copy.deepcopy(self._params)
-        return new_search
     
-    def next_page(self) -> 'ItemCollection':
+    def next_page(self) -> ItemCollection:
         """
         Move to the next page of results based on the current pagination settings.
 
         Returns:
-            ItemSearch: The current ItemSearch instance (for chaining).
+            ItemCollection: A collection of items for the next page.
         """
         self._params['start_index'] += self._page_size
         self._params['limit'] = self._page_size
 
         return self.all
 
-    def paginate(self, size: int = 100) -> 'ItemSearch':
+    def paginate(self, size: int = 100) -> Self:
         """
         Enable pagination.
         
@@ -361,19 +136,29 @@ class ItemSearch():
         return self
 
     @property
-    def all(self) -> 'ItemCollection':
+    def all(self) -> ItemCollection:
         """
         Execute the search and return all results as an ItemCollection 
         
         Returns:
             ItemCollection: A collection of items matching the search criteria.
         """
-        pagination = self if self._page_size > 0 else None
-        collection = self.items_api.get_items(**self._params)
-        
-        return ItemCollection(collection, pagination)
+        return ItemCollection(
+            Model(self.items_api.get_items(**self._params)), 
+            self if self._page_size > 0 else None
+        )
+    
+    def recursive(self, flag: bool = True) -> Self:
+        """ Shortcut to enable recursive search """
+        self._params["recursive"] = flag
+        return self
+    
+    def name_starts_with(self, prefix: str) -> Self:
+        """ Shortcut to filter by name prefix """
+        self._params["name_starts_with"] = prefix
+        return self
 
-    def only_library(self) -> 'ItemSearch':
+    def only_library(self) -> Self:
         """ Shortcut to filter only libraries (collections) """
         self._params["include_item_types"] = [BaseItemKind.COLLECTIONFOLDER.value]
         self._params["recursive"] = True
@@ -388,26 +173,6 @@ class Items():
             items_api (ItemsApi): An instance of the generated ItemsApi class.
         """
         self.items_api = items_api
-        
-    @property
-    def all(self) -> ItemCollection:
-        """
-        Returns all items.
-        
-        Returns:
-            ItemCollection: A list of all items.
-        """
-        return ItemCollection(self.filter())
-
-    @property
-    def filter(self) -> ItemsApi.get_items:
-        """
-        Returns a filtered list of items.
-
-        Returns:
-            ItemsApi.get_items: A filtered list of items.
-        """
-        return self.items_api.get_items
     
     @property
     def search(self) -> ItemSearch:
