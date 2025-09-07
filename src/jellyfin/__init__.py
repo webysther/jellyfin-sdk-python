@@ -4,6 +4,7 @@ Entrypoint module for the Jellyfin SDK.
 
 from .api import Api
 from .items import Items
+from .image import Image
 from .system import System
 from .users import Users
 from .generated import Version
@@ -24,4 +25,4 @@ def api(url: str, api_key: str, version: Version = Version.V10_10) -> Api:
     """
     return Api(url, api_key, version)
 
-__all__ = ['Api', 'Items', 'System', 'Users', 'Version', 'api', 'version']
+__all__ = ['Api', 'Items', 'Image', 'System', 'Users', 'Version', 'api', 'version']
