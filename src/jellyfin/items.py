@@ -1,8 +1,10 @@
 """
 Module `items` - High-level interface for ItemsApi.
 """
+from __future__ import annotations
 
 import copy
+from uuid import UUID
 from pydantic import BaseModel
 from typing_extensions import Self
 from typing import List, Any, Callable
@@ -34,8 +36,8 @@ class ItemSearch():
         }).all()
     """
 
-    def __init__(self, items_api):
-        self.items_api = items_api
+    def __init__(self, api: Api):
+        self.items_api = api.generated.ItemsApi(api.client)
         self._params = {}
         self._page_size = 0
 
@@ -165,14 +167,15 @@ class ItemSearch():
         return self
 
 class Items():
-    def __init__(self, items_api: ItemsApi):
+    def __init__(self, api: Api):
         """
         Initializes the Items API wrapper.
         
         Args:
-            items_api (ItemsApi): An instance of the generated ItemsApi class.
+            api (Api): An instance of the Api class.
         """
-        self.items_api = items_api
+        self.api = api
+        self.items_api = api.generated.ItemsApi(api.client)
         
     @property
     def all(self) -> ItemCollection:
@@ -184,6 +187,17 @@ class Items():
         """
         return self.search.recursive().paginate().all
 
+    def by_id(self, item_id: str | UUID) -> Item:
+        """
+        Returns an item by its ID.
+
+        Returns:
+            Item: The item with the specified ID.
+        """
+        if isinstance(item_id, UUID):
+            item_id = item.hex
+        return self.search.add('ids', [item_id]).all.first
+
     @property
     def search(self) -> ItemSearch:
         """
@@ -192,4 +206,4 @@ class Items():
         Returns:
             ItemSearch: An instance of ItemSearch for building search queries.
         """
-        return ItemSearch(self.items_api)
+        return ItemSearch(self.api)
