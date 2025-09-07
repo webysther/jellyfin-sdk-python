@@ -80,6 +80,7 @@ class Api:
         """Returns the ApiClient instance."""
         if self._client is None:
             self._client = self.generated.ApiClient(self.configuration)
+            self.generated.ApiClient.set_default(self._client)
         return self._client
 
     def register_client(self, client_name: str = None, device_name: str = None, device_id: str = None, device_version: str = None) -> Self:

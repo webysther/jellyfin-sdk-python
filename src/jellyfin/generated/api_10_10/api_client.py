@@ -11,7 +11,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
+import base64
 import datetime
 from dateutil.parser import parse
 from enum import Enum
@@ -353,6 +353,9 @@ class ApiClient:
             return None
         elif isinstance(obj, Enum):
             return obj.value
+        elif isinstance(obj, bytes):
+            # https://github.com/jellyfin/jellyfin/issues/12447#issuecomment-2292569926
+            return base64.b64encode(obj).decode("utf-8")
         elif isinstance(obj, SecretStr):
             return obj.get_secret_value()
         elif isinstance(obj, self.PRIMITIVE_TYPES):
