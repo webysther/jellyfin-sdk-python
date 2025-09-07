@@ -2,6 +2,7 @@
 Module `user` - High-level interface for UserApi and UserViewsApi.
 """
 from typing import Callable
+from typing_extensions import Self
 
 import uuid
 
@@ -32,7 +33,7 @@ class Users():
         self._user_api = user_api
         self._user_views_api = user_views_api
 
-    def of(self, user_name_or_uuid: str | uuid.UUID) -> 'User':
+    def of(self, user_name_or_uuid: str | uuid.UUID) -> Self:
         """Set user context
         
         Args:
