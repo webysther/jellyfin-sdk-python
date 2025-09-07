@@ -1,6 +1,8 @@
 """
 Module `user` - High-level interface for UserApi and UserViewsApi.
 """
+from __future__ import annotations
+
 from typing import Callable
 from typing_extensions import Self
 
@@ -23,15 +25,14 @@ class UserCollection(Collection):
 class Users():
     _user = None
 
-    def __init__(self, user_api: UserApi, user_views_api: UserViewsApi):
+    def __init__(self, api: Api):
         """Initializes the User API wrapper.
 
         Args:
-            user_api (UserApi): An instance of the generated UserApi class.
-            user_views_api (UserViewsApi): An instance of the generated UserViewsApi class.
+            api (Api): An instance of the Api class.
         """
-        self._user_api = user_api
-        self._user_views_api = user_views_api
+        self._user_api = api.generated.UserApi(api.client)
+        self._user_views_api = api.generated.UserViewsApi(api.client)
 
     def of(self, user_name_or_uuid: str | uuid.UUID) -> Self:
         """Set user context
