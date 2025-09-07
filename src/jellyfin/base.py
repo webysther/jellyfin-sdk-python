@@ -146,6 +146,8 @@ class Collection(Sequence):
 
     @property
     def first(self) -> Model:
+        if len(self) == 0:
+            return None
         return self[0]
 
     def __repr__(self) -> str:
