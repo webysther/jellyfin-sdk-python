@@ -6,9 +6,7 @@ from enum import Enum
 import importlib, socket, platform, uuid, distro
 from typing_extensions import Self
 
-from .system import System
-from .items import Items, ItemCollection
-from .users import Users
+from .items import ItemCollection
 from .generated import (
     Version,
     Proxy,
@@ -17,11 +15,6 @@ from .generated import (
 )
 
 class Api:
-    _system: System = None
-    _items: Items = None
-    _users: Users = None
-    _client = None
-    _configuration = None
 
     def __init__(self, url: str, api_key: str, version: Version = Version.V10_10):
         """Initializes the Jellyfin API client.
@@ -67,7 +60,7 @@ class Api:
     @property
     def configuration(self) -> Configuration:
         """Returns the Configuration instance."""
-        if self._configuration is None:
+        if hasattr(self, '_configuration') is False:
             self._configuration = self.generated.Configuration(
                 host=self.url,
                 api_key={'CustomAuthentication': self._auth},
@@ -78,12 +71,18 @@ class Api:
     @property
     def client(self) -> ApiClient:
         """Returns the ApiClient instance."""
-        if self._client is None:
+        if hasattr(self, '_client') is False:
             self._client = self.generated.ApiClient(self.configuration)
             self.generated.ApiClient.set_default(self._client)
         return self._client
 
-    def register_client(self, client_name: str = None, device_name: str = None, device_id: str = None, device_version: str = None) -> Self:
+    def register_client(
+            self, 
+            client_name: str = None, 
+            device_name: str = None, 
+            device_id: str = None, 
+            device_version: str = None
+        ) -> Self:
         """Just register this as a client with the server.
         
         Args:
@@ -122,33 +121,9 @@ class Api:
         self._client = None
         
         return self
-
-    @property
-    def system(self) -> System:
-        """
-        Lazy load the System API.
-        
-        Returns:
-            System: An instance of the System API wrapper.
-        """
-        if self._system is None:
-            self._system = System(self.generated.SystemApi(self.client))
-        return self._system
-
-    @property
-    def items(self) -> Items:
-        """
-        Lazy load the Items API.
-        
-        Returns:
-            Items: An instance of the Items API wrapper.
-        """
-        if self._items is None:
-            self._items = Items(self.generated.ItemsApi(self.client))
-        return self._items
     
     @property
-    def libraries(self) -> Items:
+    def libraries(self) -> ItemCollection:
         """
         Alias for items of type COLLECTIONFOLDER.
         
@@ -156,18 +131,16 @@ class Api:
             ItemCollection: A collection of all libraries.
         """
         return self.items.search.only_library().all
-
-    @property
-    def users(self) -> Users:
-        """
-        Lazy load the User API.
-        
-        Returns:
-            Users: An instance of the User API wrapper.
-        """
-        if self._users is None:
-            self._users = Users(
-                self.generated.UserApi(self.client),
-                self.generated.UserViewsApi(self.client)
-            )
-        return self._users
+    
+    def __getattr__(self, name):
+        try:
+            private_name = f"_{name}"
+            if not hasattr(self, private_name):
+                # Busca a classe no módulo atual pelo nome capitalizado
+                cls = getattr(__import__(__name__), name.capitalize(), None)
+                if cls is None:
+                    raise AttributeError(f"No class named '{name.capitalize()}' found")
+                self.__setattr__(private_name, cls(self))
+            return getattr(self, private_name)
+        except Exception as e:
+            raise AttributeError(f"'Api' object has no attribute '{name}': {e}")
