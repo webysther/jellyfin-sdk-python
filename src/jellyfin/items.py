@@ -11,11 +11,21 @@ from typing import List, Any, Callable
 from .base import Model, Collection, Pagination
 from .generated import (
     BaseItemKind,
-    ItemsApi
+    ItemsApi,
+    UserLibraryApi,
+    ItemUpdateApi
 )
 
 class Item(Model):
-    pass
+    def save(self) -> Item:
+        """
+        Save changes made to the item.
+
+        Returns:
+            Item: The updated item.
+        """
+        ItemUpdateApi().update_item(self.id.hex, self.model)
+        return self
 
 class ItemCollection(Collection):
     _factory: Callable = Item
@@ -197,6 +207,31 @@ class Items():
         if isinstance(item_id, UUID):
             item_id = item.hex
         return self.search.add('ids', [item_id]).all.first
+    
+    def edit(self, item: Item | str | UUID, user: str | UUID = None) -> Item:
+        """
+        Edits an item.
+
+        Args:
+            item (Item | str | UUID): The item to edit, either as an Item instance or its ID.
+            user (str | UUID): The user context for the edit, either as a username or UUID.
+
+        Returns:
+            Item: The edited item.
+        """
+        if isinstance(item, Item):
+            item = item.id
+
+        if isinstance(user, (str, UUID)):
+            user = self.api.users.of(user)
+            
+        if user is None:
+            user = self.api.user
+            
+        if user is None:
+            raise ValueError("User context is required to edit an item.")
+
+        return Item(UserLibraryApi(self.api.client).get_item(item, user.id))
 
     @property
     def search(self) -> ItemSearch:

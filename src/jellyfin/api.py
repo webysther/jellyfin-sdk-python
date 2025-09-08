@@ -3,10 +3,12 @@ Module `api` - High-level interface for ApiClient and Configuration.
 """
 
 from enum import Enum
+from uuid import UUID
 import importlib, socket, platform, uuid, distro
 from typing_extensions import Self
 
 from .items import ItemCollection
+from .users import User
 from .generated import (
     Version,
     Proxy,
@@ -56,6 +58,24 @@ class Api:
     def __str__(self):
         """ String representation of the Api instance. """
         return self.__repr__()
+
+    @property
+    def user(self) -> User | None:
+        """Returns the user context for the API requests."""
+        if hasattr(self, '_user') is False:
+            return None
+        return self._user
+
+    @user.setter
+    def user(self, value: str | uuid.UUID):
+        """
+        Sets the user context for the API requests.
+        
+        Args:
+            value (str | uuid.UUID): The user to set, either as a username or UUID.
+        """
+        if isinstance(value, (str, UUID)):
+            self._user = self.users.of(value)
 
     @property
     def configuration(self) -> Configuration:

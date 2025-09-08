@@ -30,6 +30,14 @@ class Model():
         """ Returns the generated model """
         return self._model
     
+    def __setattr__(self, name, value):
+        if name in ("_model", "model"):
+            super().__setattr__(name, value)
+        elif hasattr(self.model, name):
+            setattr(self.model, name, value)
+        else:
+            raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
+    
     def __getattr__(self, name):
         if hasattr(self.model, name):
             return getattr(self.model, name)

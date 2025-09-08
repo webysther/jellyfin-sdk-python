@@ -261,6 +261,80 @@ uuid = api.user.by_name('joshua').id
 api.user.by_id(uuid).name
 ```
 
+### Get item by ID
+
+```python
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
+
+api.items.by_id('ID')
+```
+
+This is just a shorthand for:
+
+```python
+api.items.search.add('ids', ['ID']).all.first
+```
+
+### Upload a Primary Image for a Item
+
+```python
+import jellyfin
+from jellyfin.generated import ImageType
+
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
+
+api.image.upload_from_url(
+    'ID', 
+    ImageType.PRIMARY,
+    'https://upload.wikimedia.org/wikipedia/commons/6/6a/Jellyfin_v10.6.0_movie_detail%2C_web_client.png'
+)
+```
+
+### Add tags in a collection
+
+Edit item require the `user_id`, but we make this easy:
+
+```python
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
+
+item = api.items.edit('ID', 'joshua')
+item.tags = ['branding']
+item.save()
+
+item = api.items.edit('ID', 'niels')
+item.tags = ['rules']
+item.save()
+```
+
+If you want to set a global user:
+
+```python
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
+api.user = 'niels'
+
+item = api.items.edit('ID')
+item.tags = ['branding']
+item.save()
+
+item = api.items.edit('OTHER_ID')
+item.tags = ['rules']
+item.save()
+```
+
+The user on edit method has precedence over global
+
 ### Documentation
 
 - [SDK Reference](https://webysther.github.io/jellyfin-sdk-python.github.io/sdk/)
