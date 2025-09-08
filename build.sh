@@ -7,6 +7,7 @@ fi
 
 VERSION="$1"
 
+# uv tool install openapi-generator-cli[jdk4py]
 openapi-generator-cli generate -g python \
   -t ./templates/python \
   -i ./specs/openapi_${VERSION}.json \
