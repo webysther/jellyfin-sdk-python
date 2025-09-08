@@ -31,7 +31,6 @@ class Proxy:
     def factory(cls, name, version: Version):
         """Factory method to get a class or function from the specified version module."""
         if cls.name(version) not in cls.modules:
-            print(cls.name(version))
             cls.modules[cls.name(version)] = cls.module(version)
 
         return getattr(cls.modules[cls.name(version)], name)
