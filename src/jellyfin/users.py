@@ -128,6 +128,13 @@ class Users():
             user_id=self._user.id
         )
         return ItemCollection(Item(user_views))
+    
+    def __repr__(self):
+        """String representation of the Users instance."""
+        if self._user is None:
+            return f"<{self.__class__.__name__} (no user context)>"
+
+        return self._user.__repr__()
 
     def __getattr__(self, name):
         """Delegate attribute access to user_api, user_views_api, or the current user object."""
