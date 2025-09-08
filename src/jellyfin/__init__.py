@@ -9,7 +9,7 @@ from .system import System
 from .users import Users
 from .generated import Version
 
-version = Version  # Now you can use jellyfin.version.V10_11
+version = Version 
 
 def api(url: str, api_key: str, version: Version = Version.V10_10) -> Api:
     """

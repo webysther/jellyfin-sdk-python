@@ -335,6 +335,46 @@ item.save()
 
 The user on edit method has precedence over global
 
+### Register as a client
+
+If necessary register a client to identify ourselves to the server
+
+```python
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
+api.register_client()
+
+<Api
+ url='https://jellyfin.example.com',
+ version='10.10',
+ auth='Token="***",
+       Client="4b8caf670ca1",
+       Device="Linux Ubuntu 24.04.3 LTS (noble)",
+       DeviceId="a7-17-23-d8-b9-b8",
+       Version="24.04.3"'
+>
+```
+
+If you need customize the client information:
+
+```python
+api.register_client('test')
+
+<Api
+ url='https://jellyfin.example.com',
+ version='10.10',
+ auth='Token="***",
+       Client="test",
+       Device="Linux Ubuntu 24.04.3 LTS (noble)",
+       DeviceId="a7-17-23-d8-b9-b8",
+       Version="24.04.3"'
+>
+```
+
+For more detail look the [docs](https://webysther.github.io/jellyfin-sdk-python.github.io/sdk/#register_client).
+
 ### Documentation
 
 - [SDK Reference](https://webysther.github.io/jellyfin-sdk-python.github.io/sdk/)

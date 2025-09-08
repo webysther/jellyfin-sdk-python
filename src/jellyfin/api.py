@@ -137,9 +137,12 @@ class Api:
 
         self._auth = f'Token="{self.api_key}", Client="{client_name}", Device="{device_name}"'
         self._auth += f', DeviceId="{device_id}", Version="{device_version}"'
-        self._configuration = None
-        self._client = None
-        
+
+        if hasattr(self, '_configuration'):
+            del self._configuration
+        if hasattr(self, '_client'):
+            del self._client
+
         return self
     
     @property
@@ -156,7 +159,6 @@ class Api:
         try:
             private_name = f"_{name}"
             if not hasattr(self, private_name):
-                # Busca a classe no módulo atual pelo nome capitalizado
                 cls = getattr(__import__(__name__), name.capitalize(), None)
                 if cls is None:
                     raise AttributeError(f"No class named '{name.capitalize()}' found")

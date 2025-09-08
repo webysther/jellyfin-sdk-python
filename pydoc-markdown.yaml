@@ -6,6 +6,7 @@ loaders:
   - jellyfin.api
   - jellyfin.base
   - jellyfin.items
+  - jellyfin.image
   - jellyfin.system
   - jellyfin.users
 renderer:
@@ -17,5 +18,9 @@ renderer:
     - '*'
   mkdocs_config:
     theme: readthedocs
+    plugins:
+      - search
+      - toc-sidebar
   markdown:
     add_full_prefix: true
+    render_toc: true
