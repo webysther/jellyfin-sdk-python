@@ -94,6 +94,10 @@ class Api:
         if hasattr(self, '_client') is False:
             self._client = self.generated.ApiClient(self.configuration)
             self.generated.ApiClient.set_default(self._client)
+            
+        if hasattr(self, 'debug'):
+            self._client.debug = self.debug
+            
         return self._client
 
     def register_client(

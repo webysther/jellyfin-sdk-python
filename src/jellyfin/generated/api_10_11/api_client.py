@@ -269,6 +269,14 @@ class ApiClient:
         :return: RESTResponse
         """
 
+        if hasattr(self, 'debug') and self.debug:
+            curl = self.rest_client.to_curl(
+                method, url, 
+                headers=header_params, 
+                body=body, post_params=post_params, 
+                _request_timeout=_request_timeout
+            )
+            print(f"\n\n{curl}\n\n")
         try:
             # perform request and return response
             response_data = self.rest_client.request(

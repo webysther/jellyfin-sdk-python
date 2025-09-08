@@ -102,6 +102,34 @@ class RESTClientObject:
                 self.pool_manager = urllib3.ProxyManager(**pool_args)
         else:
             self.pool_manager = urllib3.PoolManager(**pool_args)
+    
+    def to_curl(
+            self,
+            method,
+            url,
+            headers=None,
+            body=None,
+            post_params=None,
+            _request_timeout=None
+        ):
+        """
+        Convert request to curl command.
+        """
+        cmd = ["curl", "-w", '"\n\nStatus: %{http_code}\n"', "-X", method.upper()]
+        headers = headers or {}
+        for k, v in headers.items():
+            cmd += ["-H", f"{k}: {v}"]
+        if post_params:
+            for k, v in post_params.items():
+                cmd += ["--data-urlencode", f"{k}={v}"]
+        elif body is not None:
+            if isinstance(body, (dict, list)):
+                body_str = json.dumps(body)
+            else:
+                body_str = str(body)
+            cmd += ["--data-raw", body_str]
+        cmd.append(url)
+        return " ".join([f"'{c}'" if ' ' in str(c) or c.startswith('-') else str(c) for c in cmd])
 
     def request(
         self,

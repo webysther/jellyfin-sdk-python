@@ -67,6 +67,83 @@ from jellyfin.legacy import JellyfinClient
 from jellyfin.legacy.api import API
 ```
 
+List of current problems in current project already fixed this one:
+
+- [Fixed missing exception when user id is missing#70](https://github.com/jellyfin/jellyfin-apiclient-python/pull/70)
+
+```python
+import jellyfin
+
+jellyfin.api(os.getenv("URL"), os.getenv("API_KEY")).users.libraries
+
+ValueError: User ID is not set. Use the 'of(user_id)' method to set the user context.
+```
+
+- [Fixed Info and Configuration missmatch #69](https://github.com/jellyfin/jellyfin-apiclient-python/pull/69)
+
+```python
+import jellyfin
+
+jellyfin.api(os.getenv("URL"), os.getenv("API_KEY")).system.info
+```
+
+- [Add Playlist endpoints#64](https://github.com/jellyfin/jellyfin-apiclient-python/pull/64)
+
+```python
+import jellyfin
+from jellyfin.items import ItemCollection
+from jellyfin.generated import PlaylistsApi, BaseItemKind
+
+api = jellyfin.api(os.getenv("URL"), os.getenv("API_KEY"))
+playlist = api.items.search.add('include_item_types', [BaseItemKind.PLAYLIST]).recursive().all.first
+playlist
+
+<Item
+  name="Editor's Choice",
+  original_title=None,
+  server_id='REDACTED',
+  id=UUID('ec0770d5-bde0-794c-bc1e-c5e8ff0588ca'),
+  etag=None,
+  source_type=None,
+  playlist_item_id=None,
+  date_created=None,
+  date_last_media_added=None,
+  extra_type=None
+  ...
+]>
+
+ItemCollection(PlaylistsApi().get_playlist(playlist.id))
+```
+
+### Easy to debug
+
+Debug is a missing peace in every implementation a look at, even the jellyfin team have a hard time to see what happen.
+To help to remove the SDK of equation in code more complex we have a feature to allow show a `curl` command o que request.
+
+```python
+import jellyfin
+from jellyfin.items import ItemCollection
+from jellyfin.generated import PlaylistsApi, BaseItemKind
+
+api = jellyfin.api(os.getenv("URL"), os.getenv("API_KEY"))
+api.debug = True
+
+playlist = api.items.search.add('include_item_types', [BaseItemKind.PLAYLIST]).recursive().all.first
+```
+
+The `api.debug` enable the client to print all requests in curl in prompt, *never use this in production*!
+
+```sh
+curl '-X' GET \n
+    '-H' 'Accept: application/json' \n
+    '-H' 'User-Agent: OpenAPI-Generator/10.10/python' \n
+    '-H' 'Authorization: MediaBrowser Token="API_KEY"' \n
+    URL/Items?recursive=true&includeItemTypes=Playlist
+```
+
+Lots of problems happens in the server or behavior not in documentation, 
+in this way you have data to open a issue in jellyfin.
+
 ### Login
 
 ```python
@@ -199,7 +276,7 @@ jellyfin.api(
     '99'
 )
 
-> ValueError: Unsupported version: 99. Supported versions are: ['10.10', '10.11']
+ValueError: Unsupported version: 99. Supported versions are: ['10.10', '10.11']
 ```
 
 ### List all libraries of an user
@@ -216,7 +293,7 @@ api = jellyfin.api(
 
 api.users.libraries
 
-> ValueError: User ID is not set. Use the 'of(user_id)' method to set the user context.
+ValueError: User ID is not set. Use the 'of(user_id)' method to set the user context.
 
 
 api.users.of('f674245b84ea4d3ea9cf11').libraries
