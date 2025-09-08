@@ -67,7 +67,7 @@ from jellyfin.legacy import JellyfinClient
 from jellyfin.legacy.api import API
 ```
 
-List of current problems in current project already fixed this one:
+List of current problems in [legacy project](https://github.com/jellyfin/jellyfin-apiclient-python) already fixed here:
 
 - [Fixed missing exception when user id is missing#70](https://github.com/jellyfin/jellyfin-apiclient-python/pull/70)
 
@@ -117,8 +117,8 @@ ItemCollection(PlaylistsApi().get_playlist(playlist.id))
 
 ### Easy to debug
 
-Debug is a missing peace in every implementation a look at, even the jellyfin team have a hard time to see what happen.
-To help to remove the SDK of equation in code more complex we have a feature to allow show a `curl` command o que request.
+Debug is a missing peace in every implementation I look at, even the jellyfin team have a hard time to see what happen.
+To help to remove the SDK of equation and for code more complex we have a feature to allow show a `curl` command of every request in the server.
 
 ```python
 import jellyfin
@@ -131,7 +131,7 @@ api.debug = True
 playlist = api.items.search.add('include_item_types', [BaseItemKind.PLAYLIST]).recursive().all.first
 ```
 
-The `api.debug` enable the client to print all requests in curl in prompt, *never use this in production*!
+The `api.debug` enable the client to print all requests in curl in prompt. *Never use this in production*!
 
 ```sh
 curl '-X' GET \n
@@ -141,8 +141,8 @@ curl '-X' GET \n
     URL/Items?recursive=true&includeItemTypes=Playlist
 ```
 
-Lots of problems happens in the server or behavior not in documentation, 
-in this way you have data to open a issue in jellyfin.
+Lots of problems happens in the api server or behavior not in documentation, 
+in this way you have data to open a [issue in jellyfin](https://github.com/jellyfin/jellyfin/issues).
 
 ### Login
 
