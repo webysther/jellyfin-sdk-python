@@ -124,7 +124,7 @@ class RESTClientObject:
         """
         Convert request to curl command.
         """
-        cmd = ["curl", "-w", '"\n\nStatus: %{http_code}\n"', "-X", method.upper()]
+        cmd = ["curl", "-w", '"\\n\\nStatus: %{http_code}\\n"', "-X", method.upper()]
         headers = headers or {}
         for k, v in headers.items():
             cmd += ["-H", f"{k}: {v}"]

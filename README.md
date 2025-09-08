@@ -91,10 +91,11 @@ jellyfin.api(os.getenv("URL"), os.getenv("API_KEY")).system.info
 
 ```python
 import jellyfin
-from jellyfin.items import ItemCollection
+from jellyfin.items import ItemCollection, Item
 from jellyfin.generated import PlaylistsApi, BaseItemKind
 
 api = jellyfin.api(os.getenv("URL"), os.getenv("API_KEY"))
+api.user = 'justin'
 playlist = api.items.search.add('include_item_types', [BaseItemKind.PLAYLIST]).recursive().all.first
 playlist
 
@@ -112,7 +113,10 @@ playlist
   ...
 ]>
 
-ItemCollection(PlaylistsApi().get_playlist(playlist.id))
+# no high level abstraction, let's use bindings for playlist
+ItemCollection(Item(
+    PlaylistsApi().get_playlist_items(playlist.id, api.user.id)
+))
 ```
 
 ### Easy to debug

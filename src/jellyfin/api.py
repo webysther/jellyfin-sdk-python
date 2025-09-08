@@ -96,7 +96,7 @@ class Api:
             self.generated.ApiClient.set_default(self._client)
             
         if hasattr(self, 'debug'):
-            self._client.debug = self.debug
+            self.generated.ApiClient.get_default().debug = self.debug
             
         return self._client
 
