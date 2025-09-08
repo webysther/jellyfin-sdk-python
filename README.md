@@ -112,6 +112,37 @@ print(
 )
 ```
 
+It's possible use the proxy direct, this always will point to current stable
+
+```python
+# specific
+from jellyfin.generated.api_10_10 import Configuration, ApiClient, SystemApi
+
+# current stable
+from jellyfin.generated import Configuration, ApiClient, SystemApi
+
+# current unstable
+from jellyfin.generated.api_10_11 import BackupApi
+
+# inject from high level abstraction
+import jellyfin
+
+api = jellyfin.api(
+    os.getenv("URL"), 
+    os.getenv("API_KEY")
+)
+
+# module loader
+api.generated
+
+<module 'jellyfin.generated.api_10_10' from '/code/jellyfin-sdk-python/src/jellyfin/generated/api_10_10/__init__.py'>
+
+# injected from bindings
+client = api.generated.ApiClient
+
+<class 'jellyfin.generated.api_10_10.api_client.ApiClient'>
+```
+
 #### Legacy
 
 ```python
