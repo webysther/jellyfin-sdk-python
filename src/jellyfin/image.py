@@ -5,8 +5,8 @@ from __future__ import annotations
 
 import os, requests, mimetypes, tempfile, uuid
 
-from .items import Item
-from .generated import ImageType, ImageApi
+from jellyfin.items import Item
+from jellyfin.generated import ImageType, ImageApi
 
 class Image():
 

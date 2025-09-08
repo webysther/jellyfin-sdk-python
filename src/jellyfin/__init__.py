@@ -2,14 +2,12 @@
 Entrypoint module for the Jellyfin SDK.
 """
 
-from .api import Api
-from .items import Items
-from .image import Image
-from .system import System
-from .users import Users
-from .generated import Version
-
-version = Version 
+from jellyfin.api import Api
+from jellyfin.items import Items
+from jellyfin.image import Image
+from jellyfin.system import System
+from jellyfin.users import Users
+from jellyfin.generated import Version, Proxy
 
 def api(url: str, api_key: str, version: Version = Version.V10_10) -> Api:
     """
@@ -25,4 +23,16 @@ def api(url: str, api_key: str, version: Version = Version.V10_10) -> Api:
     """
     return Api(url, api_key, version)
 
-__all__ = ['Api', 'Items', 'Image', 'System', 'Users', 'Version', 'api', 'version']
+version = Version
+
+__all__ = [
+    'api',
+    'version', 
+    'Api', 
+    'Items', 
+    'Image', 
+    'System', 
+    'Users', 
+    'Version', 
+    'Proxy'
+]

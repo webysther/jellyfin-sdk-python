@@ -8,9 +8,9 @@ from typing_extensions import Self
 
 import uuid
 
-from .base import Model, Collection
-from .items import ItemCollection, Item
-from .generated import (
+from jellyfin.base import Model, Collection
+from jellyfin.items import ItemCollection, Item
+from jellyfin.generated import (
     BaseItemKind,
     UserApi, 
     UserViewsApi

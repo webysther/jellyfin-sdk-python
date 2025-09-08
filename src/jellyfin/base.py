@@ -13,7 +13,6 @@ from typing import (
 
 from collections.abc import Iterable, Sequence
 from pydantic import BaseModel
-from .generated import BaseItemDtoQueryResult
 
 class Pagination(Protocol):
     """ Protocol for paginated responses. """

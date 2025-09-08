@@ -8,8 +8,9 @@ from uuid import UUID
 from pydantic import BaseModel
 from typing_extensions import Self
 from typing import List, Any, Callable
-from .base import Model, Collection, Pagination
-from .generated import (
+from jellyfin.base import Model, Collection, Pagination
+from jellyfin.generated import BaseItemKind
+from jellyfin.generated import (
     BaseItemKind,
     ItemsApi,
     UserLibraryApi,

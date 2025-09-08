@@ -7,9 +7,9 @@ from uuid import UUID
 import importlib, socket, platform, uuid, distro
 from typing_extensions import Self
 
-from .items import ItemCollection
-from .users import User
-from .generated import (
+from jellyfin.items import ItemCollection
+from jellyfin.users import User
+from jellyfin.generated import (
     Version,
     Proxy,
     ApiClient,

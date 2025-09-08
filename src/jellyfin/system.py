@@ -3,7 +3,7 @@ Module `system` - High-level interface for SystemAPI.
 """
 from __future__ import annotations
 
-from .generated import SystemApi, SystemInfo
+from jellyfin.generated import SystemApi, SystemInfo
 
 class System:
     def __init__(self, api: Api):
