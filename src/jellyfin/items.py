@@ -3,11 +3,10 @@ Module `items` - High-level interface for ItemsApi.
 """
 from __future__ import annotations
 
-import copy
 from uuid import UUID
 from pydantic import BaseModel
 from typing_extensions import Self
-from typing import List, Any, Callable
+from typing import Any, Callable
 from jellyfin.base import Model, Collection, Pagination
 from jellyfin.generated import BaseItemKind
 from jellyfin.generated import (

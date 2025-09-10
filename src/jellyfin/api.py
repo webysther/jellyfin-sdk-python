@@ -2,9 +2,11 @@
 Module `api` - High-level interface for ApiClient and Configuration.
 """
 
-from enum import Enum
 from uuid import UUID
-import importlib, socket, platform, uuid, distro
+import socket
+import platform
+import uuid
+import distro
 from typing_extensions import Self
 
 from jellyfin.items import ItemCollection
