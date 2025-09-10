@@ -1,17 +1,15 @@
 from itertools import islice
-from logging import warning
+import rich
 
 from typing_extensions import Self
 from typing import (
     Any, 
-    Dict, 
     List, 
     Protocol, 
-    Callable, 
-    TypeVar
+    Callable
 )
 
-from collections.abc import Iterable, Sequence
+from collections.abc import Sequence
 from pydantic import BaseModel
 
 class Pagination(Protocol):
@@ -59,32 +57,10 @@ class Model():
         attrs_str = ",\n".join(attrs)
         return f"<{self.__class__.__name__}\n{attrs_str}\n>"
     
-    def summary(self, empty: bool = False, size: int = 80, limit: int = 100) -> None:
-        """Prints the simple representation of the model.
-        
-        Args:
-            empty (bool): If True, includes all values. If False, omits empty values (None, "", 0, [], {}).
-        """
-        if hasattr(self.model.__class__, "model_fields"):
-            keys = self.model.__class__.model_fields.keys()
-        else:
-            keys = self.model.__dict__.keys()
-        for i, key in enumerate(keys):
-            if limit and i >= limit:
-                break
-            value = getattr(self.model, key, None)
-            if not empty:
-                if value is None or value == 0 or value == "":
-                    continue
-
-                if isinstance(value, (list, dict, set, tuple)) and not value:
-                    continue
-
-            value_str = str(getattr(self.model, key))
-            if len(value_str) > size:
-                value_str = value_str[:size].rstrip() + "..."
-
-            print(f"{key}={value_str}")
+    @property
+    def pretty(self):
+        """Prints a pretty representation of the model using rich."""
+        rich.print(self)
 
 class Collection(Sequence):
     _factory: Callable = Model
