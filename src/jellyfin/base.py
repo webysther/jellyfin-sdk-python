@@ -59,7 +59,7 @@ class Model():
 
 class Collection(Sequence):
     _factory: Callable = Model
-    _model: Model
+    _model: Model = None
     _data: List[BaseModel]
     _pagination: Pagination
 
@@ -98,7 +98,7 @@ class Collection(Sequence):
             self._data = collection.data
 
     @property
-    def model(self) -> Model:
+    def model(self) -> Model | None:
         """Returns the reference model."""
         return self._model
 
@@ -110,20 +110,20 @@ class Collection(Sequence):
     def __getitem__(self, idx) -> Any:
         return self._factory(self.data[idx])
     
-    def __len__(self):
+    def __len__(self) -> int:
         """
         Returns the total number of records in the collection.
 
         Returns:
             int: The total number of records.
         """
-        if not hasattr(self, "model"):
-            return len(self.data)
+        if not self._model:
+            return len(self._data)
 
-        return self.model.total_record_count
+        return self._model.total_record_count
 
     @property
-    def first(self) -> Model:
+    def first(self) -> Model | None:
         if len(self) == 0:
             return None
         return self[0]
