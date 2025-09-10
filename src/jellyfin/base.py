@@ -1,6 +1,7 @@
 from itertools import islice
 import rich
 
+from rich.repr import Result
 from typing_extensions import Self
 from typing import (
     Any, 
@@ -42,21 +43,15 @@ class Model():
 
     def __str__(self) -> str:
         """Returns the string representation of the model."""
-        return self.model.__str__()
+        return self._model.__str__()
     
     def __repr__(self) -> str:
-        """Returns a detailed string representation of the Item object, with each attribute on a new line."""
-        attrs = []
-        if hasattr(self.model.__class__, "model_fields"):
-            keys = self.model.__class__.model_fields.keys()
-        else:
-            keys = self.model.__dict__.keys()
-        for key in keys:
-            value = getattr(self.model, key, None)
-            attrs.append(f"  {key}={value!r}")
-        attrs_str = ",\n".join(attrs)
-        return f"<{self.__class__.__name__}\n{attrs_str}\n>"
-    
+        """Returns the string representation of the model."""
+        return self._model.__repr__()
+
+    def __rich_repr__(self) -> Result:
+        yield self._model.__class__.__name__, self._model.model_dump(exclude_defaults=True)
+
     @property
     def pretty(self):
         """Prints a pretty representation of the model using rich."""
@@ -132,18 +127,14 @@ class Collection(Sequence):
         if len(self) == 0:
             return None
         return self[0]
+    
+    def __rich_repr__(self) -> Result:
+        yield 'data', list(self)
+        yield 'pagination', self._pagination, None
+        yield 'index', self._model.start_index if self._model else 0, 0
+        yield 'count', len(self)
 
-    def __repr__(self) -> str:
-        if len(self) == 0:
-            return f"<{self.__class__.__name__} (no items)>"
-
-        parts = []
-        for item in islice(self, 10):
-            attrs = repr(item).split(",\n")
-            parts.append(",\n".join(attrs[:10]) + "\n  ...")
-
-        if len(self) > 10:
-            parts.append(" ...")
-
-        items = '\n'.join(parts)
-        return f"<{self.__class__.__name__} items=[\n  {items}\n]>"
+    @property
+    def pretty(self):
+        """Prints a pretty representation of the model using rich."""
+        rich.print(self)
