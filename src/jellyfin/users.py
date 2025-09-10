@@ -6,7 +6,7 @@ from __future__ import annotations
 from typing import Callable
 from typing_extensions import Self
 
-import uuid
+import uuid, rich
 
 from jellyfin.base import Model, Collection
 from jellyfin.items import ItemCollection, Item
@@ -135,6 +135,14 @@ class Users():
             return f"<{self.__class__.__name__} (no user context)>"
 
         return self._user.__repr__()
+
+    def __rich_repr__(self) -> Result:
+        yield self._user
+
+    @property
+    def pretty(self):
+        """Prints a pretty representation of the model using rich."""
+        rich.print(self)
 
     def __getattr__(self, name):
         """Delegate attribute access to user_api, user_views_api, or the current user object."""
