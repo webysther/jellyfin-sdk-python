@@ -121,7 +121,7 @@ ItemCollection(Item(
 
 ### Easy to debug
 
-Debug is a missing peace in every implementation I look at, even the jellyfin team have a hard time to see what happen.
+Debug is a missing piece in every implementation I look at, even the jellyfin team have a hard time to see what happen.
 To help to remove the SDK of equation and for code more complex we have a feature to allow show a `curl` command of every request in the server.
 
 ```python
