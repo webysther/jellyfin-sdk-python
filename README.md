@@ -497,4 +497,4 @@ For more detail look the [docs](https://webysther.github.io/jellyfin-sdk-python.
 
 | SDK Version | Jellyfin API Target |
 |:-:|:-:|
-| 0.1.x | 10.10.x-10.11.x |
+| <1.0.0 | 10.10.x-10.11.x |
