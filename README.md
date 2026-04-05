@@ -19,7 +19,7 @@ Main unique features:
 - Works like [AWS CDK Constructs Level](https://blog.shikisoft.com/aws-cdk-construct-levels/), more abstraction, more simple.
 
 <div align="center">
-<img width="682" height="762" alt="image" src="https://github.com/user-attachments/assets/5e878d51-6c0f-441b-a35b-94e93d9c3340" />
+<img width="1440" height="804" alt="image" src="https://github.com/user-attachments/assets/f5b85aa8-865b-457e-b533-bd398ddaf9cb" />
 
 
 <em><small>How modules work together</small></em>
